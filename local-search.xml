@@ -16,5 +16,36 @@
   
   
   
+  <entry>
+    <title>Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration</title>
+    <link href="/ziliang.github.io/2025/06/20/mdpapp/"/>
+    <url>/ziliang.github.io/2025/06/20/mdpapp/</url>
+    
+    <content type="html"><![CDATA[<p>As part of NTU’s <strong>Multidisciplinary Design Project (MDP)</strong> — a capstone module for final-year Computer Science students — my team developed a mobile-controlled robot capable of both autonomous and manual navigation.</p><p>The project involved four core components:</p><ul><li>📱 <strong>Android App</strong> (my main role)</li><li>🍓 <strong>Raspberry Pi</strong> (Bluetooth receiver + logic relay)</li><li>🧠 <strong>Pathfinding Algorithm</strong></li><li>🔩 <strong>STM32 Microcontroller</strong> (motor control + sensors)</li></ul><p>Although I was responsible for the Android app, I was actively involved in:</p><ul><li>🛠️ Raspberry Pi development</li><li>🧪 STM32 signal testing and hardware debugging</li><li>👥 Team integration and testing sessions</li></ul><hr><h2 id="🎯-Project-Goals"><a href="#🎯-Project-Goals" class="headerlink" title="🎯 Project Goals"></a>🎯 Project Goals</h2><p>The Android app — developed in <strong>Kotlin</strong> using <strong>Jetpack Compose</strong> — aimed to:</p><ul><li>Establish a <strong>Bluetooth connection</strong> to the Raspberry Pi</li><li>Allow <strong>manual control</strong> of the robot with directional buttons</li><li>Display <strong>live feedback</strong> from the robot (e.g. status updates, position)</li><li>Log the robot’s path for visual tracking and testing</li></ul><hr><h2 id="⚙️-Key-Technical-Highlights"><a href="#⚙️-Key-Technical-Highlights" class="headerlink" title="⚙️ Key Technical Highlights"></a>⚙️ Key Technical Highlights</h2><ul><li>Built a clean and responsive UI from scratch using <strong>Jetpack Compose</strong></li><li>Implemented <strong>Bluetooth socket communication</strong>, managing input&#x2F;output streams efficiently</li><li>Ensured smooth two-way communication for <strong>manual overrides</strong>, <strong>status polling</strong>, and <strong>sensor relay</strong></li><li>Added <strong>live logs</strong> and <strong>status tracking</strong> features for debugging and verification</li></ul><p><img src="/ziliang.github.io/images/mdpproj.jpg" alt="Home Screen Screenshot"></p><hr><h2 id="🧠-What-I-Learned"><a href="#🧠-What-I-Learned" class="headerlink" title="🧠 What I Learned"></a>🧠 What I Learned</h2><ul><li>Deepened my knowledge of <strong>Kotlin</strong>, Android lifecycle, and UI architecture</li><li>Learned to work with <strong>hardware protocols</strong>, especially integrating with the Raspberry Pi and STM32 via Bluetooth and serial</li><li>Gained confidence in debugging issues across multiple platforms (e.g. Android logs, RPi console, STM32 UART output)</li><li>Realized the importance of <strong>cross-functional collaboration</strong> in real-world systems — especially in synchronizing embedded, mobile, and algorithm teams</li></ul><hr><h2 id="🎥-Project-Demo"><a href="#🎥-Project-Demo" class="headerlink" title="🎥 Project Demo"></a>🎥 Project Demo</h2><iframe width="100%" height="315" src="https://www.youtube.com/embed/neUKwJw2OCs" frameborder="0" allowfullscreen></iframe><blockquote><p>📹 <a href="https://www.youtube.com/watch?v=neUKwJw2OCs">Watch on YouTube</a></p></blockquote><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>📦 <a href="https://github.com/ZhiXin18/MDP_AndroidRemote">MDP Android Remote App – GitHub</a></p><hr><h2 id="🏁-Final-Thoughts"><a href="#🏁-Final-Thoughts" class="headerlink" title="🏁 Final Thoughts"></a>🏁 Final Thoughts</h2><p>Although the <strong>STM32 module</strong> posed the most technical difficulty in the project, it was rewarding to work across all major components. I grew not only as a developer, but also as a systems thinker and teammate. This project was one of the most enriching experiences of my time at NTU.</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>Kotlin</tag>
+      
+      <tag>Raspberry Pi</tag>
+      
+      <tag>Bluetooth</tag>
+      
+      <tag>STM32</tag>
+      
+      <tag>NTU</tag>
+      
+      <tag>App Development</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
   
 </search>
