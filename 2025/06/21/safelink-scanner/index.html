@@ -19,30 +19,27 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="As part of NTU’s Multidisciplinary Design Project (MDP) — a capstone module for final-year Computer Science students — my team developed a mobile-controlled robot capable of both autonomous and manual">
+    <meta name="description" content="🚫 The internet is filled with shortened URLs, suspicious links, and phishing traps. I built SafeLink Scanner, a Flutter app that helps users check if a link is safe before opening it.  🔍 What the Ap">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/06/20/mdpapp/index.html">
+<meta property="og:title" content="SafeLink Scanner – A Flutter App to Detect Malicious URLs">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/06/21/safelink-scanner/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="As part of NTU’s Multidisciplinary Design Project (MDP) — a capstone module for final-year Computer Science students — my team developed a mobile-controlled robot capable of both autonomous and manual">
+<meta property="og:description" content="🚫 The internet is filled with shortened URLs, suspicious links, and phishing traps. I built SafeLink Scanner, a Flutter app that helps users check if a link is safe before opening it.  🔍 What the Ap">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://radioblodo.github.io/ziliang.github.io/images/mdpproj.jpg">
-<meta property="article:published_time" content="2025-06-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-06-21T01:52:41.748Z">
+<meta property="article:published_time" content="2025-06-20T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-06-21T01:52:43.652Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="Kotlin">
-<meta property="article:tag" content="Raspberry Pi">
-<meta property="article:tag" content="Bluetooth">
-<meta property="article:tag" content="STM32">
-<meta property="article:tag" content="NTU">
-<meta property="article:tag" content="App Development">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Dart">
+<meta property="article:tag" content="API">
+<meta property="article:tag" content="Cybersecurity">
+<meta property="article:tag" content="Mobile App">
+<meta property="article:tag" content="UIUX">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://radioblodo.github.io/ziliang.github.io/images/mdpproj.jpg">
   
   
   
-  <title>Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration - Hexo</title>
+  <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs - Hexo</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -208,7 +205,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration"></span>
+            <span id="subtitle" data-typed-text="SafeLink Scanner – A Flutter App to Detect Malicious URLs"></span>
           
         </div>
 
@@ -219,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-20 00:00" pubdate>
-          June 20, 2025 am
+        <time datetime="2025-06-21 00:00" pubdate>
+          June 21, 2025 am
         </time>
       </span>
     
@@ -231,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          64 words
+          47 words
         
       </span>
     
@@ -279,58 +276,64 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration</h1>
+            <h1 id="seo-header">SafeLink Scanner – A Flutter App to Detect Malicious URLs</h1>
             
             
               <div class="markdown-body">
                 
-                <p>As part of NTU’s <strong>Multidisciplinary Design Project (MDP)</strong> — a capstone module for final-year Computer Science students — my team developed a mobile-controlled robot capable of both autonomous and manual navigation.</p>
-<p>The project involved four core components:</p>
+                <p>🚫 The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p>
+<hr>
+<h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p>
 <ul>
-<li>📱 <strong>Android App</strong> (my main role)</li>
-<li>🍓 <strong>Raspberry Pi</strong> (Bluetooth receiver + logic relay)</li>
-<li>🧠 <strong>Pathfinding Algorithm</strong></li>
-<li>🔩 <strong>STM32 Microcontroller</strong> (motor control + sensors)</li>
+<li>Paste or share a link from another app</li>
+<li>Automatically check the URL against known threat databases like:<ul>
+<li>🛡️ <a target="_blank" rel="noopener" href="https://urlhaus.abuse.ch/">URLHaus</a></li>
+<li>🔎 <a target="_blank" rel="noopener" href="https://urlscan.io/">urlscan.io</a></li>
 </ul>
-<p>Although I was responsible for the Android app, I was actively involved in:</p>
-<ul>
-<li>🛠️ Raspberry Pi development</li>
-<li>🧪 STM32 signal testing and hardware debugging</li>
-<li>👥 Team integration and testing sessions</li>
+</li>
+<li>View a clear warning or green-light based on results</li>
+<li>See a visual preview or breakdown of the destination site</li>
 </ul>
+<p>The goal is to <strong>reduce accidental link clicks</strong> on phishing pages or malware payloads.</p>
 <hr>
-<h2 id="🎯-Project-Goals"><a href="#🎯-Project-Goals" class="headerlink" title="🎯 Project Goals"></a>🎯 Project Goals</h2><p>The Android app — developed in <strong>Kotlin</strong> using <strong>Jetpack Compose</strong> — aimed to:</p>
-<ul>
-<li>Establish a <strong>Bluetooth connection</strong> to the Raspberry Pi</li>
-<li>Allow <strong>manual control</strong> of the robot with directional buttons</li>
-<li>Display <strong>live feedback</strong> from the robot (e.g. status updates, position)</li>
-<li>Log the robot’s path for visual tracking and testing</li>
-</ul>
+<h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>Tools &amp; Tech</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>💻 Frontend</td>
+<td>Flutter + Dart</td>
+</tr>
+<tr>
+<td>🌐 APIs</td>
+<td>URLHaus, urlscan.io</td>
+</tr>
+<tr>
+<td>🎨 Design</td>
+<td>Custom UI&#x2F;UX from scratch (using Flutter widgets)</td>
+</tr>
+<tr>
+<td>📱 Platforms</td>
+<td>Android (iOS support planned)</td>
+</tr>
+</tbody></table>
 <hr>
-<h2 id="⚙️-Key-Technical-Highlights"><a href="#⚙️-Key-Technical-Highlights" class="headerlink" title="⚙️ Key Technical Highlights"></a>⚙️ Key Technical Highlights</h2><ul>
-<li>Built a clean and responsive UI from scratch using <strong>Jetpack Compose</strong></li>
-<li>Implemented <strong>Bluetooth socket communication</strong>, managing input&#x2F;output streams efficiently</li>
-<li>Ensured smooth two-way communication for <strong>manual overrides</strong>, <strong>status polling</strong>, and <strong>sensor relay</strong></li>
-<li>Added <strong>live logs</strong> and <strong>status tracking</strong> features for debugging and verification</li>
-</ul>
-<p><img src="/ziliang.github.io/images/mdpproj.jpg" srcset="/ziliang.github.io/img/loading.gif" lazyload alt="Home Screen Screenshot"></p>
+<h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><p>This project was more than just Flutter development — it taught me:</p>
+<p>🔐 How to call and parse JSON responses from public cybersecurity APIs</p>
+<p>🧩 How to build flexible UI layouts for error states, results, and sharing</p>
+<p>🧠 The importance of security-first thinking in app design</p>
+<p>📦 How to optimize network calls and reduce response time</p>
 <hr>
-<h2 id="🧠-What-I-Learned"><a href="#🧠-What-I-Learned" class="headerlink" title="🧠 What I Learned"></a>🧠 What I Learned</h2><ul>
-<li>Deepened my knowledge of <strong>Kotlin</strong>, Android lifecycle, and UI architecture</li>
-<li>Learned to work with <strong>hardware protocols</strong>, especially integrating with the Raspberry Pi and STM32 via Bluetooth and serial</li>
-<li>Gained confidence in debugging issues across multiple platforms (e.g. Android logs, RPi console, STM32 UART output)</li>
-<li>Realized the importance of <strong>cross-functional collaboration</strong> in real-world systems — especially in synchronizing embedded, mobile, and algorithm teams</li>
-</ul>
-<hr>
-<h2 id="🎥-Project-Demo"><a href="#🎥-Project-Demo" class="headerlink" title="🎥 Project Demo"></a>🎥 Project Demo</h2><iframe width="100%" height="315" src="https://www.youtube.com/embed/neUKwJw2OCs" frameborder="0" allowfullscreen></iframe>
+<h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><pre><code class="language-markdown">![SafeLink Scanner Demo](images/safelink_scanner.gif)
 
-<blockquote>
-<p>📹 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=neUKwJw2OCs">Watch on YouTube</a></p>
-</blockquote>
-<hr>
-<h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>📦 <a target="_blank" rel="noopener" href="https://github.com/ZhiXin18/MDP_AndroidRemote">MDP Android Remote App – GitHub</a></p>
-<hr>
-<h2 id="🏁-Final-Thoughts"><a href="#🏁-Final-Thoughts" class="headerlink" title="🏁 Final Thoughts"></a>🏁 Final Thoughts</h2><p>Although the <strong>STM32 module</strong> posed the most technical difficulty in the project, it was rewarding to work across all major components. I grew not only as a developer, but also as a systems thinker and teammate. This project was one of the most enriching experiences of my time at NTU.</p>
+---
+## 🔗 GitHub Repository
+
+📦 [MDP Android Remote App – GitHub](https://github.com/radioblodo/safelink_scanner)
+</code></pre>
 
                 
               </div>
@@ -343,19 +346,17 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Android/" class="print-no-link">#Android</a>
+        <a href="/ziliang.github.io/tags/Flutter/" class="print-no-link">#Flutter</a>
       
-        <a href="/ziliang.github.io/tags/Kotlin/" class="print-no-link">#Kotlin</a>
+        <a href="/ziliang.github.io/tags/Dart/" class="print-no-link">#Dart</a>
       
-        <a href="/ziliang.github.io/tags/Raspberry-Pi/" class="print-no-link">#Raspberry Pi</a>
+        <a href="/ziliang.github.io/tags/API/" class="print-no-link">#API</a>
       
-        <a href="/ziliang.github.io/tags/Bluetooth/" class="print-no-link">#Bluetooth</a>
+        <a href="/ziliang.github.io/tags/Cybersecurity/" class="print-no-link">#Cybersecurity</a>
       
-        <a href="/ziliang.github.io/tags/STM32/" class="print-no-link">#STM32</a>
+        <a href="/ziliang.github.io/tags/Mobile-App/" class="print-no-link">#Mobile App</a>
       
-        <a href="/ziliang.github.io/tags/NTU/" class="print-no-link">#NTU</a>
-      
-        <a href="/ziliang.github.io/tags/App-Development/" class="print-no-link">#App Development</a>
+        <a href="/ziliang.github.io/tags/UIUX/" class="print-no-link">#UIUX</a>
       
     </div>
   
@@ -367,8 +368,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/06/20/mdpapp/</div>
+      <div>SafeLink Scanner – A Flutter App to Detect Malicious URLs</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/06/21/safelink-scanner/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +381,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>June 20, 2025</div>
+          <div>June 21, 2025</div>
         </div>
       
       
@@ -412,15 +413,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/06/21/safelink-scanner/" title="SafeLink Scanner – A Flutter App to Detect Malicious URLs">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SafeLink Scanner – A Flutter App to Detect Malicious URLs</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/ziliang.github.io/2025/06/20/mdpapp/" title="Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration">
+                        <span class="hidden-mobile">Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>

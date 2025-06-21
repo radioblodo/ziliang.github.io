@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>🚫 The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases like:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>View a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><p>The goal is to <strong>reduce accidental link clicks</strong> on phishing pages or malware payloads.</p><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX from scratch (using Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS support planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><p>This project was more than just Flutter development — it taught me:</p><p>🔐 How to call and parse JSON responses from public cybersecurity APIs</p><p>🧩 How to build flexible UI layouts for error states, results, and sharing</p><p>🧠 The importance of security-first thinking in app design</p><p>📦 How to optimize network calls and reduce response time</p><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><pre><code class="language-markdown">![SafeLink Scanner Demo](images/safelink_scanner.gif)---## 🔗 GitHub Repository📦 [MDP Android Remote App – GitHub](https://github.com/radioblodo/safelink_scanner)</code></pre>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Building the MDP Android Remote:Lessons in Embedded Systems, Bluetooth, and Team Collaboration</title>
     <link href="/ziliang.github.io/2025/06/20/mdpapp/"/>
     <url>/ziliang.github.io/2025/06/20/mdpapp/</url>
