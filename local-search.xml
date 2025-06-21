@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
+    <link href="/ziliang.github.io/2025/06/21/gringottsbot/"/>
+    <url>/ziliang.github.io/2025/06/21/gringottsbot/</url>
+    
+    <content type="html"><![CDATA[<p>💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.<br>I built <strong>GringottsBot</strong>, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reporting your expenses in real-time.</p><hr><h2 id="🤖-What-GringottsBot-Does"><a href="#🤖-What-GringottsBot-Does" class="headerlink" title="🤖 What GringottsBot Does"></a>🤖 What GringottsBot Does</h2><p>GringottsBot is a Telegram bot that:</p><ul><li>Accepts commands like <code>/add</code>, <code>/edit</code>, <code>/delete</code> to manage your expenses</li><li>Stores and retrieves data from a <strong>MySQL database</strong> (so it’s persistent)</li><li>Automatically categorizes expenses and supports monthly reports</li><li>Exports to <strong>PDF</strong> report</li><li>Shows statistics like category breakdowns and trends</li><li>Supports timezone awareness for logging</li></ul><p>The goal is to make expense tracking as frictionless and automated as possible — right from Telegram.</p><hr><h2 id="⚙️-Tech-Stack"><a href="#⚙️-Tech-Stack" class="headerlink" title="⚙️ Tech Stack"></a>⚙️ Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools Used</th></tr></thead><tbody><tr><td>🧠 Bot Logic</td><td>Python + <code>python-telegram-bot</code></td></tr><tr><td>🗃️ Data Store</td><td>MySQL (persistent DB)</td></tr><tr><td>📄 Reports</td><td><code>pandas</code>, <code>matplotlib&#39;, </code>fpdf&#96;</td></tr><tr><td>🌐 Hosting</td><td>PythonAnywhere (24&#x2F;7 uptime)</td></tr><tr><td>⏰ Features</td><td>Timezone support, command-based UX</td></tr></tbody></table><hr><h2 id="📸-Bot-in-Action"><a href="#📸-Bot-in-Action" class="headerlink" title="📸 Bot in Action"></a>📸 Bot in Action</h2><p><img src="/ziliang.github.io/img/gringottsbot-demo.gif" alt="GringottsBot Demo"></p><hr><h2 id="What-I-Learned"><a href="#What-I-Learned" class="headerlink" title="What I Learned"></a>What I Learned</h2><ul><li><p>How to design and implement a stateful Telegram bot</p></li><li><p>Setting up persistent storage with MySQL using foreign keys and indexing</p></li><li><p>Working with inline keyboards, command handlers, and conversation flows</p></li><li><p>Generating Excel and PDF reports programmatically</p></li><li><p>Managing user sessions, timezones, and error handling gracefully</p></li></ul>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>Telegram Bot</tag>
+      
+      <tag>MySQL</tag>
+      
+      <tag>Automation</tag>
+      
+      <tag>Finance</tag>
+      
+      <tag>Gringotts</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
     <link href="/ziliang.github.io/2025/06/21/safelink-scanner/"/>
     <url>/ziliang.github.io/2025/06/21/safelink-scanner/</url>
