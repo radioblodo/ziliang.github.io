@@ -44,7 +44,7 @@ SafeLink Scanner lets users:
 
 ## 📸 App Demo
 
-![SafeLink Scanner Demo](/img/safelink_scanner.gif)
+![SafeLink Scanner Demo](../img/safelink_scanner.gif)
 
 ---
 
