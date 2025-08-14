@@ -682,7 +682,7 @@ post:
     # Show post date
     post_date:
       enable: true
-      format: "LL"
+      format: "D MMM YYYY, HH:mm"
 
     # 显示更新日期
     # Show update date
