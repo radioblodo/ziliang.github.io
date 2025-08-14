@@ -237,7 +237,7 @@ typing:
   enable: true
   typeSpeed: 70
   cursorChar: "_"
-  loop: true           # keep retyping
+  loop: false           # keep retyping
 
 # load our custom script
 custom_js:
