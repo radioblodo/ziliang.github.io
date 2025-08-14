@@ -1,11 +1,10 @@
 /* home-typing.js
- * Rotate multiple subtitle lines on the HOME page only (Hexo + Fluid theme).
- * Requires Typed.js (already loaded by Fluid).
+ * Rotate multiple subtitle lines on the HOME page only (Hexo + Fluid).
  */
 (function () {
   "use strict";
 
-  // === Customize your rotating lines here ===
+  // 10 lines you want to rotate
   var LINES = [
     "Patching bugs and shipping joy.",
     "I make decisions easier with code.",
@@ -19,70 +18,48 @@
     "Code, cyber, and clean interfaces."
   ];
 
-  // Typing settings
-  var TYPE_SPEED = 70;
-  var BACK_SPEED = 40;
-  var BACK_DELAY = 1200;
-  var CURSOR_CHAR = "_";
+  var TYPE_SPEED = 70, BACK_SPEED = 40, BACK_DELAY = 1200, CURSOR_CHAR = "_";
 
-  function isHomePage() {
-    // Fluid exposes CONFIG.root, e.g. "/ziliang.github.io/" (or "/")
-    var root = (window.CONFIG && CONFIG.root) || "/";
-    var path = window.location.pathname;
-
-    // Accept root with or without trailing slash, and index.html
-    var rootNoSlash = root.endsWith("/") ? root.slice(0, -1) : root;
-    return (
-      path === root ||
-      path === rootNoSlash ||
-      path === root + "index.html" ||
-      (root === "/" && (path === "/" || path === "/index.html"))
-    );
+  function root() { return (window.CONFIG && CONFIG.root) || "/"; }
+  function norm(s){ return s.endsWith("/") ? s : s + "/"; }
+  function isHome() {
+    var r = norm(root()), p = norm(location.pathname);
+    return p === r || location.pathname === r + "index.html" ||
+           (r === "/" && location.pathname === "/index.html");
   }
 
-  function destroyExisting(el) {
-    try {
-      if (el && el._typed && typeof el._typed.destroy === "function") {
-        el._typed.destroy();
-        el._typed = null;
-      }
-    } catch (_) {}
-  }
-
-  function startTypingHome() {
-    var el = document.getElementById("subtitle");
+  function stopTyping(el) {
     if (!el) return;
+    var next = el.nextElementSibling;
+    if (next && /\btyped-cursor\b/.test(next.className)) { try { next.remove(); } catch(e){} }
+    var text = el.getAttribute("data-typed-text") || el.textContent.trim();
+    var clone = el.cloneNode(false); clone.id = el.id; clone.textContent = text;
+    el.parentNode.replaceChild(clone, el);
+  }
 
-    // Only run on the HOME page
-    if (!isHomePage()) return;
+  function startHome() {
+    var el = document.getElementById("subtitle");
+    if (!el || !isHome()) { if (el) stopTyping(el); return; }
 
-    // Kill the theme's one-shot instance (if any) and clear the text
-    destroyExisting(el);
-    el.textContent = "";
+    stopTyping(el); // clear theme’s one-shot typing, if any
 
     if (window.Typed) {
-      var inst = new window.Typed("#subtitle", {
+      var inst = new Typed("#subtitle", {
         strings: LINES,
         typeSpeed: TYPE_SPEED,
         backSpeed: BACK_SPEED,
         backDelay: BACK_DELAY,
-        loop: true,              // loop ONLY on home
+        loop: true,
         smartBackspace: true,
         cursorChar: CURSOR_CHAR
       });
-      el._typed = inst;
-    } else if (window.Fluid && Fluid.plugins && typeof Fluid.plugins.typing === "function") {
-      // Fallback to Fluid helper (it usually accepts a string, so join with a separator)
-      Fluid.plugins.typing(LINES.join("  •  "));
+      document.getElementById("subtitle")._typed = inst;
     } else {
-      // Last resort: show first line without typing effect
+      // fallback: just show first line
       el.textContent = LINES[0];
     }
   }
 
-  // On normal load
-  window.addEventListener("load", startTypingHome);
-
-  // If PJAX is enabled in Fluid, re-run after partial navigations
-  document.addEventListener("pjax:complete", startTypingHome);
+  window.addEventListener("load", function(){ setTimeout(startHome, 0); });
+  document.addEventListener("pjax:complete", function(){ setTimeout(startHome, 0); });
 })();
