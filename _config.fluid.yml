@@ -496,12 +496,13 @@ index:
 
   # 首页副标题的独立设置
   # Independent config of home page subtitle
+  
   slogan:
     enable: true
 
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
-    text: "An elegant Material-Design theme for Hexo"
+    text: ""
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -548,7 +549,15 @@ index:
     enable: true
     icon: "iconfont icon-top"
 
+typing:
+  enable: true
+  typeSpeed: 70
+  cursorChar: "_"
+  loop: true           # keep retyping
 
+# load our custom script
+custom_js:
+  - /js/home-typing.js
 #---------------------------
 # 文章页
 # Post Page
@@ -577,7 +586,7 @@ post:
       # 格式参照 ISO-8601 日期格式化
       # ISO-8601 date format
       # See: http://momentjs.cn/docs/#/parsing/string-format/
-      format: "LL a"
+      format: "LL"
 
     # 字数统计
     # Word count
@@ -598,7 +607,7 @@ post:
     # 浏览量计数
     # Number of visits
     views:
-      enable: false
+      enable: true
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud | umami
