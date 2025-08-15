@@ -49,7 +49,7 @@ highlight:
   auto_detect: false
   tab_replace: ''
   wrap: true
-  hljs: false
+  hljs: true          # ← IMPORTANT: adds `hljs language-xxx` classes so Fluid can detect "JAVA"
 prismjs:
   preprocess: true
   line_number: true
