@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>LeetCode 342 — Power of Four</title>
+    <link href="/ziliang.github.io/2025/08/15/2025-08-15-leetcode342/"/>
+    <url>/ziliang.github.io/2025/08/15/2025-08-15-leetcode342/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/power-of-four/description/?envType=daily-question&envId=2025-08-15">Power of Four</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is power of 4, we simply need to obtain the power (x) such that when 4 is raised to the power of which, is a whole number. To do this, the most intuitive way would be to obtain the number x and verify if x is a whole number. </p><p>Since we have broken down the requirements into 2 mini requirements:</p><ul><li>Find the power x, such that when 4 is raised to the power of x, equals to n</li><li>Verify if x is indeed a whole number</li></ul><p>we can work on those two requirements individually. </p><ol><li>Use Math.log(n) &#x2F; Math.log(4) to find x</li><li>After obtaining the value of x from (1), use the value % 1 &#x3D;&#x3D; 0 to verify if the number is a whole number</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(1)</td><td>O(1)</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><pre><code class="language-java">// Power of Four — Math.log approachclass Solution &#123;    public boolean isPowerOfFour(int n) &#123;        return (Math.log(n) / Math.log(4)) % 1 == 0;     &#125;&#125;</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bit Manipulation</tag>
+      
+      <tag>Recursion</tag>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three</title>
+    <link href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/"/>
+    <url>/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p><p>In steps, we simply have to:</p><ol><li>Get the base 3 string of the number that is passed in</li><li>Check if the base 3 string only contains strictly 1 and 0s</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(log(n))</td><td>O(log(n))</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Jiaksimi.ai — From Fridge to Feast</title>
+    <link href="/ziliang.github.io/2025/08/14/2025-08-14-jiaksimi/"/>
+    <url>/ziliang.github.io/2025/08/14/2025-08-14-jiaksimi/</url>
+    
+    <content type="html"><![CDATA[<p>“<strong>Jiak simi?</strong>” (what to eat?) — I built <strong>Jiaksimi.ai</strong> to answer that in seconds.<br>Pick the ingredients you already have and get <strong>5 great YouTube recipes</strong>. Not cooking? I also show <strong>5 nearby restaurants</strong> using your location. Try it out <strong><a href="https://radioblodo.github.io/jiaksimi/">here</a></strong> </p><hr><h2 id="🍳-What-it-does"><a href="#🍳-What-it-does" class="headerlink" title="🍳 What it does"></a>🍳 What it does</h2><ul><li>Ingredient picker → <strong>generates 5 relevant YouTube recipe videos</strong></li><li>Location-aware suggestions → <strong>5 restaurants nearby</strong> with links to open in Google Maps</li><li>One-click copy&#x2F;share of a chosen recipe or place</li><li>Mobile-first UI for quick decisions at the grocery, in the kitchen, or out and about</li></ul><hr><h2 id="🛠️-How-it-works"><a href="#🛠️-How-it-works" class="headerlink" title="🛠️ How it works"></a>🛠️ How it works</h2><ol><li><p><strong>Ingredient selection</strong><br>Users choose ingredients (e.g., <em>chicken</em>, <em>garlic</em>, <em>rice</em>). Jiaksimi builds a search phrase and fetches a small, diverse set of recipe videos from YouTube, then surfaces the <strong>top 5</strong>.</p></li><li><p><strong>Video suggestions</strong><br>Results are ranked for clarity and relevance (title&#x2F;description match, recency, channel quality), and de-duplicated so you don’t get five versions of the same dish.</p></li><li><p><strong>Restaurants nearby</strong><br>With the browser’s <strong>Geolocation API</strong>, the app requests your location and uses <strong>Google Maps &#x2F; Places</strong> to find close restaurants. It shows <strong>5 spots</strong> with rating, distance, and a deep link to open right in Google Maps.</p></li><li><p><strong>Fast &amp; simple UX</strong><br>Everything happens on one page: swap ingredients, refresh videos, or tap the <strong>Eat Out</strong> tab to see places around you.</p></li></ol><hr><h2 id="📸-Demo"><a href="#📸-Demo" class="headerlink" title="📸 Demo"></a>📸 Demo</h2><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/ziliang.github.io/img/jiaksimi.png" alt="Jiaksimi Demo"></h2><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><ul><li><strong>Frontend:</strong> Vue.js  </li><li><strong>APIs:</strong> YouTube search (for recipes), Google Maps &#x2F; Places (for nearby restaurants)  </li><li><strong>Other:</strong> Browser Geolocation, plain CSS&#x2F;utility classes</li></ul><blockquote><p>Repo: <a href="https://github.com/radioblodo/jiaksimi.git">https://github.com/radioblodo/jiaksimi.git</a></p></blockquote><hr><h2 id="✨-What-I-learned"><a href="#✨-What-I-learned" class="headerlink" title="✨ What I learned"></a>✨ What I learned</h2><ul><li>Designing a <strong>decision-making UI</strong> that reduces choice overload</li><li>Handling <strong>geolocation permissions</strong> and fallbacks when users deny location</li><li>Normalizing video search results and avoiding duplicates</li><li>Small performance wins with result caching and cheap re-ranking</li></ul><hr><h2 id="📌-Next-steps"><a href="#📌-Next-steps" class="headerlink" title="📌 Next steps"></a>📌 Next steps</h2><ul><li>Dietary filters (vegetarian&#x2F;halal&#x2F;spicy)</li><li>“Use up soon” suggestions based on expiring ingredients</li><li>Open-now + price filters for restaurants</li><li>Save favorites &amp; recent ingredient sets</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Projects</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Vue.js</tag>
+      
+      <tag>JavaScript</tag>
+      
+      <tag>YouTube</tag>
+      
+      <tag>Google Maps</tag>
+      
+      <tag>Geolocation</tag>
+      
+      <tag>UX</tag>
+      
+      <tag>Side Project</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs  </li><li>🧩 Building resilient UI for error states, results, and sharing  </li><li>🧠 Security-first thinking in product design  </li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
+    
+    <content type="html"><![CDATA[<p>💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.<br>I built <strong>GringottsBot</strong>, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reporting your expenses in real time.</p><hr><h2 id="🤖-What-GringottsBot-Does"><a href="#🤖-What-GringottsBot-Does" class="headerlink" title="🤖 What GringottsBot Does"></a>🤖 What GringottsBot Does</h2><ul><li>Accepts commands like <code>/start</code>, <code>/settimezone</code>, and uses rich <strong>inline keyboards</strong></li><li>Stores and retrieves data from a <strong>MySQL</strong> database (persistent)</li><li>Automatically <strong>categorizes expenses</strong> and supports <strong>monthly reports</strong></li><li>Exports to <strong>PDF</strong></li><li>Shows <strong>statistics</strong> like category breakdowns and trends</li><li>Handles <strong>time zones</strong> for accurate logging</li></ul><hr><h2 id="⚙️-Tech-Stack"><a href="#⚙️-Tech-Stack" class="headerlink" title="⚙️ Tech Stack"></a>⚙️ Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools Used</th></tr></thead><tbody><tr><td>🧠 Bot Logic</td><td>Python + <code>python-telegram-bot</code></td></tr><tr><td>🗃️ Data</td><td>MySQL</td></tr><tr><td>📄 Reports</td><td><code>pandas</code>, <code>matplotlib</code>, <code>fpdf</code></td></tr><tr><td>🌐 Hosting</td><td>PythonAnywhere (24&#x2F;7 uptime)</td></tr></tbody></table><hr><h2 id="📸-Bot-in-Action"><a href="#📸-Bot-in-Action" class="headerlink" title="📸 Bot in Action"></a>📸 Bot in Action</h2><p><img src="/ziliang.github.io/img/gringottsbot-demo.gif" alt="GringottsBot Demo"></p><hr><h2 id="What-I-Learned"><a href="#What-I-Learned" class="headerlink" title="What I Learned"></a>What I Learned</h2><ul><li>Designing and implementing a <strong>stateful</strong> Telegram bot  </li><li>Setting up <strong>persistent storage</strong> with MySQL (FKs, indexes)  </li><li>Working with <strong>inline keyboards</strong>, command handlers, and conversation flows  </li><li>Generating <strong>Excel&#x2F;PDF</strong> reports programmatically  </li><li>Managing <strong>user sessions</strong>, time zones, and robust error handling</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Projects</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Python</tag>
+      
+      <tag>Telegram Bot</tag>
+      
+      <tag>MySQL</tag>
+      
+      <tag>Automation</tag>
+      
+      <tag>Finance</tag>
+      
+      <tag>Gringotts</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Building the MDP Android Remote: Lessons in Embedded Systems, Bluetooth, and Team Collaboration</title>
+    <link href="/ziliang.github.io/2025/06/20/2025-06-20-mdpapp/"/>
+    <url>/ziliang.github.io/2025/06/20/2025-06-20-mdpapp/</url>
+    
+    <content type="html"><![CDATA[<p>As part of NTU’s <strong>Multidisciplinary Design Project (MDP)</strong> — a capstone module for final-year Computer Science students — my team developed a mobile-controlled robot capable of both autonomous and manual navigation.</p><p><strong>Core components</strong></p><ul><li>📱 <strong>Android App</strong> (my main role)</li><li>🍓 <strong>Raspberry Pi</strong> (Bluetooth receiver + logic relay)</li><li>🧠 <strong>Pathfinding Algorithm</strong></li><li>🔩 <strong>STM32 Microcontroller</strong> (motor control + sensors)</li></ul><p>Although I owned the Android app, I also contributed to Raspberry Pi development, STM32 signal testing, and cross-team integration.</p><hr><h2 id="🎯-Project-Goals"><a href="#🎯-Project-Goals" class="headerlink" title="🎯 Project Goals"></a>🎯 Project Goals</h2><p>Built in <strong>Kotlin</strong> with <strong>Jetpack Compose</strong>, the app aimed to:</p><ul><li>Establish a reliable <strong>Bluetooth connection</strong> to the Raspberry Pi</li><li>Provide <strong>manual robot control</strong> with directional buttons</li><li>Display <strong>live feedback</strong> from the robot (status, position)</li><li>Log the robot’s path for testing and visualization</li></ul><hr><h2 id="⚙️-Key-Technical-Highlights"><a href="#⚙️-Key-Technical-Highlights" class="headerlink" title="⚙️ Key Technical Highlights"></a>⚙️ Key Technical Highlights</h2><ul><li>Clean, responsive UI with <strong>Jetpack Compose</strong></li><li><strong>Bluetooth socket</strong> communication with efficient I&#x2F;O stream handling</li><li>Smooth two-way messaging for <strong>manual overrides</strong>, <strong>status polling</strong>, and <strong>sensor relay</strong></li><li><strong>Live logs</strong> and <strong>status tracking</strong> for debugging and verification</li></ul><p><img src="/ziliang.github.io/img/mdpproj.jpg" alt="Home Screen Screenshot"></p><hr><h2 id="🧠-What-I-Learned"><a href="#🧠-What-I-Learned" class="headerlink" title="🧠 What I Learned"></a>🧠 What I Learned</h2><ul><li>Calling and parsing JSON between Android and hardware endpoints</li><li>Working with <strong>hardware protocols</strong> (Raspberry Pi &amp; STM32 over Bluetooth&#x2F;serial)</li><li>Debugging across platforms (Android logs, RPi console, STM32 UART)</li><li>The value of <strong>cross-functional collaboration</strong> in embedded + mobile systems</li></ul><hr><h2 id="🎥-Project-Demo"><a href="#🎥-Project-Demo" class="headerlink" title="🎥 Project Demo"></a>🎥 Project Demo</h2><p>Watch the demo on YouTube: <a href="https://www.youtube.com/watch?v=neUKwJw2OCs">https://www.youtube.com/watch?v=neUKwJw2OCs</a></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>Source code: <a href="https://github.com/ZhiXin18/MDP_AndroidRemote">https://github.com/ZhiXin18/MDP_AndroidRemote</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Projects</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Android</tag>
+      
+      <tag>Kotlin</tag>
+      
+      <tag>Raspberry Pi</tag>
+      
+      <tag>Bluetooth</tag>
+      
+      <tag>STM32</tag>
+      
+      <tag>NTU</tag>
+      
+      <tag>App Development</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
