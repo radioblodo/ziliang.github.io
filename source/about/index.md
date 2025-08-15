@@ -13,9 +13,11 @@ I enjoy:
 - Exploring cybersecurity tools and challenges
 - Participating in hackathons and learning new stacks
 
-## You can also read my Cybersecurity blog [here.](https://cyberfarmer.netlify.app/)
+You can also read my Cybersecurity blog **[here.](https://cyberfarmer.netlify.app/)**
+
+---
 
 🔗 Connect with me  
 📧 Email: ziliang906@email.com  
-🐱 GitHub: [radioblodo](https://github.com/radioblodo)  
-💼 LinkedIn: [linkedin.com/in/ziliang](https://www.linkedin.com/in/zi-liang-chai-713873264/)
+🐱 GitHub: **[radioblodo](https://github.com/radioblodo)**  
+💼 LinkedIn: **[linkedin.com/in/ziliang](https://www.linkedin.com/in/zi-liang-chai-713873264/)**
