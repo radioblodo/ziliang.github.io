@@ -106,3 +106,8 @@ deploy:
   branch: gh-pages
   message: "Site update"
 
+hide_posts:
+  enable: true
+  filter:
+    - index   # hide from Home only; still show on categories/tags/archives
+
