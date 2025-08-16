@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>LeetCode 1323 — Maximum 69 Number</title>
+    <link href="/ziliang.github.io/2025/08/16/2025-08-16-leetcode1323/"/>
+    <url>/ziliang.github.io/2025/08/16/2025-08-16-leetcode1323/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/maximum-69-number/description/?envType=daily-question&envId=2025-08-16">Maximum 69 Number</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This problem is fairly simple, we just need to find the first occurrence of ‘6’ from the left and change it to 9. In case we cannot find, we simply return the given number. Hence, knowing this, we can break this down into 2 sub-problems:</p><ol><li>Convert the given number to String</li><li>Iterate through the string to find the first ‘6’ char</li></ol><p>I am sure this is not the most elegant or the most efficient solution but I believe this is the most intuitive way of looking at the problem.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximum69Number</span> <span class="hljs-params">(<span class="hljs-type">int</span> num)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">numString</span> <span class="hljs-operator">=</span> Integer.toString(num);<br>        <span class="hljs-comment">// Find the first occurrence of 6, counting from the left</span><br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">indexToChange</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; numString.length(); i++)&#123;<br>            <span class="hljs-keyword">if</span> (numString.charAt(i) == <span class="hljs-string">&#x27;6&#x27;</span>)&#123;<br>                indexToChange = i;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (indexToChange == <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> num;<br>        &#125;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(numString);<br>        sb.setCharAt(indexToChange, <span class="hljs-string">&#x27;9&#x27;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">newString</span> <span class="hljs-operator">=</span> sb.toString();<br><br>        <span class="hljs-keyword">return</span> Integer.parseInt(newString);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Greedy</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 326 — Power of Three</title>
     <link href="/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/"/>
     <url>/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</url>
@@ -20,9 +47,9 @@
     
     <tags>
       
-      <tag>Recursion</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Recursion</tag>
       
     </tags>
     
@@ -47,11 +74,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     

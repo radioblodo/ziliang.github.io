@@ -19,24 +19,25 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Check if Number is a Sum of Powers of ThreeDifficulty: Medium  🧠 ApproachTo determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, w">
+    <meta name="description" content="Problem: Maximum 69 NumberDifficulty: Easy  🧠 ApproachThis problem is fairly simple, we just need to find the first occurrence of ‘6’ from the left and change it to 9. In case we cannot find, we simp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 1780 — Check if Number is a Sum of Powers of Three">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/index.html">
+<meta property="og:title" content="LeetCode 1323 — Maximum 69 Number">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/16/2025-08-16-leetcode1323/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Check if Number is a Sum of Powers of ThreeDifficulty: Medium  🧠 ApproachTo determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, w">
+<meta property="og:description" content="Problem: Maximum 69 NumberDifficulty: Easy  🧠 ApproachThis problem is fairly simple, we just need to find the first occurrence of ‘6’ from the left and change it to 9. In case we cannot find, we simp">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-15T05:39:14.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:26:24.862Z">
+<meta property="article:published_time" content="2025-08-16T02:15:30.000Z">
+<meta property="article:modified_time" content="2025-08-16T02:26:27.877Z">
 <meta property="article:author" content="Zi Liang">
 <meta property="article:tag" content="Math">
+<meta property="article:tag" content="Greedy">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three - Zi Liang · Portfolio</title>
+  <title>LeetCode 1323 — Maximum 69 Number - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 1780 — Check if Number is a Sum of Powers of Three</span>
+            <span id="subtitle">LeetCode 1323 — Maximum 69 Number</span>
           
         </div>
 
@@ -225,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-15 13:39" pubdate>
-          August 15, 2025
+        <time datetime="2025-08-16 10:15" pubdate>
+          August 16, 2025
         </time>
       </span>
     
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          66 words
+          79 words
         
       </span>
     
@@ -294,19 +295,19 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 1780 — Check if Number is a Sum of Powers of Three</h1>
+            <h1 id="seo-header">LeetCode 1323 — Maximum 69 Number</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-69-number/description/?envType=daily-question&envId=2025-08-16">Maximum 69 Number</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p>
-<p>In steps, we simply have to:</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This problem is fairly simple, we just need to find the first occurrence of ‘6’ from the left and change it to 9. In case we cannot find, we simply return the given number. Hence, knowing this, we can break this down into 2 sub-problems:</p>
 <ol>
-<li>Get the base 3 string of the number that is passed in</li>
-<li>Check if the base 3 string only contains strictly 1 and 0s</li>
+<li>Convert the given number to String</li>
+<li>Iterate through the string to find the first ‘6’ char</li>
 </ol>
+<p>I am sure this is not the most elegant or the most efficient solution but I believe this is the most intuitive way of looking at the problem.</p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -318,12 +319,12 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td>O(log(n))</td>
-<td>O(log(n))</td>
+<td><em>O(n)</em></td>
+<td><em>O(n)</em></td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">maximum69Number</span> <span class="hljs-params">(<span class="hljs-type">int</span> num)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">numString</span> <span class="hljs-operator">=</span> Integer.toString(num);<br>        <span class="hljs-comment">// Find the first occurrence of 6, counting from the left</span><br>        <span class="hljs-type">Integer</span> <span class="hljs-variable">indexToChange</span> <span class="hljs-operator">=</span> <span class="hljs-literal">null</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; numString.length(); i++)&#123;<br>            <span class="hljs-keyword">if</span> (numString.charAt(i) == <span class="hljs-string">&#x27;6&#x27;</span>)&#123;<br>                indexToChange = i;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">if</span> (indexToChange == <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">return</span> num;<br>        &#125;<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(numString);<br>        sb.setCharAt(indexToChange, <span class="hljs-string">&#x27;9&#x27;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">newString</span> <span class="hljs-operator">=</span> sb.toString();<br><br>        <span class="hljs-keyword">return</span> Integer.parseInt(newString);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -359,6 +360,8 @@
       
         <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
       
+        <a href="/ziliang.github.io/tags/Greedy/" class="print-no-link">#Greedy</a>
+      
     </div>
   
 </div>
@@ -369,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 1780 — Check if Number is a Sum of Powers of Three</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</div>
+      <div>LeetCode 1323 — Maximum 69 Number</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/16/2025-08-16-leetcode1323/</div>
     </div>
     <div class="license-meta">
       
@@ -382,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>15 Aug 2025, 13:39</div>
+          <div>16 Aug 2025, 10:15</div>
         </div>
       
       
@@ -414,18 +417,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/15/2025-08-15-leetcode342/" title="LeetCode 342 — Power of Four">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 342 — Power of Four</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/14/2025-08-14-jiaksimi/" title="Jiaksimi.ai — From Fridge to Feast">
-                        <span class="hidden-mobile">Jiaksimi.ai — From Fridge to Feast</span>
+                      <a href="/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/" title="LeetCode 326 — Power of Three">
+                        <span class="hidden-mobile">LeetCode 326 — Power of Three</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
