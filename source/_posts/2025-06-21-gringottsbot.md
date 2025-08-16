@@ -4,6 +4,7 @@ date: 2025-06-21
 slug: gringottsbot
 tags: [Python, "Telegram Bot", MySQL, Automation, Finance, Gringotts]
 categories: [Projects]
+comments: false
 ---
 
 💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.  
@@ -24,12 +25,12 @@ I built **GringottsBot**, a Telegram bot that acts like a personal goblin accoun
 
 ## ⚙️ Tech Stack
 
-| Layer        | Tools Used                      |
-| ------------ | ------------------------------- |
+| Layer        | Tools Used                     |
+| ------------ | ------------------------------ |
 | 🧠 Bot Logic | Python + `python-telegram-bot` |
-| 🗃️ Data      | MySQL                           |
-| 📄 Reports   | `pandas`, `matplotlib`, `fpdf`  |
-| 🌐 Hosting   | PythonAnywhere (24/7 uptime)    |
+| 🗃️ Data      | MySQL                          |
+| 📄 Reports   | `pandas`, `matplotlib`, `fpdf` |
+| 🌐 Hosting   | PythonAnywhere (24/7 uptime)   |
 
 ---
 
@@ -41,8 +42,8 @@ I built **GringottsBot**, a Telegram bot that acts like a personal goblin accoun
 
 ## What I Learned
 
-- Designing and implementing a **stateful** Telegram bot  
-- Setting up **persistent storage** with MySQL (FKs, indexes)  
-- Working with **inline keyboards**, command handlers, and conversation flows  
-- Generating **Excel/PDF** reports programmatically  
+- Designing and implementing a **stateful** Telegram bot
+- Setting up **persistent storage** with MySQL (FKs, indexes)
+- Working with **inline keyboards**, command handlers, and conversation flows
+- Generating **Excel/PDF** reports programmatically
 - Managing **user sessions**, time zones, and robust error handling
