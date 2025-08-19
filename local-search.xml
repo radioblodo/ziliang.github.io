@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>LeetCode 195 — Tenth Line</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/tenth-line/description/">Tenth Line</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatGPT for the bash command and there are actually several ways to print the line:</p><ul><li><code>sed -n &#39;10p&#39; filename</code></li><li><code>awk &#39;NR==10&#39; filename</code></li><li><code>head -n 10 filename | tail -n 1</code></li><li><code>line=$(sed -n &#39;5p&#39; filename) \n echo &quot;$line&quot;</code></li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"># Read from the file file.txt and output the tenth line to stdout.<br>sed -n <span class="hljs-string">&quot;10p&quot;</span> file.txt<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Shell</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 274 — H-Index</title>
     <link href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/"/>
     <url>/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/</url>
@@ -49,9 +74,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Math</tag>
       
       <tag>Backtracking</tag>
       
@@ -78,9 +103,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Math</tag>
       
       <tag>Sliding Window</tag>
       
@@ -163,9 +188,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -190,9 +215,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
       <tag>Recursion</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -217,34 +242,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
-      <tag>Recursion</tag>
-      
       <tag>Bit Manipulation</tag>
       
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three</title>
-    <link href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/"/>
-    <url>/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p><p>In steps, we simply have to:</p><ol><li>Get the base 3 string of the number that is passed in</li><li>Check if the base 3 string only contains strictly 1 and 0s</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(log(n))</td><td>O(log(n))</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
+      <tag>Recursion</tag>
       
       <tag>Math</tag>
       
@@ -271,11 +271,36 @@
     
     <tags>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three</title>
+    <link href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/"/>
+    <url>/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p><p>In steps, we simply have to:</p><ol><li>Get the base 3 string of the number that is passed in</li><li>Check if the base 3 string only contains strictly 1 and 0s</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(log(n))</td><td>O(log(n))</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -321,35 +346,6 @@
   
   
   <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -377,6 +373,35 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
       
     </tags>
     
