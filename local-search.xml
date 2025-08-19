@@ -8,7 +8,7 @@
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/</url>
     
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/tenth-line/description/">Tenth Line</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatGPT for the bash command and there are actually several ways to print the line:</p><ul><li><code>sed -n &#39;10p&#39; filename</code></li><li><code>awk &#39;NR==10&#39; filename</code></li><li><code>head -n 10 filename | tail -n 1</code></li><li><code>line=$(sed -n &#39;5p&#39; filename) \n echo &quot;$line&quot;</code></li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"># Read from the file file.txt and output the tenth line to stdout.<br>sed -n <span class="hljs-string">&quot;10p&quot;</span> file.txt<br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/tenth-line/description/">Tenth Line</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatGPT for the bash command and there are actually several ways to print the line:</p><ul><li><code>sed -n &#39;10p&#39; filename</code></li><li><code>awk &#39;NR==10&#39; filename</code></li><li><code>head -n 10 filename | tail -n 1</code></li><li><code>line=$(sed -n &#39;5p&#39; filename) \n echo &quot;$line&quot;</code></li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Bash"><a href="#✅-Code-Bash" class="headerlink" title="✅ Code (Bash)"></a>✅ Code (Bash)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Read from the file file.txt and output the tenth line to stdout.</span><br>sed -n <span class="hljs-string">&quot;10p&quot;</span> file.txt<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -74,9 +74,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
       <tag>Backtracking</tag>
       
@@ -103,9 +103,9 @@
     
     <tags>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Sliding Window</tag>
       
@@ -188,9 +188,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -215,9 +215,9 @@
     
     <tags>
       
-      <tag>Recursion</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Recursion</tag>
       
     </tags>
     
@@ -242,11 +242,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -271,11 +271,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
