@@ -19,25 +19,26 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+    <meta name="description" content="Problem: Power of TwoDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 2, we just need to use recursion to recursively divide n by 2. If it ever gets below 0 or if the modulo of n is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 326 — Power of Three">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/index.html">
+<meta property="og:title" content="LeetCode 231 — Power of Two">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+<meta property="og:description" content="Problem: Power of TwoDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 2, we just need to use recursion to recursively divide n by 2. If it ever gets below 0 or if the modulo of n is">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-15T14:26:30.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:26:26.553Z">
+<meta property="article:published_time" content="2025-08-15T06:03:16.000Z">
+<meta property="article:modified_time" content="2025-08-19T02:03:16.453Z">
 <meta property="article:author" content="Zi Liang">
 <meta property="article:tag" content="Math">
 <meta property="article:tag" content="Recursion">
+<meta property="article:tag" content="Bit Manipulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 326 — Power of Three - Zi Liang · Portfolio</title>
+  <title>LeetCode 231 — Power of Two - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 326 — Power of Three</span>
+            <span id="subtitle">LeetCode 231 — Power of Two</span>
           
         </div>
 
@@ -226,7 +227,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-15 22:26" pubdate>
+        <time datetime="2025-08-15 14:03" pubdate>
           August 15, 2025
         </time>
       </span>
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 words
+          49 words
         
       </span>
     
@@ -295,14 +296,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 326 — Power of Three</h1>
+            <h1 id="seo-header">LeetCode 231 — Power of Two</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/power-of-three/description/?envType=daily-question&envId=2025-08-13">Power of Three</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/power-of-two/description/?envType=daily-question&envId=2025-08-09">Power of Two</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 3&#x2F;3 &#x3D;&#x3D; 1, then we return true.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 2, we just need to use recursion to recursively divide n by 2. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 2&#x2F;2 &#x3D;&#x3D; 1, then we return true. This is very similar to the LeetCode problem 326, Power of Three. </p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -314,12 +315,12 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(log<sub>3</sub> n)</em></td>
-<td><em>O(log<sub>3</sub> n)</em></td>
+<td><em>O(log<sub>2</sub> n)</em></td>
+<td><em>O(log<sub>2</sub> n)</em></td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;   <span class="hljs-comment">// 3^0 = 1</span><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span> || n % <span class="hljs-number">3</span> != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfThree(n / <span class="hljs-number">3</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)&#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;&#125;<br>        <span class="hljs-keyword">if</span> (n &lt;=<span class="hljs-number">0</span> || n%<span class="hljs-number">2</span> != <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>        &#125;<br>        n /= <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfTwo(n);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -357,6 +358,8 @@
       
         <a href="/ziliang.github.io/tags/Recursion/" class="print-no-link">#Recursion</a>
       
+        <a href="/ziliang.github.io/tags/Bit-Manipulation/" class="print-no-link">#Bit Manipulation</a>
+      
     </div>
   
 </div>
@@ -367,8 +370,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 326 — Power of Three</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</div>
+      <div>LeetCode 231 — Power of Two</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +383,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>15 Aug 2025, 22:26</div>
+          <div>15 Aug 2025, 14:03</div>
         </div>
       
       
@@ -412,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/" title="LeetCode 2348 — Number of Zero-Filled Subarrays">
+                      <a href="/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/" title="LeetCode 326 — Power of Three">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 2348 — Number of Zero-Filled Subarrays</span>
+                        <span class="hidden-mobile">LeetCode 326 — Power of Three</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -422,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/" title="LeetCode 231 — Power of Two">
-                        <span class="hidden-mobile">LeetCode 231 — Power of Two</span>
+                      <a href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/" title="LeetCode 1780 — Check if Number is a Sum of Powers of Three">
+                        <span class="hidden-mobile">LeetCode 1780 — Check if Number is a Sum of Powers of Three</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

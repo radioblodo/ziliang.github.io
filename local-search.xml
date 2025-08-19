@@ -4,6 +4,95 @@
   
   
   <entry>
+    <title>LeetCode 274 — H-Index</title>
+    <link href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/"/>
+    <url>/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/h-index/description/?envType=study-plan-v2&envId=top-interview-150">H-Index</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The key to solving this problem is to understand the definition of h-index.<br>h-index &#x3D; The h-index is the largest integer h such that at least h publications each have ≥ h citations.</p><p>Knowing this, we just have to sort the numbers in ascending order. Then for each citation, we find the min(citation count, number of papers with &gt;&#x3D; citation count). Return the max at the end. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hIndex</span><span class="hljs-params">(<span class="hljs-type">int</span>[] citations)</span> &#123;<br>        Arrays.sort(citations);<br>        List&lt;Integer&gt; hIndexes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; citations.length; i++)&#123;<br>            hIndexes.add(Math.min(citations[i],citations.length - i));<br>        &#125;<br>        Collections.sort(hIndexes);<br>        <span class="hljs-keyword">return</span> hIndexes.get(hIndexes.size()-<span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Counting Sort</tag>
+      
+      <tag>Sorting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 679 — 24 Game</title>
+    <link href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode679/"/>
+    <url>/ziliang.github.io/2025/08/18/2025-08-18-leetcode679/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/24-game/description/?envType=daily-question&envId=2025-08-18">24 Game</a><br><strong>Difficulty:</strong> Hard</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is quite a challenging problem because I always struggle in visualising the recursion pattern. Although from the tag, we can tell that this is a recursion problem. I didn’t immediately realised how to do this. But here is a picture that illustrates the recursion. </p><p><img src="/ziliang.github.io/img/24game.png" alt="24 Game Recursion Tree"></p><p>Basically, the idea is that from the original 4 numbers, we select 2 numbers out and perform the 6 possible operations between the 2 numbers. Which 6?</p><ul><li>a + b</li><li>a - b</li><li>b - a</li><li>a * b</li><li>a &#x2F; b</li><li>b &#x2F; a</li></ul><p>Then, we add the result that we obtain from the said operation back to the array, and again repeat the process mentioned above, choose 2 numbers out, perform the 6 possible operations, until finally, we are left with 1 number, which is also the exit condition of this recursion. Atlas, we check using Math.abs(nums.get(0)-24) &lt; EPS to see whether it is indeed 24. Why do we check whether it is smaller than EPS you ask? Well I asked ChatGPT too haha. Reason is because in certain operations, like 1&#x2F;3, in Java and Python, this is only stored approximately. When you combine these approximations with other operations, the final result might be 23.9999998 or 24.0000001, not exactly 24.0. This might cause us to wrongly conclude that there is no solution that can result in 24, hence we compare with 1e−6.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>T(n) ≤ 6 · n(n-1) · T(n-1)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> <span class="hljs-variable">EPS</span> <span class="hljs-operator">=</span> <span class="hljs-number">1e-6</span>; <br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">judgePoint24</span><span class="hljs-params">(<span class="hljs-type">int</span>[] cards)</span> &#123;<br>        <span class="hljs-comment">// convert the integer into double</span><br>        List&lt;Double&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(<span class="hljs-number">4</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : cards)&#123;<br>            nums.add((<span class="hljs-type">double</span>) x);<br>        &#125;<br>        <span class="hljs-keyword">return</span> dfs(nums); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(List&lt;Double&gt; nums)</span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.size() == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> Math.abs(nums.get(<span class="hljs-number">0</span>) - <span class="hljs-number">24</span>) &lt; EPS;<br>        &#125;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.size(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; n; j++)&#123;<br>                <span class="hljs-keyword">if</span> (i == j)&#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-type">double</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> nums.get(i);<br>                <span class="hljs-type">double</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> nums.get(j); <br><br>                List&lt;Double&gt; next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(n-<span class="hljs-number">1</span>);<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; k &lt; n; k++)&#123;<br>                    <span class="hljs-keyword">if</span> (k!=i &amp;&amp; k!=j)&#123;<br>                        next.add(nums.get(k));<br>                    &#125;<br>                &#125;<br><br>                <span class="hljs-type">double</span> [] candidates = &#123;<br>                    a + b,<br>                    a - b,<br>                    b - a, <br>                    a * b,<br>                    (Math.abs(b) &gt; EPS) ? (a/b) : Double.NaN,<br>                    (Math.abs(a) &gt; EPS) ? (b/a) : Double.NaN<br>                &#125;;<br><br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> r : candidates)&#123;<br>                    <span class="hljs-keyword">if</span> (Double.isNaN(r))&#123;<br>                        <span class="hljs-keyword">continue</span>;<br>                    &#125;<br>                    next.add(r);<br>                    <span class="hljs-keyword">if</span> (dfs(next))&#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>                    &#125;<br>                    next.remove(next.size()-<span class="hljs-number">1</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Backtracking</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 837 — New 21 Game</title>
+    <link href="/ziliang.github.io/2025/08/17/2025-08-17-leetcode837/"/>
+    <url>/ziliang.github.io/2025/08/17/2025-08-17-leetcode837/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/new-21-game/description/?envType=daily-question&envId=2025-08-17">New 21 Game</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Although this problem is labelled as Medium difficulty, I think it should be classified as Hard. I had a really difficult time trying to understand the concept and admittedly used ChatGPT to visualise the pattern. A few things that are intuitive:</p><ul><li>The probability from k to n(inclusive) is 1.0. Why? Because once you reach k or accidentally overshot k but still below or equal to n, the game terminates, hence the probability of that being n (which is what the question wants) is 1.0.</li><li>The probability of n+1 to maxPts is 0.0. Rather, this part is not relevant to the probability that we are looking for (which is the probability of the final score being smaller than n). </li><li>We need to compute <code>dp[x]</code> for all <code>x &lt; k</code>.<br>The recurrence is: dp[x] &#x3D; (dp[x+1] + dp[x+2] + … + dp[x+maxPts]) &#x2F; maxPts</li><li>Lastly, we return the value of dp[0]</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n+MaxPts)</em></td><td><em>O(n+MaxPts)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">double</span> <span class="hljs-title function_">new21Game</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">int</span> k, <span class="hljs-type">int</span> maxPts)</span> &#123;<br>        <span class="hljs-comment">// Initialise the array of n + maxPts + 1 </span><br>        <span class="hljs-comment">// Here we use double because we are storing probabilities</span><br>        <span class="hljs-type">double</span> [] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">double</span>[n+maxPts+<span class="hljs-number">1</span>]; <br><br>        <span class="hljs-comment">// Fill base cases for x &gt;= k </span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k; i &lt;= n; i++)&#123;<br>            dp[i] = <span class="hljs-number">1.0</span>;<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> n+<span class="hljs-number">1</span>; i &lt;= n+maxPts ; i++)&#123;<br>            dp[i] = <span class="hljs-number">0.0</span>;<br>        &#125;<br>        <span class="hljs-type">double</span> <span class="hljs-variable">windowSum</span> <span class="hljs-operator">=</span> <span class="hljs-number">0.0</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k; i &lt; k + maxPts; i++)&#123;<br>            windowSum += dp[i]; <br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> k-<span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123; <br>            dp[i] = windowSum/maxPts;  <br>            windowSum += dp[i] - dp[i+maxPts];<br>        &#125;<br><br>        <span class="hljs-comment">// Return the final result </span><br>        <span class="hljs-keyword">return</span> dp[<span class="hljs-number">0</span>]; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
+      
+      <tag>Sliding Window</tag>
+      
+      <tag>Probability and Statistics</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 118 — Pascal&#39;s Triangle</title>
     <link href="/ziliang.github.io/2025/08/16/2025-08-16-leetcode118/"/>
     <url>/ziliang.github.io/2025/08/16/2025-08-16-leetcode118/</url>
@@ -58,6 +147,33 @@
   
   
   <entry>
+    <title>LeetCode 2348 — Number of Zero-Filled Subarrays</title>
+    <link href="/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/"/>
+    <url>/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/number-of-zero-filled-subarrays/description/?envType=daily-question&envId=2025-08-19">Number of Zero-Filled Subarrays</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This problem is quite clear, it wants us to return the number of ways we can form subarrays of 0, contiguous subarrays. The key is to understand the pattern.<br>Say we have [0,0,0],</p><ul><li>the number of ways to form subarray of [0] is 3,</li><li>the number of ways to form subarray of [0,0] is 2</li><li>the number of ways to form subarray of [0,0,0] is 1</li></ul><p>Hence, from this, we can see that as we are iterating through [0,0,0], we can add 1 + 2 + 3, then reset when we find the next 0 and do the same. Finally, we return the sum of the number of ways.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">long</span> <span class="hljs-title function_">zeroFilledSubarray</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-type">long</span> <span class="hljs-variable">res</span> <span class="hljs-operator">=</span> <span class="hljs-number">0L</span>;<br>        <span class="hljs-type">long</span> <span class="hljs-variable">run</span> <span class="hljs-operator">=</span> <span class="hljs-number">0L</span>;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> num : nums)&#123;<br>            <span class="hljs-keyword">if</span> (num == <span class="hljs-number">0</span>)&#123;<br>                run += <span class="hljs-number">1</span>;<br>                res += run;<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                <span class="hljs-comment">// need to reset</span><br>                run = <span class="hljs-number">0L</span>;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 326 — Power of Three</title>
     <link href="/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/"/>
     <url>/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</url>
@@ -74,7 +190,61 @@
     
     <tags>
       
+      <tag>Math</tag>
+      
       <tag>Recursion</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 231 — Power of Two</title>
+    <link href="/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/"/>
+    <url>/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/power-of-two/description/?envType=daily-question&envId=2025-08-09">Power of Two</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 2, we just need to use recursion to recursively divide n by 2. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 2&#x2F;2 &#x3D;&#x3D; 1, then we return true. This is very similar to the LeetCode problem 326, Power of Three. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(log<sub>2</sub> n)</em></td><td><em>O(log<sub>2</sub> n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfTwo</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)&#123;<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;&#125;<br>        <span class="hljs-keyword">if</span> (n &lt;=<span class="hljs-number">0</span> || n%<span class="hljs-number">2</span> != <span class="hljs-number">0</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>        &#125;<br>        n /= <span class="hljs-number">2</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfTwo(n);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Recursion</tag>
+      
+      <tag>Bit Manipulation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three</title>
+    <link href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/"/>
+    <url>/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p><p>In steps, we simply have to:</p><ol><li>Get the base 3 string of the number that is passed in</li><li>Check if the base 3 string only contains strictly 1 and 0s</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(log(n))</td><td>O(log(n))</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
       
       <tag>Math</tag>
       
@@ -101,36 +271,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 1780 — Check if Number is a Sum of Powers of Three</title>
-    <link href="/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/"/>
-    <url>/ziliang.github.io/2025/08/15/2025-8-14-leetcode1780/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/check-if-number-is-a-sum-of-powers-of-three/description/?envType=daily-question&envId=2025-08-14">Check if Number is a Sum of Powers of Three</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine whether a number is a sum of the powers of three, we can first convert it to base 3. In base 3 format, we can check if it only contains 0 and 1. If it does, then it is a number that is a sum of the powers of 3, else it is not. The reason behind this is because, for each unique power, 0 ~ +ve infinity, the occurrence of 3^unique power is 1 or 0, it is either part of the sum or not part of the sum, it cannot ever be a case where 18(base 10) &#x3D; 200 (base 3) &#x3D; 3^2 + 3^2, which makes it no longer distinct (which is what the question requires).</p><p>In steps, we simply have to:</p><ol><li>Get the base 3 string of the number that is passed in</li><li>Check if the base 3 string only contains strictly 1 and 0s</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td>O(log(n))</td><td>O(log(n))</td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">checkPowersOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-comment">// Convert the given number to base3 string</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">base3String</span> <span class="hljs-operator">=</span> Integer.toString(n, <span class="hljs-number">3</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        - .matches() checks the entire string, not the substring, which would result in error because we want the entire string to only contain 0 and 1 only</span><br><span class="hljs-comment">        - [01] means either 0 or 1</span><br><span class="hljs-comment">        - + means there could be more than 1 occurrence of 0 and 1</span><br><span class="hljs-comment">        */</span><br>        <span class="hljs-comment">// Check if it&#x27;s only 1 and 0 inside</span><br>        <span class="hljs-keyword">return</span> base3String.matches(<span class="hljs-string">&quot;[01]+&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     

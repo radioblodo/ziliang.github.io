@@ -19,25 +19,28 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+    <meta name="description" content="Problem: 24 GameDifficulty: Hard  🧠 ApproachThis is quite a challenging problem because I always struggle in visualising the recursion pattern. Although from the tag, we can tell that this is a recur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 326 — Power of Three">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/index.html">
+<meta property="og:title" content="LeetCode 679 — 24 Game">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/18/2025-08-18-leetcode679/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+<meta property="og:description" content="Problem: 24 GameDifficulty: Hard  🧠 ApproachThis is quite a challenging problem because I always struggle in visualising the recursion pattern. Although from the tag, we can tell that this is a recur">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-15T14:26:30.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:26:26.553Z">
+<meta property="og:image" content="https://radioblodo.github.io/ziliang.github.io/img/24game.png">
+<meta property="article:published_time" content="2025-08-18T12:14:25.000Z">
+<meta property="article:modified_time" content="2025-08-19T02:03:16.457Z">
 <meta property="article:author" content="Zi Liang">
 <meta property="article:tag" content="Math">
-<meta property="article:tag" content="Recursion">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Backtracking">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://radioblodo.github.io/ziliang.github.io/img/24game.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 326 — Power of Three - Zi Liang · Portfolio</title>
+  <title>LeetCode 679 — 24 Game - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 326 — Power of Three</span>
+            <span id="subtitle">LeetCode 679 — 24 Game</span>
           
         </div>
 
@@ -226,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-15 22:26" pubdate>
-          August 15, 2025
+        <time datetime="2025-08-18 20:14" pubdate>
+          August 18, 2025
         </time>
       </span>
     
@@ -238,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 words
+          246 words
         
       </span>
     
@@ -249,7 +252,7 @@
         
         
         
-          1 mins
+          3 mins
         
       </span>
     
@@ -295,14 +298,25 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 326 — Power of Three</h1>
+            <h1 id="seo-header">LeetCode 679 — 24 Game</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/power-of-three/description/?envType=daily-question&envId=2025-08-13">Power of Three</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/24-game/description/?envType=daily-question&envId=2025-08-18">24 Game</a><br><strong>Difficulty:</strong> Hard</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 3&#x2F;3 &#x3D;&#x3D; 1, then we return true.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is quite a challenging problem because I always struggle in visualising the recursion pattern. Although from the tag, we can tell that this is a recursion problem. I didn’t immediately realised how to do this. But here is a picture that illustrates the recursion. </p>
+<p><img src="/ziliang.github.io/img/24game.png" srcset="/ziliang.github.io/img/loading.gif" lazyload alt="24 Game Recursion Tree"></p>
+<p>Basically, the idea is that from the original 4 numbers, we select 2 numbers out and perform the 6 possible operations between the 2 numbers. Which 6?</p>
+<ul>
+<li>a + b</li>
+<li>a - b</li>
+<li>b - a</li>
+<li>a * b</li>
+<li>a &#x2F; b</li>
+<li>b &#x2F; a</li>
+</ul>
+<p>Then, we add the result that we obtain from the said operation back to the array, and again repeat the process mentioned above, choose 2 numbers out, perform the 6 possible operations, until finally, we are left with 1 number, which is also the exit condition of this recursion. Atlas, we check using Math.abs(nums.get(0)-24) &lt; EPS to see whether it is indeed 24. Why do we check whether it is smaller than EPS you ask? Well I asked ChatGPT too haha. Reason is because in certain operations, like 1&#x2F;3, in Java and Python, this is only stored approximately. When you combine these approximations with other operations, the final result might be 23.9999998 or 24.0000001, not exactly 24.0. This might cause us to wrongly conclude that there is no solution that can result in 24, hence we compare with 1e−6.</p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -314,12 +328,12 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(log<sub>3</sub> n)</em></td>
-<td><em>O(log<sub>3</sub> n)</em></td>
+<td><em>T(n) ≤ 6 · n(n-1) · T(n-1)</em></td>
+<td><em>O(n)</em></td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;   <span class="hljs-comment">// 3^0 = 1</span><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span> || n % <span class="hljs-number">3</span> != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfThree(n / <span class="hljs-number">3</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">double</span> <span class="hljs-variable">EPS</span> <span class="hljs-operator">=</span> <span class="hljs-number">1e-6</span>; <br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">judgePoint24</span><span class="hljs-params">(<span class="hljs-type">int</span>[] cards)</span> &#123;<br>        <span class="hljs-comment">// convert the integer into double</span><br>        List&lt;Double&gt; nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(<span class="hljs-number">4</span>);<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> x : cards)&#123;<br>            nums.add((<span class="hljs-type">double</span>) x);<br>        &#125;<br>        <span class="hljs-keyword">return</span> dfs(nums); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">dfs</span><span class="hljs-params">(List&lt;Double&gt; nums)</span>&#123;<br>        <span class="hljs-keyword">if</span> (nums.size() == <span class="hljs-number">1</span>)&#123;<br>            <span class="hljs-keyword">return</span> Math.abs(nums.get(<span class="hljs-number">0</span>) - <span class="hljs-number">24</span>) &lt; EPS;<br>        &#125;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.size(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; n; i++)&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; j &lt; n; j++)&#123;<br>                <span class="hljs-keyword">if</span> (i == j)&#123;<br>                    <span class="hljs-keyword">continue</span>;<br>                &#125;<br>                <span class="hljs-type">double</span> <span class="hljs-variable">a</span> <span class="hljs-operator">=</span> nums.get(i);<br>                <span class="hljs-type">double</span> <span class="hljs-variable">b</span> <span class="hljs-operator">=</span> nums.get(j); <br><br>                List&lt;Double&gt; next = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(n-<span class="hljs-number">1</span>);<br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">k</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; k &lt; n; k++)&#123;<br>                    <span class="hljs-keyword">if</span> (k!=i &amp;&amp; k!=j)&#123;<br>                        next.add(nums.get(k));<br>                    &#125;<br>                &#125;<br><br>                <span class="hljs-type">double</span> [] candidates = &#123;<br>                    a + b,<br>                    a - b,<br>                    b - a, <br>                    a * b,<br>                    (Math.abs(b) &gt; EPS) ? (a/b) : Double.NaN,<br>                    (Math.abs(a) &gt; EPS) ? (b/a) : Double.NaN<br>                &#125;;<br><br>                <span class="hljs-keyword">for</span> (<span class="hljs-type">double</span> r : candidates)&#123;<br>                    <span class="hljs-keyword">if</span> (Double.isNaN(r))&#123;<br>                        <span class="hljs-keyword">continue</span>;<br>                    &#125;<br>                    next.add(r);<br>                    <span class="hljs-keyword">if</span> (dfs(next))&#123;<br>                        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>                    &#125;<br>                    next.remove(next.size()-<span class="hljs-number">1</span>);<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -355,7 +369,9 @@
       
         <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
       
-        <a href="/ziliang.github.io/tags/Recursion/" class="print-no-link">#Recursion</a>
+        <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
+      
+        <a href="/ziliang.github.io/tags/Backtracking/" class="print-no-link">#Backtracking</a>
       
     </div>
   
@@ -367,8 +383,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 326 — Power of Three</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</div>
+      <div>LeetCode 679 — 24 Game</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/18/2025-08-18-leetcode679/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +396,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>15 Aug 2025, 22:26</div>
+          <div>18 Aug 2025, 20:14</div>
         </div>
       
       
@@ -412,9 +428,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/" title="LeetCode 2348 — Number of Zero-Filled Subarrays">
+                      <a href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/" title="LeetCode 274 — H-Index">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 2348 — Number of Zero-Filled Subarrays</span>
+                        <span class="hidden-mobile">LeetCode 274 — H-Index</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -422,8 +438,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/" title="LeetCode 231 — Power of Two">
-                        <span class="hidden-mobile">LeetCode 231 — Power of Two</span>
+                      <a href="/ziliang.github.io/2025/08/17/2025-08-17-leetcode837/" title="LeetCode 837 — New 21 Game">
+                        <span class="hidden-mobile">LeetCode 837 — New 21 Game</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
