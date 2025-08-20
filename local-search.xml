@@ -4,6 +4,122 @@
   
   
   <entry>
+    <title>LeetCode 49 — Group Anagrams</title>
+    <link href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode49/"/>
+    <url>/ziliang.github.io/2025/08/20/2025-08-20-leetcode49/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/group-anagrams/description/">Group Anagrams</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is doable if you choose the right approach. Initially, I used the Counter approach to count the occurrences of each letter in each string in the given List. However, that soon exceeded the time limit. The faster way would be to create a Map of sorted string (key) to a list of strings that which sorted, will be the key. For example:</p><ul><li>eat, tea, ate (These strings all belong to the same group.)</li></ul><ol><li>We first sort it into aet (alphabetical order).</li><li>We check if the list is null, if it is, create a new list and add all the strings that have the same key.</li><li>Return the values of the Map.</li></ol><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n · k log k)</em></td><td><em>O(n · k)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> List&lt;List&lt;String&gt;&gt; <span class="hljs-title function_">groupAnagrams</span><span class="hljs-params">(String[] strs)</span> &#123;<br>        Map&lt;String, List&lt;String&gt;&gt; groups = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br><br>        <span class="hljs-keyword">for</span> (String str : strs)&#123;<br>            <span class="hljs-type">char</span>[] ca = str.toCharArray();<br>            Arrays.sort(ca);<br>            <span class="hljs-type">String</span> <span class="hljs-variable">key</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(ca);<br><br>            list = groups.get(key);<br>            <span class="hljs-keyword">if</span> (list == <span class="hljs-literal">null</span>)&#123;<br>                list = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;String&gt;();<br>                groups.put(key, list);<br>            &#125;<br>            list.add(str);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(groups.values());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 242 — Valid Anagram</title>
+    <link href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode242/"/>
+    <url>/ziliang.github.io/2025/08/20/2025-08-20-leetcode242/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/valid-anagram/description/">Valid Anagram</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply need to have a counter for each unique character and compare the 2 counters. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isAnagram</span><span class="hljs-params">(String s, String t)</span> &#123;<br>        Map&lt;Character, Integer&gt; counterS = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : s.toCharArray())&#123;<br>            counterS.put(c, counterS.getOrDefault(c, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        &#125;<br>        Map&lt;Character, Integer&gt; counterT = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> c : t.toCharArray())&#123;<br>            counterT.put(c, counterT.getOrDefault(c, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        &#125;<br>        <span class="hljs-keyword">if</span> (counterS.size() != counterT.size())&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">char</span> key : counterS.keySet())&#123;<br>            <span class="hljs-keyword">if</span> (!Object.equals(counterS.get(key), counterT.get(key)))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1 — Two Sum</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>HashTable</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 217 — Contains Duplicate</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/contains-duplicate/description/">Contains Duplicate</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums array into the HashSet. Finally, we check if the size of the HashSet is equal to the length of the nums. If they are equal, it means there is no duplicate, we return false. Else, we return true. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">containsDuplicate</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>        Set&lt;Integer&gt; numsSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            numsSet.add(nums[i]);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (numsSet.size() != nums.length)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 195 — Tenth Line</title>
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/</url>
@@ -50,6 +166,39 @@
       <tag>Counting Sort</tag>
       
       <tag>Sorting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 108 — Convert Sorted Array into Binary Search Tree</title>
+    <link href="/ziliang.github.io/2025/08/18/2025-08-19-leetcode108/"/>
+    <url>/ziliang.github.io/2025/08/18/2025-08-19-leetcode108/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/description/?envType=study-plan-v2&envId=top-interview-150">Convert Sorted Array into Binary Search Tree</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Since the list is sorted, we have to recursively pick the smaller number from the left and the bigger number from the right. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n<sup>2</sup>)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">sortedArrayToBST</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-keyword">return</span> buildTree(nums, <span class="hljs-number">0</span>, nums.length - <span class="hljs-number">1</span>); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">buildTree</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high)</span>&#123;<br>        <span class="hljs-keyword">if</span>(low &gt; high)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> low + (high - low) / <span class="hljs-number">2</span>; <br>        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(a[mid]); <br>        root.left = buildTree(a, low, mid -<span class="hljs-number">1</span>);<br>        root.right = buildTree(a, mid + <span class="hljs-number">1</span>, high);<br>        <span class="hljs-keyword">return</span> root; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Tree</tag>
+      
+      <tag>Binary Search Tree</tag>
+      
+      <tag>Divide and Conquer</tag>
+      
+      <tag>Binary Tree</tag>
       
     </tags>
     
@@ -134,9 +283,9 @@
     
     <tags>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     

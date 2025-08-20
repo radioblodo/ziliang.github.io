@@ -19,24 +19,28 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Tenth LineDifficulty: Easy  🧠 ApproachThis is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatG">
+    <meta name="description" content="Problem: Convert Sorted Array into Binary Search TreeDifficulty: Easy  🧠 ApproachSince the list is sorted, we have to recursively pick the smaller number from the left and the bigger number from the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 195 — Tenth Line">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/index.html">
+<meta property="og:title" content="LeetCode 108 — Convert Sorted Array into Binary Search Tree">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/18/2025-08-19-leetcode108/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Tenth LineDifficulty: Easy  🧠 ApproachThis is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatG">
+<meta property="og:description" content="Problem: Convert Sorted Array into Binary Search TreeDifficulty: Easy  🧠 ApproachSince the list is sorted, we have to recursively pick the smaller number from the left and the bigger number from the">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-19T02:30:30.000Z">
-<meta property="article:modified_time" content="2025-08-19T02:39:47.815Z">
+<meta property="article:published_time" content="2025-08-18T14:19:25.000Z">
+<meta property="article:modified_time" content="2025-08-20T08:25:11.003Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Shell">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Binary Search Tree">
+<meta property="article:tag" content="Divide and Conquer">
+<meta property="article:tag" content="Binary Tree">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 195 — Tenth Line - Zi Liang · Portfolio</title>
+  <title>LeetCode 108 — Convert Sorted Array into Binary Search Tree - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 195 — Tenth Line</span>
+            <span id="subtitle">LeetCode 108 — Convert Sorted Array into Binary Search Tree</span>
           
         </div>
 
@@ -225,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-19 10:30" pubdate>
-          August 19, 2025
+        <time datetime="2025-08-18 22:19" pubdate>
+          August 18, 2025
         </time>
       </span>
     
@@ -237,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          48 words
+          96 words
         
       </span>
     
@@ -294,20 +298,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 195 — Tenth Line</h1>
+            <h1 id="seo-header">LeetCode 108 — Convert Sorted Array into Binary Search Tree</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/tenth-line/description/">Tenth Line</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/description/?envType=study-plan-v2&envId=top-interview-150">Convert Sorted Array into Binary Search Tree</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is an easy problem and the description is fairly short. I think it’s a either you know it or you don’t know it kind of question. I checked on ChatGPT for the bash command and there are actually several ways to print the line:</p>
-<ul>
-<li><code>sed -n &#39;10p&#39; filename</code></li>
-<li><code>awk &#39;NR==10&#39; filename</code></li>
-<li><code>head -n 10 filename | tail -n 1</code></li>
-<li><code>line=$(sed -n &#39;5p&#39; filename) \n echo &quot;$line&quot;</code></li>
-</ul>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Since the list is sorted, we have to recursively pick the smaller number from the left and the bigger number from the right. </p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -319,12 +317,12 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
+<td><em>O(n<sup>2</sup>)</em></td>
 <td><em>O(n)</em></td>
-<td><em>O(1)</em></td>
 </tr>
 </tbody></table>
 <hr>
-<h2 id="✅-Code-Bash"><a href="#✅-Code-Bash" class="headerlink" title="✅ Code (Bash)"></a>✅ Code (Bash)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># Read from the file file.txt and output the tenth line to stdout.</span><br>sed -n <span class="hljs-string">&quot;10p&quot;</span> file.txt<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for a binary tree node.</span><br><span class="hljs-comment"> * public class TreeNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     TreeNode left;</span><br><span class="hljs-comment"> *     TreeNode right;</span><br><span class="hljs-comment"> *     TreeNode() &#123;&#125;</span><br><span class="hljs-comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span><br><span class="hljs-comment"> *         this.val = val;</span><br><span class="hljs-comment"> *         this.left = left;</span><br><span class="hljs-comment"> *         this.right = right;</span><br><span class="hljs-comment"> *     &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">sortedArrayToBST</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span> &#123;<br>        <span class="hljs-keyword">return</span> buildTree(nums, <span class="hljs-number">0</span>, nums.length - <span class="hljs-number">1</span>); <br>    &#125;<br><br>    <span class="hljs-keyword">public</span> TreeNode <span class="hljs-title function_">buildTree</span><span class="hljs-params">(<span class="hljs-type">int</span>[] a, <span class="hljs-type">int</span> low, <span class="hljs-type">int</span> high)</span>&#123;<br>        <span class="hljs-keyword">if</span>(low &gt; high)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>        &#125;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">mid</span> <span class="hljs-operator">=</span> low + (high - low) / <span class="hljs-number">2</span>; <br>        <span class="hljs-type">TreeNode</span> <span class="hljs-variable">root</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">TreeNode</span>(a[mid]); <br>        root.left = buildTree(a, low, mid -<span class="hljs-number">1</span>);<br>        root.right = buildTree(a, mid + <span class="hljs-number">1</span>, high);<br>        <span class="hljs-keyword">return</span> root; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -358,7 +356,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Shell/" class="print-no-link">#Shell</a>
+        <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
+      
+        <a href="/ziliang.github.io/tags/Tree/" class="print-no-link">#Tree</a>
+      
+        <a href="/ziliang.github.io/tags/Binary-Search-Tree/" class="print-no-link">#Binary Search Tree</a>
+      
+        <a href="/ziliang.github.io/tags/Divide-and-Conquer/" class="print-no-link">#Divide and Conquer</a>
+      
+        <a href="/ziliang.github.io/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
       
     </div>
   
@@ -370,8 +376,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 195 — Tenth Line</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/</div>
+      <div>LeetCode 108 — Convert Sorted Array into Binary Search Tree</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/18/2025-08-19-leetcode108/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +389,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>19 Aug 2025, 10:30</div>
+          <div>18 Aug 2025, 22:19</div>
         </div>
       
       
@@ -415,9 +421,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/" title="LeetCode 217 — Contains Duplicate">
+                      <a href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/" title="LeetCode 274 — H-Index">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 217 — Contains Duplicate</span>
+                        <span class="hidden-mobile">LeetCode 274 — H-Index</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -425,8 +431,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/" title="LeetCode 274 — H-Index">
-                        <span class="hidden-mobile">LeetCode 274 — H-Index</span>
+                      <a href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode679/" title="LeetCode 679 — 24 Game">
+                        <span class="hidden-mobile">LeetCode 679 — 24 Game</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
