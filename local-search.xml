@@ -4,6 +4,116 @@
   
   
   <entry>
+    <title>LeetCode 238 — Product of Array Except Self</title>
+    <link href="/ziliang.github.io/2025/08/28/2025-08-28-leetcode238/"/>
+    <url>/ziliang.github.io/2025/08/28/2025-08-28-leetcode238/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/product-of-array-except-self/description/">Product of Array Except Self</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To not create extra arrays, we need to create only 1 array of size n, where n is the length of the given array.</p><p>Then create a dummy 1 on the left and populate the left pass first, where i &#x3D; 1 to i &lt; n is filled with res[i-1] * nums[i-1]</p><p>Then we do a right pass with a dummy r &#x3D; 1 and res[i] &#x3D; res[i] * r and r is increasinly multiplied by nums[i]</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] productExceptSelf(<span class="hljs-type">int</span>[] nums) &#123;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">n</span> <span class="hljs-operator">=</span> nums.length;<br>        <span class="hljs-type">int</span>[] res = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[n];<br><br>        res[<span class="hljs-number">0</span>] = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; i &lt; n; i++)&#123;<br>            res[i] = res[i-<span class="hljs-number">1</span>] * nums[i-<span class="hljs-number">1</span>];<br>        &#125;<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> n - <span class="hljs-number">1</span>; i &gt;= <span class="hljs-number">0</span>; i--)&#123;<br>            res[i] = res[i] * r;<br>            r *= nums[i];<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>PrefixSum</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 151 — Reverse Words in a String</title>
+    <link href="/ziliang.github.io/2025/08/21/2025-08-21-leetcode151/"/>
+    <url>/ziliang.github.io/2025/08/21/2025-08-21-leetcode151/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Problem-Reverse-Words-in-a-StringDifficulty-Medium"><a href="#Problem-Reverse-Words-in-a-StringDifficulty-Medium" class="headerlink" title="Problem: Reverse Words in a StringDifficulty: Medium"></a><strong>Problem:</strong> <a href="https://leetcode.cn/problems/reverse-words-in-a-string/description/">Reverse Words in a String</a><br><strong>Difficulty:</strong> Medium</h2><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Pretty self-explanatory but a better way to split would be s.split(“\s+”). This will ensure that it will be split regardless of the number of spaces between words. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">reverseWords</span><span class="hljs-params">(String s)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">newString</span> <span class="hljs-operator">=</span> s.strip(); <br>        String[] array = newString.split(<span class="hljs-string">&quot; &quot;</span>);<br>        <span class="hljs-type">StringBuilder</span> <span class="hljs-variable">sb</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> array.length-<span class="hljs-number">1</span>; i&gt;=<span class="hljs-number">0</span>; i--)&#123;<br>            <span class="hljs-keyword">if</span> (array[i].equals(<span class="hljs-string">&quot;&quot;</span>))&#123;<br>                <span class="hljs-keyword">continue</span>; <br>            &#125;<br>            <span class="hljs-keyword">else</span> &#123;<br>                sb.append(array[i]);<br>                sb.append(<span class="hljs-string">&quot; &quot;</span>);<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> sb.toString().strip(); <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 125 — Valid Palindrome</title>
+    <link href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode125/"/>
+    <url>/ziliang.github.io/2025/08/20/2025-08-20-leetcode125/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Problem-Valid-PalindromeDifficulty-Easy"><a href="#Problem-Valid-PalindromeDifficulty-Easy" class="headerlink" title="Problem: Valid PalindromeDifficulty: Easy"></a><strong>Problem:</strong> <a href="https://leetcode.cn/problems/valid-palindrome/description/">Valid Palindrome</a><br><strong>Difficulty:</strong> Easy</h2><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>String in Java is immutable, but we can modify and reassign it to the same variable. We first make the spaces be removed by using <code>.replace(&quot; &quot;, &quot;&quot;)</code>. Then, we convert all characters into lower case. Then we assign a left and a right pointer and iterate through from both ends to check if the characters equal, skipping non-alphanumeric characters along the way by using <code>Character.isLetterOrDigit()</code></p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>        s = s.replace(<span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>        s = s.toLowerCase(); <br>        <span class="hljs-type">char</span>[] ca = s.toCharArray(); <br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> s.length - <span class="hljs-number">1</span>; <br>        <span class="hljs-keyword">while</span> (right &gt; left)&#123;<br>            <span class="hljs-keyword">if</span> (!Character.isLetterOrDigit(ca[left]))&#123;<br>                left += <span class="hljs-number">1</span>; <br>                <span class="hljs-keyword">continue</span>; <br>            &#125;<br>            <span class="hljs-keyword">if</span> (!Character.isLetterOrDigit(ca[right]))&#123;<br>                right -= <span class="hljs-number">1</span>;  <br>                <span class="hljs-keyword">continue</span>; <br>            &#125;<br>            <span class="hljs-keyword">if</span> (!(ca[left]==ca[right]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1277 — Count Square Submatrices with All Ones</title>
+    <link href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode1277/"/>
+    <url>/ziliang.github.io/2025/08/20/2025-08-20-leetcode1277/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Problem-Count-Square-Submatrices-with-All-OnesDifficulty-Medium"><a href="#Problem-Count-Square-Submatrices-with-All-OnesDifficulty-Medium" class="headerlink" title="Problem: Count Square Submatrices with All OnesDifficulty: Medium"></a><strong>Problem:</strong> <a href="https://leetcode.cn/problems/count-square-submatrices-with-all-ones/description/?envType=daily-question&envId=2025-08-20">Count Square Submatrices with All Ones</a><br><strong>Difficulty:</strong> Medium</h2><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This problem involves dynamic programming. We can build a 2D dp array of the same dimension as the matrix passed in. Then we fill in the first row and first column. Whenever there is 1, we add 1 to the result. Once we move inwards to the second row and second column, the largest square that can be formed will depend on the smallest value of the left, top and topleft corner of the current cell. That will be the value in the current cell. In the end, we simply have to sum up all the values in the dp array and return it. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n<sup>2</sup>)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">countSquares</span><span class="hljs-params">(<span class="hljs-type">int</span>[][] matrix)</span> &#123;<br>        <span class="hljs-type">int</span>[][] dp = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[matrix.length][matrix[<span class="hljs-number">0</span>].length];<br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br>        <span class="hljs-comment">// Initialize dp array and count for the first row and column</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; r &lt; matrix.length; r++) &#123;<br>            dp[r][<span class="hljs-number">0</span>] = matrix[r][<span class="hljs-number">0</span>];<br>            total += dp[r][<span class="hljs-number">0</span>];<br>        &#125;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; c &lt; matrix[<span class="hljs-number">0</span>].length; c++) &#123;<br>            dp[<span class="hljs-number">0</span>][c] = matrix[<span class="hljs-number">0</span>][c];<br>            total += dp[<span class="hljs-number">0</span>][c];<br>        &#125;<br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; r &lt; matrix.length; r++)&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; c &lt; matrix[<span class="hljs-number">0</span>].length; c++)&#123;<br>                <span class="hljs-keyword">if</span> (matrix[r][c] == <span class="hljs-number">0</span>)&#123;<br>                    dp[r][c] = <span class="hljs-number">0</span>;<br>                &#125;<br>                <span class="hljs-keyword">else</span>&#123;<br>                    dp[r][c] = Math.min(dp[r][c-<span class="hljs-number">1</span>], Math.min(dp[r-<span class="hljs-number">1</span>][c], dp[r-<span class="hljs-number">1</span>][c-<span class="hljs-number">1</span>]))+<span class="hljs-number">1</span>;<br>                &#125;<br>            &#125;<br>        &#125;<br><br>        <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">r</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; r &lt; dp.length; r++)&#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">c</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>; c &lt; dp[<span class="hljs-number">0</span>].length; c++)&#123;<br>                total += dp[r][c];<br>            &#125;<br>        &#125;<br>        <br>        <span class="hljs-keyword">return</span> total; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Matrix</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 49 — Group Anagrams</title>
     <link href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode49/"/>
     <url>/ziliang.github.io/2025/08/20/2025-08-20-leetcode49/</url>
@@ -22,9 +132,9 @@
       
       <tag>Array</tag>
       
-      <tag>Sorting</tag>
-      
       <tag>HashTable</tag>
+      
+      <tag>Sorting</tag>
       
       <tag>String</tag>
       
@@ -51,11 +161,40 @@
     
     <tags>
       
+      <tag>HashTable</tag>
+      
       <tag>Sorting</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 217 — Contains Duplicate</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/contains-duplicate/description/">Contains Duplicate</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums array into the HashSet. Finally, we check if the size of the HashSet is equal to the length of the nums. If they are equal, it means there is no duplicate, we return false. Else, we return true. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">containsDuplicate</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>        Set&lt;Integer&gt; numsSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            numsSet.add(nums[i]);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (numsSet.size() != nums.length)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
       
       <tag>HashTable</tag>
       
-      <tag>String</tag>
+      <tag>Sorting</tag>
       
     </tags>
     
@@ -91,35 +230,6 @@
   
   
   <entry>
-    <title>LeetCode 217 — Contains Duplicate</title>
-    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
-    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/contains-duplicate/description/">Contains Duplicate</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums array into the HashSet. Finally, we check if the size of the HashSet is equal to the length of the nums. If they are equal, it means there is no duplicate, we return false. Else, we return true. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">containsDuplicate</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>        Set&lt;Integer&gt; numsSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            numsSet.add(nums[i]);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (numsSet.size() != nums.length)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
-      
-      <tag>Sorting</tag>
-      
-      <tag>HashTable</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>LeetCode 195 — Tenth Line</title>
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/</url>
@@ -137,35 +247,6 @@
     <tags>
       
       <tag>Shell</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 274 — H-Index</title>
-    <link href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/"/>
-    <url>/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/h-index/description/?envType=study-plan-v2&envId=top-interview-150">H-Index</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The key to solving this problem is to understand the definition of h-index.<br>h-index &#x3D; The h-index is the largest integer h such that at least h publications each have ≥ h citations.</p><p>Knowing this, we just have to sort the numbers in ascending order. Then for each citation, we find the min(citation count, number of papers with &gt;&#x3D; citation count). Return the max at the end. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hIndex</span><span class="hljs-params">(<span class="hljs-type">int</span>[] citations)</span> &#123;<br>        Arrays.sort(citations);<br>        List&lt;Integer&gt; hIndexes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; citations.length; i++)&#123;<br>            hIndexes.add(Math.min(citations[i],citations.length - i));<br>        &#125;<br>        Collections.sort(hIndexes);<br>        <span class="hljs-keyword">return</span> hIndexes.get(hIndexes.size()-<span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
-      
-      <tag>Counting Sort</tag>
-      
-      <tag>Sorting</tag>
       
     </tags>
     
@@ -199,6 +280,35 @@
       <tag>Divide and Conquer</tag>
       
       <tag>Binary Tree</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 274 — H-Index</title>
+    <link href="/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/"/>
+    <url>/ziliang.github.io/2025/08/18/2025-08-18-leetcode274/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/h-index/description/?envType=study-plan-v2&envId=top-interview-150">H-Index</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The key to solving this problem is to understand the definition of h-index.<br>h-index &#x3D; The h-index is the largest integer h such that at least h publications each have ≥ h citations.</p><p>Knowing this, we just have to sort the numbers in ascending order. Then for each citation, we find the min(citation count, number of papers with &gt;&#x3D; citation count). Return the max at the end. </p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">hIndex</span><span class="hljs-params">(<span class="hljs-type">int</span>[] citations)</span> &#123;<br>        Arrays.sort(citations);<br>        List&lt;Integer&gt; hIndexes = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;(); <br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; citations.length; i++)&#123;<br>            hIndexes.add(Math.min(citations[i],citations.length - i));<br>        &#125;<br>        Collections.sort(hIndexes);<br>        <span class="hljs-keyword">return</span> hIndexes.get(hIndexes.size()-<span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sorting</tag>
+      
+      <tag>Counting Sort</tag>
       
     </tags>
     
@@ -283,9 +393,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -495,6 +605,35 @@
   
   
   <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -522,35 +661,6 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
       
     </tags>
     
