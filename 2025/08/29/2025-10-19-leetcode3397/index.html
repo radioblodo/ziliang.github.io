@@ -19,31 +19,26 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.I built GringottsBot, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reportin">
+    <meta name="description" content="Problem: Maximum Number of Distinct Elements After OperationsDifficulty: Medium  🧠 ApproachWe need to sort the numbers in ascending order so that we can always pick the leftmost unused number in the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GringottsBot – A Telegram Bot for Smart Expense Tracking">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/index.html">
+<meta property="og:title" content="LeetCode 3397 — Maximum Number of Distinct Elements After Operations">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/29/2025-10-19-leetcode3397/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.I built GringottsBot, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reportin">
+<meta property="og:description" content="Problem: Maximum Number of Distinct Elements After OperationsDifficulty: Medium  🧠 ApproachWe need to sort the numbers in ascending order so that we can always pick the leftmost unused number in the">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://radioblodo.github.io/ziliang.github.io/img/gringottsbot-demo.gif">
-<meta property="article:published_time" content="2025-06-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:32:04.137Z">
+<meta property="article:published_time" content="2025-08-28T16:02:20.000Z">
+<meta property="article:modified_time" content="2025-10-19T07:36:33.464Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Telegram Bot">
-<meta property="article:tag" content="MySQL">
-<meta property="article:tag" content="Automation">
-<meta property="article:tag" content="Finance">
-<meta property="article:tag" content="Gringotts">
+<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Sorting">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://radioblodo.github.io/ziliang.github.io/img/gringottsbot-demo.gif">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>GringottsBot – A Telegram Bot for Smart Expense Tracking - Zi Liang · Portfolio</title>
+  <title>LeetCode 3397 — Maximum Number of Distinct Elements After Operations - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">GringottsBot – A Telegram Bot for Smart Expense Tracking</span>
+            <span id="subtitle">LeetCode 3397 — Maximum Number of Distinct Elements After Operations</span>
           
         </div>
 
@@ -232,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-21 00:00" pubdate>
-          June 21, 2025
+        <time datetime="2025-08-29 00:02" pubdate>
+          August 29, 2025
         </time>
       </span>
     
@@ -244,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          36 words
+          152 words
         
       </span>
     
@@ -255,7 +250,7 @@
         
         
         
-          1 mins
+          2 mins
         
       </span>
     
@@ -301,56 +296,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">GringottsBot – A Telegram Bot for Smart Expense Tracking</h1>
+            <h1 id="seo-header">LeetCode 3397 — Maximum Number of Distinct Elements After Operations</h1>
             
             
               <div class="markdown-body">
                 
-                <p>💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.<br>I built <strong>GringottsBot</strong>, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reporting your expenses in real time.</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/maximum-number-of-distinct-elements-after-operations/description/?envType=daily-question&envId=2025-10-18">Maximum Number of Distinct Elements After Operations</a><br><strong>Difficulty:</strong> Medium</p>
 <hr>
-<h2 id="🤖-What-GringottsBot-Does"><a href="#🤖-What-GringottsBot-Does" class="headerlink" title="🤖 What GringottsBot Does"></a>🤖 What GringottsBot Does</h2><ul>
-<li>Accepts commands like <code>/start</code>, <code>/settimezone</code>, and uses rich <strong>inline keyboards</strong></li>
-<li>Stores and retrieves data from a <strong>MySQL</strong> database (persistent)</li>
-<li>Automatically <strong>categorizes expenses</strong> and supports <strong>monthly reports</strong></li>
-<li>Exports to <strong>PDF</strong></li>
-<li>Shows <strong>statistics</strong> like category breakdowns and trends</li>
-<li>Handles <strong>time zones</strong> for accurate logging</li>
-</ul>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We need to sort the numbers in ascending order so that we can always pick the leftmost unused number in the range. The overall range for the input array <code>[a...b]</code> is <code>[a-k...b+k]</code>. For repeated numbers, since they are sorted, for example, <code>[4,4,4,4,5]</code>, we can keep track of the already ‘taken’ number by using the <code>max_number</code> we have seen so far.</p>
+<p>For example, <code>[4,4,4,4,5]</code> and <code>k=2</code>.<br>The left will be 4 - 2 &#x3D; 2 and the right will be 4 + 2 &#x3D; 6<br>The first distinct element will be max(-inf, 2), which will be 2.<br><code>[2]</code><br>We have seen 2, so the next free would be 3.<br>The second distinct element will be max(3, 2) since the left remains at 4 - 2 &#x3D; 2.<br><code>[2,3]</code><br>We have seen 3, so the next free would be 4.<br>The third distinct element we have will be max(4, 2) since the left remains at 4 - 2 &#x3D; 2<br><code>[2,3,4]</code><br>We have seen 4, so the next free would be 5.<br>The fourth distinct element will be max(5, 2) since the left remains at 4 - 2 &#x3D; 2<br><code>[2,3,4,5]</code><br>We have seen 5, so the next free would be 6.<br>The fifth distinct element will be max(6, 6) because the left got updated to 5 - 2 &#x3D; 3.<br>The thing to note is that for the input number 5, it could be mapped to any number [3,7] but because 6 was not yet mapped to by the 4 previously, 6 will be allocated to be mapped to by 5. This is the greediness part of this algorithm.<br>The final output array will be <code>[2,3,4,5,6]</code>. Hence, the maximum number of distinct elements will be 5.</p>
 <hr>
-<h2 id="⚙️-Tech-Stack"><a href="#⚙️-Tech-Stack" class="headerlink" title="⚙️ Tech Stack"></a>⚙️ Tech Stack</h2><table>
+<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
 <tr>
-<th>Layer</th>
-<th>Tools Used</th>
+<th></th>
+<th>Time</th>
+<th>Space</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>🧠 Bot Logic</td>
-<td>Python + <code>python-telegram-bot</code></td>
-</tr>
-<tr>
-<td>🗃️ Data</td>
-<td>MySQL</td>
-</tr>
-<tr>
-<td>📄 Reports</td>
-<td><code>pandas</code>, <code>matplotlib</code>, <code>fpdf</code></td>
-</tr>
-<tr>
-<td>🌐 Hosting</td>
-<td>PythonAnywhere (24&#x2F;7 uptime)</td>
+<td>Solution</td>
+<td><em>O(nlogn)</em></td>
+<td><em>O(1)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="📸-Bot-in-Action"><a href="#📸-Bot-in-Action" class="headerlink" title="📸 Bot in Action"></a>📸 Bot in Action</h2><p><img src="/ziliang.github.io/img/gringottsbot-demo.gif" srcset="/ziliang.github.io/img/loading.gif" lazyload alt="GringottsBot Demo"></p>
-<hr>
-<h2 id="What-I-Learned"><a href="#What-I-Learned" class="headerlink" title="What I Learned"></a>What I Learned</h2><ul>
-<li>Designing and implementing a <strong>stateful</strong> Telegram bot</li>
-<li>Setting up <strong>persistent storage</strong> with MySQL (FKs, indexes)</li>
-<li>Working with <strong>inline keyboards</strong>, command handlers, and conversation flows</li>
-<li>Generating <strong>Excel&#x2F;PDF</strong> reports programmatically</li>
-<li>Managing <strong>user sessions</strong>, time zones, and robust error handling</li>
-</ul>
+<h2 id="We-have-O-nlogn-for-the-time-complexity-of-performing-sorting-when-we-use-Timsort-in-place-sorting-algorithm-As-for-space-we-didn’t-have-to-use-any-extra-space-since-it-was-in-place-sorting-hence-it-will-be-O-1"><a href="#We-have-O-nlogn-for-the-time-complexity-of-performing-sorting-when-we-use-Timsort-in-place-sorting-algorithm-As-for-space-we-didn’t-have-to-use-any-extra-space-since-it-was-in-place-sorting-hence-it-will-be-O-1" class="headerlink" title="We have O(nlogn) for the time complexity of performing sorting when we use Timsort in-place sorting algorithm. As for space, we didn’t have to use any extra space since it was in-place sorting, hence it will be O(1)."></a>We have O(nlogn) for the time complexity of performing sorting when we use Timsort in-place sorting algorithm. As for space, we didn’t have to use any extra space since it was in-place sorting, hence it will be O(1).</h2><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDistinctElements</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        nums.sort()<br>        next_free = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;-inf&#x27;</span>)<br>        count = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> nums:<br>            left = n - k<br>            right = n + k<br>            x = <span class="hljs-built_in">max</span>(next_free, left)<br>            <span class="hljs-keyword">if</span> x &lt;= right:<br>                count += <span class="hljs-number">1</span><br>                next_free = x + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> count<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -369,7 +339,7 @@
     
       <span class="category-chain">
         
-  <a href="/ziliang.github.io/categories/Projects/" class="category-chain-item">Projects</a>
+  <a href="/ziliang.github.io/categories/LeetCode/" class="category-chain-item">LeetCode</a>
   
   
 
@@ -384,17 +354,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/ziliang.github.io/tags/Greedy/" class="print-no-link">#Greedy</a>
       
-        <a href="/ziliang.github.io/tags/Telegram-Bot/" class="print-no-link">#Telegram Bot</a>
+        <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/ziliang.github.io/tags/MySQL/" class="print-no-link">#MySQL</a>
-      
-        <a href="/ziliang.github.io/tags/Automation/" class="print-no-link">#Automation</a>
-      
-        <a href="/ziliang.github.io/tags/Finance/" class="print-no-link">#Finance</a>
-      
-        <a href="/ziliang.github.io/tags/Gringotts/" class="print-no-link">#Gringotts</a>
+        <a href="/ziliang.github.io/tags/Sorting/" class="print-no-link">#Sorting</a>
       
     </div>
   
@@ -406,8 +370,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GringottsBot – A Telegram Bot for Smart Expense Tracking</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</div>
+      <div>LeetCode 3397 — Maximum Number of Distinct Elements After Operations</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/29/2025-10-19-leetcode3397/</div>
     </div>
     <div class="license-meta">
       
@@ -419,7 +383,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>21 Jun 2025, 00:00</div>
+          <div>29 Aug 2025, 00:02</div>
         </div>
       
       
@@ -451,9 +415,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/" title="SafeLink Scanner – A Flutter App to Detect Malicious URLs">
+                      <a href="/ziliang.github.io/2025/08/29/2025-08-29-leetcode3/" title="LeetCode 3 — Longest Substring Without Repeating Character">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SafeLink Scanner – A Flutter App to Detect Malicious URLs</span>
+                        <span class="hidden-mobile">LeetCode 3 — Longest Substring Without Repeating Character</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -461,8 +425,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/06/20/2025-06-20-mdpapp/" title="Building the MDP Android Remote: Lessons in Embedded Systems, Bluetooth, and Team Collaboration">
-                        <span class="hidden-mobile">Building the MDP Android Remote: Lessons in Embedded Systems, Bluetooth, and Team Collaboration</span>
+                      <a href="/ziliang.github.io/2025/08/28/2025-08-28-leetcode238/" title="LeetCode 238 — Product of Array Except Self">
+                        <span class="hidden-mobile">LeetCode 238 — Product of Array Except Self</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -473,6 +437,37 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://personal-blog-comments.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"en","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
 
           </article>
         </div>
