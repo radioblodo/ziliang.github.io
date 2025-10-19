@@ -4,9 +4,36 @@
   
   
   <entry>
+    <title>LeetCode 56 — Merge Intervals</title>
+    <link href="/ziliang.github.io/2025/10/20/2025-10-20-leetcode56/"/>
+    <url>/ziliang.github.io/2025/10/20/2025-10-20-leetcode56/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/merge-intervals/description/">Merge Intervals</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The approach is simple. We have to sort <code>intervals</code> based on the first value. To do this, we can use the lambda function in either <code>sorted()</code> or <code>sort()</code>. In terms of space efficiency, it would be better to use <code>sort()</code> since it is in-place sorting. After we have sorted intervals, we can use 2 pointers to point to 2 intervals and use a helper function to check if the one on the right overlaps with the one on the left, for example, <code>[1,2]</code>, <code>[2,3]</code>, if it does, we simple change the last value of the interval on the left to the last value of the interval on the right. In the case that the last value of the interval on the left is larger than the last value of the interval on the right, we simply pop off the interval on the right and <strong>not</strong> increase our right pointer. In other cases, we increase both our left and right pointers.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nm)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>We have O(nm) for the time complexity because we have a while-loop through the n number of intervals and in the helper function, we potentially have to compare m number of elements in the interval on the right and hence that would be O(nm). As for space, we didn’t have to use any extra space since it was in-place sorting, hence it will be O(1).</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isOverlap</span>(<span class="hljs-params">self, intervalOne: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], intervalTwo: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>):<br>        <span class="hljs-keyword">for</span> number <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(intervalOne[<span class="hljs-number">0</span>], intervalOne[<span class="hljs-number">1</span>]+<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> number <span class="hljs-keyword">in</span> <span class="hljs-built_in">list</span>(<span class="hljs-built_in">range</span>(intervalTwo[<span class="hljs-number">0</span>], intervalTwo[<span class="hljs-number">1</span>]+<span class="hljs-number">1</span>)):<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">merge</span>(<span class="hljs-params">self, intervals: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]:<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(intervals) == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> intervals<br><br>        intervals.sort(key=<span class="hljs-keyword">lambda</span> x: x[<span class="hljs-number">0</span>])<br>        <span class="hljs-comment"># left pointer</span><br>        left = <span class="hljs-number">0</span><br>        <span class="hljs-comment"># right pointer</span><br>        right = <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">while</span> right &lt; <span class="hljs-built_in">len</span>(intervals):<br>            <span class="hljs-keyword">if</span> <span class="hljs-variable language_">self</span>.isOverlap(intervals[right], intervals[left]):<br>                <span class="hljs-keyword">if</span> (intervals[left][<span class="hljs-number">1</span>] &lt; intervals[right][<span class="hljs-number">1</span>]):<br>                    intervals[left][<span class="hljs-number">1</span>] = intervals[right][<span class="hljs-number">1</span>]<br>                intervals.pop(right)<br>            <span class="hljs-keyword">else</span>:<br>                left += <span class="hljs-number">1</span><br>                right += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> intervals<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sorting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 3397 — Maximum Number of Distinct Elements After Operations</title>
-    <link href="/ziliang.github.io/2025/08/29/2025-10-19-leetcode3397/"/>
-    <url>/ziliang.github.io/2025/08/29/2025-10-19-leetcode3397/</url>
+    <link href="/ziliang.github.io/2025/10/19/2025-10-19-leetcode3397/"/>
+    <url>/ziliang.github.io/2025/10/19/2025-10-19-leetcode3397/</url>
     
     <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/maximum-number-of-distinct-elements-after-operations/description/?envType=daily-question&envId=2025-10-18">Maximum Number of Distinct Elements After Operations</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We need to sort the numbers in ascending order so that we can always pick the leftmost unused number in the range. The overall range for the input array <code>[a...b]</code> is <code>[a-k...b+k]</code>. For repeated numbers, since they are sorted, for example, <code>[4,4,4,4,5]</code>, we can keep track of the already ‘taken’ number by using the <code>max_number</code> we have seen so far.</p><p>For example, <code>[4,4,4,4,5]</code> and <code>k=2</code>.<br>The left will be 4 - 2 &#x3D; 2 and the right will be 4 + 2 &#x3D; 6<br>The first distinct element will be max(-inf, 2), which will be 2.<br><code>[2]</code><br>We have seen 2, so the next free would be 3.<br>The second distinct element will be max(3, 2) since the left remains at 4 - 2 &#x3D; 2.<br><code>[2,3]</code><br>We have seen 3, so the next free would be 4.<br>The third distinct element we have will be max(4, 2) since the left remains at 4 - 2 &#x3D; 2<br><code>[2,3,4]</code><br>We have seen 4, so the next free would be 5.<br>The fourth distinct element will be max(5, 2) since the left remains at 4 - 2 &#x3D; 2<br><code>[2,3,4,5]</code><br>We have seen 5, so the next free would be 6.<br>The fifth distinct element will be max(6, 3) because the left got updated to 5 - 2 &#x3D; 3.<br>The thing to note is that for the input number 5, it could be mapped to any number [3,7] but because 6 was not yet mapped to by the 4 previously, 6 will be allocated to be mapped to by 5. This is the greediness part of this algorithm.<br>The final output array will be <code>[2,3,4,5,6]</code>. Hence, the maximum number of distinct elements will be 5.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>We have O(nlogn) for the time complexity of performing sorting when we use Timsort in-place sorting algorithm. As for space, we didn’t have to use any extra space since it was in-place sorting, hence it will be O(1).</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">maxDistinctElements</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        nums.sort()<br>        next_free = <span class="hljs-built_in">float</span>(<span class="hljs-string">&#x27;-inf&#x27;</span>)<br>        count = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> nums:<br>            left = n - k<br>            right = n + k<br>            x = <span class="hljs-built_in">max</span>(next_free, left)<br>            <span class="hljs-keyword">if</span> x &lt;= right:<br>                count += <span class="hljs-number">1</span><br>                next_free = x + <span class="hljs-number">1</span><br>        <span class="hljs-keyword">return</span> count<br></code></pre></td></tr></table></figure>]]></content>
     
@@ -105,9 +132,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -132,9 +159,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -159,9 +186,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
       <tag>Matrix</tag>
       
@@ -451,9 +478,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
