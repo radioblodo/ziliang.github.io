@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode 2583 — Kth Largest Sum in a Binary Tree</title>
+    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2583/"/>
+    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2583/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/description/">Kth Largest Sum in a Binary Tree</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This problem is about Breadth-First search to calculate the level sum for each level. The thing to remember is to use a for-loop to pop off each node in the current level. After we have obtained the level sum for each level, we can use the in-place sorting algorithm provided by Timsort again. Then we can simply return the value at len(level_sum) - k since that is the Kth largest level sum.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><p>The time complexity of BFS algorithm on a binary tree is <em>O(n)</em>. As for space, we made use of extra space for the deque object to contain n number of nodes as well as the extra list to store the level<em>sum. That would be _O(n)</em> as well.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">kthLargestLevelSum</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Create a deque object</span><br>        q = deque()<br><br>        <span class="hljs-comment"># Enqueue the root node</span><br>        q.append([root, root.val])<br><br>        level_sum = []<br>        <span class="hljs-comment"># Use a while-loop to perform bfs</span><br>        <span class="hljs-keyword">while</span> q:<br>            current_sum = <span class="hljs-number">0</span><br>            level_size = <span class="hljs-built_in">len</span>(q)<br><br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(level_size):<br>                node, value = q.popleft()<br>                current_sum += value<br>                <span class="hljs-keyword">if</span> node.left:<br>                    q.append([node.left, node.left.val])<br>                <span class="hljs-keyword">if</span> node.right:<br>                    q.append([node.right, node.right.val])<br><br>            level_sum.append(current_sum)<br><br>        <span class="hljs-comment"># Sort the level sums in ascending order</span><br>        level_sum.sort()<br><br>        <span class="hljs-comment"># Return the kth largest level sum by taking k-1</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(level_sum) &lt; k:<br>            <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> level_sum[<span class="hljs-built_in">len</span>(level_sum) - k]<br><br><br><br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Sorting</tag>
+      
+      <tag>Tree</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Breadth-First Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 2706 — Buy Two Chocolates</title>
     <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/"/>
     <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/</url>
@@ -53,9 +84,9 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>Depth-First Search</tag>
-      
       <tag>Breadth-First Search</tag>
+      
+      <tag>Depth-First Search</tag>
       
     </tags>
     
