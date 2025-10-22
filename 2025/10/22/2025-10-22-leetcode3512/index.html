@@ -19,26 +19,25 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Buy Two ChocolatesDifficulty: Easy  🧠 ApproachThis is a simple solution once we realise what we are doing. Essentially, imagine you have x amount of money and you walk into a candy shop. You">
+    <meta name="description" content="Problem: Minimum Operations to Make Array Sum Divisible by KDifficulty: Easy  🧠 ApproachWe simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 2706 — Buy Two Chocolates">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/index.html">
+<meta property="og:title" content="LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Buy Two ChocolatesDifficulty: Easy  🧠 ApproachThis is a simple solution once we realise what we are doing. Essentially, imagine you have x amount of money and you walk into a candy shop. You">
+<meta property="og:description" content="Problem: Minimum Operations to Make Array Sum Divisible by KDifficulty: Easy  🧠 ApproachWe simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtra">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-10-22T06:33:27.000Z">
-<meta property="article:modified_time" content="2025-10-22T06:38:25.584Z">
+<meta property="article:modified_time" content="2025-10-22T07:39:31.806Z">
 <meta property="article:author" content="Zi Liang">
+<meta property="article:tag" content="Math">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Greedy">
-<meta property="article:tag" content="Sorting">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 2706 — Buy Two Chocolates - Zi Liang · Portfolio</title>
+  <title>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +215,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 2706 — Buy Two Chocolates</span>
+            <span id="subtitle">LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</span>
           
         </div>
 
@@ -239,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          73 words
+          27 words
         
       </span>
     
@@ -296,14 +295,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 2706 — Buy Two Chocolates</h1>
+            <h1 id="seo-header">LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/buy-two-chocolates/description/">Buy Two Chocolates</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/buy-two-chocolates/description/">Minimum Operations to Make Array Sum Divisible by K</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a simple solution once we realise what we are doing. Essentially, imagine you have <code>x</code> amount of money and you walk into a candy shop. Your goal is to buy 2 choclate bars, regardless of the flavor or the texture. Naturally, you would want to go to the section that has the cheapest chocolate bars. Hence, we sort the prices in ascending order. If our money &gt;&#x3D; prices[0] + prices[1], we can afford to buy the 2 cheapest chocolate bars, else, if we cannot even afford to buy these 2, there really isn’t a point for us to check prices[1] + prices[2] anymore.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtraction operations we have to perform to get to a number that is wholly divisible by k.</p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -315,12 +314,12 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(nlogn)</em></td>
+<td><em>O(1)</em></td>
 <td><em>O(1)</em></td>
 </tr>
 </tbody></table>
-<p>Here we are using Timsort, a sorting algorithm written by guess who? Tim Peters of course. The worst case time complexity would be <em>O(nlogn)</em>. <em>O(1)</em> for space since no extra space is required.</p>
-<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">buyChoco</span>(<span class="hljs-params">self, prices: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Sort the given prices array in ascending order in-place</span><br>        prices.sort()<br><br>        <span class="hljs-comment"># Check if money &gt;= prices[0] + prices[1]</span><br>        <span class="hljs-keyword">return</span> money - prices[<span class="hljs-number">0</span>] - prices[<span class="hljs-number">1</span>] <span class="hljs-keyword">if</span> (prices[<span class="hljs-number">0</span>] + prices[<span class="hljs-number">1</span>]) &lt;= money <span class="hljs-keyword">else</span> money<br></code></pre></td></tr></table></figure>
+<p>Modulo is <em>O(1)</em>. We did not use extra space either.</p>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minOperations</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(nums) % k<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -354,11 +353,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
+      
         <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
-      
-        <a href="/ziliang.github.io/tags/Greedy/" class="print-no-link">#Greedy</a>
-      
-        <a href="/ziliang.github.io/tags/Sorting/" class="print-no-link">#Sorting</a>
       
     </div>
   
@@ -370,8 +367,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 2706 — Buy Two Chocolates</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/</div>
+      <div>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/</div>
     </div>
     <div class="license-meta">
       
@@ -415,9 +412,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2583/" title="LeetCode 2583 — Kth Largest Sum in a Binary Tree">
+                      <a href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/" title="LeetCode 2706 — Buy Two Chocolates">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 2583 — Kth Largest Sum in a Binary Tree</span>
+                        <span class="hidden-mobile">LeetCode 2706 — Buy Two Chocolates</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -425,8 +422,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/" title="LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K">
-                        <span class="hidden-mobile">LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</span>
+                      <a href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode404/" title="LeetCode 404 — Sum of Left Leaves">
+                        <span class="hidden-mobile">LeetCode 404 — Sum of Left Leaves</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

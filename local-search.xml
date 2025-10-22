@@ -4,6 +4,35 @@
   
   
   <entry>
+    <title>LeetCode 1433 — Check If a String Can Break Another String</title>
+    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode1433/"/>
+    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode1433/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/check-if-a-string-can-break-another-string/description/">Check If a String Can Break Another String</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The main idea to tackle this problem is to use the minimally possible letter from s1 to fight against the minimally possible letter from s2. Hence we can sort the two strings and compare letter by letter. We can have 2 boolean flags, <code>flag1</code> and <code>flag2</code> that are both initially True, which means we assume that s1 can break s2 and s2 can break s1. Then as we iterate, if we find a letter from s2 that is bigger than a letter from s1, we set <code>flag1</code> to False and likewise for <code>flag2</code>. Finally, we return <code>flag1</code> or <code>flag2</code> since so long as either s1 or s2 can break the other string, we can return True.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><p>We created extra copy of s1 and s2 when we use <code>sorted()</code> since it is not in-place sorting. We also have 2 for-loops which result in the final time complexity to be <em>O(n)</em>.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">checkIfCanBreak</span>(<span class="hljs-params">self, s1: <span class="hljs-built_in">str</span>, s2: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># Arrange both strings to be in alphabetically ascending order</span><br>        s1 = <span class="hljs-string">&#x27;&#x27;</span>.join(<span class="hljs-built_in">sorted</span>(s1))<br>        s2 = <span class="hljs-string">&#x27;&#x27;</span>.join(<span class="hljs-built_in">sorted</span>(s2))<br><br>        <span class="hljs-comment"># Slice at the position where both strings have the same letters</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s1)):<br>            <span class="hljs-keyword">if</span> s1[i] == s2[i]:<br>                <span class="hljs-keyword">continue</span><br>            <span class="hljs-keyword">else</span>:<br>                s1 = <span class="hljs-built_in">sorted</span>(s1[i:])<br>                s2 = <span class="hljs-built_in">sorted</span>(s2[i:])<br>                <span class="hljs-keyword">break</span><br><br>        <span class="hljs-comment"># Iterate through the remaining string and compare character by character</span><br>        flag1 = <span class="hljs-literal">True</span> <span class="hljs-comment"># assume s1 can break s2</span><br>        flag2 = <span class="hljs-literal">True</span> <span class="hljs-comment"># assume s2 can break s1</span><br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s1)):<br>            <span class="hljs-keyword">if</span> <span class="hljs-built_in">ord</span>(s1[j]) &lt; <span class="hljs-built_in">ord</span>(s2[j]):<br>                flag1 = <span class="hljs-literal">False</span><br>            <span class="hljs-keyword">elif</span> <span class="hljs-built_in">ord</span>(s2[j]) &lt; <span class="hljs-built_in">ord</span>(s1[j]):<br>                flag2 = <span class="hljs-literal">False</span><br><br>        <span class="hljs-keyword">return</span> flag1 <span class="hljs-keyword">or</span> flag2<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Greedy</tag>
+      
+      <tag>Sorting</tag>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 2583 — Kth Largest Sum in a Binary Tree</title>
     <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2583/"/>
     <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2583/</url>
@@ -56,6 +85,33 @@
       <tag>Greedy</tag>
       
       <tag>Sorting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</title>
+    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/"/>
+    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/buy-two-chocolates/description/">Minimum Operations to Make Array Sum Divisible by K</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtraction operations we have to perform to get to a number that is wholly divisible by k.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(1)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>Modulo is <em>O(1)</em>. We did not use extra space either.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minOperations</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(nums) % k<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
