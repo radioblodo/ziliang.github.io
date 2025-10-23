@@ -19,31 +19,28 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.I built GringottsBot, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reportin">
+    <meta name="description" content="Problem: Check If Digits Are Equal in String After Operations IDifficulty: Easy  🧠 ApproachWe only need to follow the simulation.  ⏱️ Complexity    Time Space    Solution O(n2) O(n)   The for-loop is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="GringottsBot – A Telegram Bot for Smart Expense Tracking">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/index.html">
+<meta property="og:title" content="LeetCode 3461 — Check If Digits Are Equal in String After Operations I">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/10/23/2025-10-23-leetcode3461/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.I built GringottsBot, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reportin">
+<meta property="og:description" content="Problem: Check If Digits Are Equal in String After Operations IDifficulty: Easy  🧠 ApproachWe only need to follow the simulation.  ⏱️ Complexity    Time Space    Solution O(n2) O(n)   The for-loop is">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://radioblodo.github.io/ziliang.github.io/img/gringottsbot-demo.gif">
-<meta property="article:published_time" content="2025-06-20T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:32:04.137Z">
+<meta property="article:published_time" content="2025-10-23T04:14:27.000Z">
+<meta property="article:modified_time" content="2025-10-23T04:20:19.677Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="Telegram Bot">
-<meta property="article:tag" content="MySQL">
-<meta property="article:tag" content="Automation">
-<meta property="article:tag" content="Finance">
-<meta property="article:tag" content="Gringotts">
+<meta property="article:tag" content="Math">
+<meta property="article:tag" content="String">
+<meta property="article:tag" content="Simulation">
+<meta property="article:tag" content="Combinatorics">
+<meta property="article:tag" content="Number Theory">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://radioblodo.github.io/ziliang.github.io/img/gringottsbot-demo.gif">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>GringottsBot – A Telegram Bot for Smart Expense Tracking - Zi Liang · Portfolio</title>
+  <title>LeetCode 3461 — Check If Digits Are Equal in String After Operations I - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -221,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">GringottsBot – A Telegram Bot for Smart Expense Tracking</span>
+            <span id="subtitle">LeetCode 3461 — Check If Digits Are Equal in String After Operations I</span>
           
         </div>
 
@@ -232,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-21 00:00" pubdate>
-          June 21, 2025
+        <time datetime="2025-10-23 12:14" pubdate>
+          October 23, 2025
         </time>
       </span>
     
@@ -244,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          36 words
+          56 words
         
       </span>
     
@@ -301,56 +298,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">GringottsBot – A Telegram Bot for Smart Expense Tracking</h1>
+            <h1 id="seo-header">LeetCode 3461 — Check If Digits Are Equal in String After Operations I</h1>
             
             
               <div class="markdown-body">
                 
-                <p>💰 Managing personal expenses shouldn’t feel like battling a dragon in Gringotts.<br>I built <strong>GringottsBot</strong>, a Telegram bot that acts like a personal goblin accountant — tracking, categorizing, and reporting your expenses in real time.</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/check-if-digits-are-equal-in-string-after-operations-i/description/">Check If Digits Are Equal in String After Operations I</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🤖-What-GringottsBot-Does"><a href="#🤖-What-GringottsBot-Does" class="headerlink" title="🤖 What GringottsBot Does"></a>🤖 What GringottsBot Does</h2><ul>
-<li>Accepts commands like <code>/start</code>, <code>/settimezone</code>, and uses rich <strong>inline keyboards</strong></li>
-<li>Stores and retrieves data from a <strong>MySQL</strong> database (persistent)</li>
-<li>Automatically <strong>categorizes expenses</strong> and supports <strong>monthly reports</strong></li>
-<li>Exports to <strong>PDF</strong></li>
-<li>Shows <strong>statistics</strong> like category breakdowns and trends</li>
-<li>Handles <strong>time zones</strong> for accurate logging</li>
-</ul>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We only need to follow the simulation.</p>
 <hr>
-<h2 id="⚙️-Tech-Stack"><a href="#⚙️-Tech-Stack" class="headerlink" title="⚙️ Tech Stack"></a>⚙️ Tech Stack</h2><table>
+<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
 <tr>
-<th>Layer</th>
-<th>Tools Used</th>
+<th></th>
+<th>Time</th>
+<th>Space</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>🧠 Bot Logic</td>
-<td>Python + <code>python-telegram-bot</code></td>
-</tr>
-<tr>
-<td>🗃️ Data</td>
-<td>MySQL</td>
-</tr>
-<tr>
-<td>📄 Reports</td>
-<td><code>pandas</code>, <code>matplotlib</code>, <code>fpdf</code></td>
-</tr>
-<tr>
-<td>🌐 Hosting</td>
-<td>PythonAnywhere (24&#x2F;7 uptime)</td>
+<td>Solution</td>
+<td><em>O(n<sup>2</sup>)</em></td>
+<td><em>O(n)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="📸-Bot-in-Action"><a href="#📸-Bot-in-Action" class="headerlink" title="📸 Bot in Action"></a>📸 Bot in Action</h2><p><img src="/ziliang.github.io/img/gringottsbot-demo.gif" srcset="/ziliang.github.io/img/loading.gif" lazyload alt="GringottsBot Demo"></p>
-<hr>
-<h2 id="What-I-Learned"><a href="#What-I-Learned" class="headerlink" title="What I Learned"></a>What I Learned</h2><ul>
-<li>Designing and implementing a <strong>stateful</strong> Telegram bot</li>
-<li>Setting up <strong>persistent storage</strong> with MySQL (FKs, indexes)</li>
-<li>Working with <strong>inline keyboards</strong>, command handlers, and conversation flows</li>
-<li>Generating <strong>Excel&#x2F;PDF</strong> reports programmatically</li>
-<li>Managing <strong>user sessions</strong>, time zones, and robust error handling</li>
-</ul>
+<p>The for-loop is <em>O(n)</em>. The while-loop cause the for-loop to be ran n times, hence <em>O(n<sup>2</sup>)</em>. We have a new string variable called <code>s2</code>.</p>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasSameDigits</span>(<span class="hljs-params">self, s: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        s2 = <span class="hljs-string">&quot;&quot;</span><br><br>        <span class="hljs-keyword">while</span> <span class="hljs-built_in">len</span>(s) &gt; <span class="hljs-number">2</span>:<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(s)-<span class="hljs-number">1</span>):<br>                s2 += <span class="hljs-built_in">str</span>((<span class="hljs-built_in">int</span>(s[i]) + <span class="hljs-built_in">int</span>(s[i+<span class="hljs-number">1</span>])) % <span class="hljs-number">10</span> )<br><br>            s = s2<br>            s2 = <span class="hljs-string">&quot;&quot;</span><br><br>        <span class="hljs-keyword">if</span> s[<span class="hljs-number">0</span>] == s[<span class="hljs-number">1</span>]:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -369,7 +341,7 @@
     
       <span class="category-chain">
         
-  <a href="/ziliang.github.io/categories/Projects/" class="category-chain-item">Projects</a>
+  <a href="/ziliang.github.io/categories/LeetCode/" class="category-chain-item">LeetCode</a>
   
   
 
@@ -384,17 +356,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Python/" class="print-no-link">#Python</a>
+        <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
       
-        <a href="/ziliang.github.io/tags/Telegram-Bot/" class="print-no-link">#Telegram Bot</a>
+        <a href="/ziliang.github.io/tags/String/" class="print-no-link">#String</a>
       
-        <a href="/ziliang.github.io/tags/MySQL/" class="print-no-link">#MySQL</a>
+        <a href="/ziliang.github.io/tags/Simulation/" class="print-no-link">#Simulation</a>
       
-        <a href="/ziliang.github.io/tags/Automation/" class="print-no-link">#Automation</a>
+        <a href="/ziliang.github.io/tags/Combinatorics/" class="print-no-link">#Combinatorics</a>
       
-        <a href="/ziliang.github.io/tags/Finance/" class="print-no-link">#Finance</a>
-      
-        <a href="/ziliang.github.io/tags/Gringotts/" class="print-no-link">#Gringotts</a>
+        <a href="/ziliang.github.io/tags/Number-Theory/" class="print-no-link">#Number Theory</a>
       
     </div>
   
@@ -406,8 +376,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>GringottsBot – A Telegram Bot for Smart Expense Tracking</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</div>
+      <div>LeetCode 3461 — Check If Digits Are Equal in String After Operations I</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/10/23/2025-10-23-leetcode3461/</div>
     </div>
     <div class="license-meta">
       
@@ -419,7 +389,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>21 Jun 2025, 00:00</div>
+          <div>23 Oct 2025, 12:14</div>
         </div>
       
       
@@ -451,18 +421,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/" title="SafeLink Scanner – A Flutter App to Detect Malicious URLs">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SafeLink Scanner – A Flutter App to Detect Malicious URLs</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/06/20/2025-06-20-mdpapp/" title="Building the MDP Android Remote: Lessons in Embedded Systems, Bluetooth, and Team Collaboration">
-                        <span class="hidden-mobile">Building the MDP Android Remote: Lessons in Embedded Systems, Bluetooth, and Team Collaboration</span>
+                      <a href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode1433/" title="LeetCode 1433 — Check If a String Can Break Another String">
+                        <span class="hidden-mobile">LeetCode 1433 — Check If a String Can Break Another String</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -473,6 +437,37 @@
             </div>
 
             
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://personal-blog-comments.vercel.app","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"en","emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
 
           </article>
         </div>
