@@ -4,6 +4,39 @@
   
   
   <entry>
+    <title>LeetCode 2048 — Next Greater Numerically Balanced Number</title>
+    <link href="/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/"/>
+    <url>/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/description/">Kth Largest Sum in a Binary Tree</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Just take a look at this brute force solution. It can’t be any more intuitive.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">nextBeautifulNumber</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        balanced_nums = [<span class="hljs-number">1</span>, <span class="hljs-number">22</span>, <span class="hljs-number">122</span>, <span class="hljs-number">212</span>, <span class="hljs-number">221</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1333</span>, <span class="hljs-number">3133</span>, <span class="hljs-number">3313</span>, <span class="hljs-number">3331</span>, <span class="hljs-number">4444</span>, <span class="hljs-number">14444</span>, <span class="hljs-number">22333</span>, <span class="hljs-number">23233</span>, <span class="hljs-number">23323</span>, <span class="hljs-number">23332</span>, <span class="hljs-number">32233</span>, <span class="hljs-number">32323</span>, <span class="hljs-number">32332</span>, <span class="hljs-number">32323</span>, <span class="hljs-number">33223</span>, <span class="hljs-number">33232</span>, <span class="hljs-number">33322</span>, <span class="hljs-number">41444</span>, <span class="hljs-number">44144</span>, <span class="hljs-number">44414</span>, <span class="hljs-number">44441</span>, <span class="hljs-number">55555</span>, <span class="hljs-number">122333</span>, <span class="hljs-number">123233</span>, <span class="hljs-number">123323</span>, <span class="hljs-number">123332</span>, <span class="hljs-number">132233</span>, <span class="hljs-number">132323</span>, <span class="hljs-number">132332</span>, <span class="hljs-number">133223</span>, <span class="hljs-number">133232</span>, <span class="hljs-number">133322</span>, <span class="hljs-number">155555</span>, <span class="hljs-number">212333</span>, <span class="hljs-number">213233</span>, <span class="hljs-number">213323</span>, <span class="hljs-number">213332</span>, <span class="hljs-number">221333</span>, <span class="hljs-number">223133</span>, <span class="hljs-number">223313</span>, <span class="hljs-number">223331</span>, <span class="hljs-number">224444</span>, <span class="hljs-number">231233</span>, <span class="hljs-number">231323</span>, <span class="hljs-number">231332</span>, <span class="hljs-number">232133</span>, <span class="hljs-number">232313</span>, <span class="hljs-number">232331</span>, <span class="hljs-number">233123</span>, <span class="hljs-number">233132</span>, <span class="hljs-number">233213</span>, <span class="hljs-number">233231</span>, <span class="hljs-number">233312</span>, <span class="hljs-number">233321</span>, <span class="hljs-number">242444</span>, <span class="hljs-number">244244</span>, <span class="hljs-number">244424</span>, <span class="hljs-number">244442</span>, <span class="hljs-number">312233</span>, <span class="hljs-number">312323</span>, <span class="hljs-number">312233</span>, <span class="hljs-number">312332</span>, <span class="hljs-number">313223</span>, <span class="hljs-number">313232</span>, <span class="hljs-number">313322</span>, <span class="hljs-number">321233</span>, <span class="hljs-number">321323</span>, <span class="hljs-number">321332</span>, <span class="hljs-number">322133</span>, <span class="hljs-number">322313</span>, <span class="hljs-number">322331</span>, <span class="hljs-number">323123</span>, <span class="hljs-number">323132</span>, <span class="hljs-number">323213</span>, <span class="hljs-number">323231</span>, <span class="hljs-number">323312</span>, <span class="hljs-number">323321</span>, <span class="hljs-number">331223</span>, <span class="hljs-number">331232</span>, <span class="hljs-number">331322</span>, <span class="hljs-number">332123</span>, <span class="hljs-number">332132</span>, <span class="hljs-number">332213</span>, <span class="hljs-number">332231</span>, <span class="hljs-number">332312</span>, <span class="hljs-number">332321</span>, <span class="hljs-number">333122</span>, <span class="hljs-number">333212</span>, <span class="hljs-number">333221</span>, <span class="hljs-number">422444</span>, <span class="hljs-number">424244</span>, <span class="hljs-number">424424</span>, <span class="hljs-number">424442</span>, <span class="hljs-number">442244</span>, <span class="hljs-number">442424</span>, <span class="hljs-number">442442</span>, <span class="hljs-number">444224</span>, <span class="hljs-number">444242</span>, <span class="hljs-number">444422</span>, <span class="hljs-number">515555</span>, <span class="hljs-number">551555</span>, <span class="hljs-number">555155</span>, <span class="hljs-number">555515</span>, <span class="hljs-number">555551</span>, <span class="hljs-number">666666</span>, <span class="hljs-number">1224444</span>, <span class="hljs-number">1242444</span>, <span class="hljs-number">1244244</span>, <span class="hljs-number">1244424</span>, <span class="hljs-number">1244442</span>, <span class="hljs-number">1422444</span>, <span class="hljs-number">1424244</span>, <span class="hljs-number">1424424</span>, <span class="hljs-number">1424442</span>, <span class="hljs-number">1442244</span>, <span class="hljs-number">1442424</span>, <span class="hljs-number">1442442</span>, <span class="hljs-number">1444224</span>, <span class="hljs-number">1444242</span>, <span class="hljs-number">1444422</span>, <span class="hljs-number">1666666</span>, <span class="hljs-number">7777777</span>]<br>        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> balanced_nums:<br>            <span class="hljs-keyword">if</span> num &gt; n:<br>                <span class="hljs-keyword">return</span> num<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Backtracking</tag>
+      
+      <tag>Hash Table</tag>
+      
+      <tag>Counting</tag>
+      
+      <tag>Enumeration</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 3461 — Check If Digits Are Equal in String After Operations I</title>
     <link href="/ziliang.github.io/2025/10/23/2025-10-23-leetcode3461/"/>
     <url>/ziliang.github.io/2025/10/23/2025-10-23-leetcode3461/</url>
@@ -53,9 +86,9 @@
     
     <tags>
       
-      <tag>Sorting</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Sorting</tag>
       
       <tag>String</tag>
       
@@ -113,11 +146,11 @@
     
     <tags>
       
+      <tag>Greedy</tag>
+      
       <tag>Array</tag>
       
       <tag>Sorting</tag>
-      
-      <tag>Greedy</tag>
       
     </tags>
     
@@ -283,11 +316,11 @@
     
     <tags>
       
+      <tag>Greedy</tag>
+      
       <tag>Array</tag>
       
       <tag>Sorting</tag>
-      
-      <tag>Greedy</tag>
       
     </tags>
     
@@ -495,6 +528,33 @@
   
   
   <entry>
+    <title>LeetCode 1 — Two Sum</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>HashTable</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 217 — Contains Duplicate</title>
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
@@ -514,33 +574,6 @@
       <tag>Array</tag>
       
       <tag>Sorting</tag>
-      
-      <tag>HashTable</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 1 — Two Sum</title>
-    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
-    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
       
       <tag>HashTable</tag>
       
@@ -795,9 +828,9 @@
     
     <tags>
       
-      <tag>Recursion</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Recursion</tag>
       
     </tags>
     
@@ -822,11 +855,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -851,11 +884,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -926,35 +959,6 @@
   
   
   <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -982,6 +986,35 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
       
     </tags>
     

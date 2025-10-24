@@ -19,25 +19,28 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+    <meta name="description" content="Problem: Kth Largest Sum in a Binary TreeDifficulty: Medium  🧠 ApproachJust take a look at this brute force solution. It can’t be any more intuitive.  ⏱️ Complexity    Time Space    Solution O(n) O(n">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 326 — Power of Three">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/index.html">
+<meta property="og:title" content="LeetCode 2048 — Next Greater Numerically Balanced Number">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+<meta property="og:description" content="Problem: Kth Largest Sum in a Binary TreeDifficulty: Medium  🧠 ApproachJust take a look at this brute force solution. It can’t be any more intuitive.  ⏱️ Complexity    Time Space    Solution O(n) O(n">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-15T14:26:30.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:26:26.553Z">
+<meta property="article:published_time" content="2025-10-24T14:43:16.000Z">
+<meta property="article:modified_time" content="2025-10-24T14:44:10.078Z">
 <meta property="article:author" content="Zi Liang">
 <meta property="article:tag" content="Math">
-<meta property="article:tag" content="Recursion">
+<meta property="article:tag" content="Backtracking">
+<meta property="article:tag" content="Hash Table">
+<meta property="article:tag" content="Counting">
+<meta property="article:tag" content="Enumeration">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 326 — Power of Three - Zi Liang · Portfolio</title>
+  <title>LeetCode 2048 — Next Greater Numerically Balanced Number - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +218,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 326 — Power of Three</span>
+            <span id="subtitle">LeetCode 2048 — Next Greater Numerically Balanced Number</span>
           
         </div>
 
@@ -226,8 +229,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-15 22:26" pubdate>
-          August 15, 2025
+        <time datetime="2025-10-24 22:43" pubdate>
+          October 24, 2025
         </time>
       </span>
     
@@ -238,7 +241,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 words
+          153 words
         
       </span>
     
@@ -249,7 +252,7 @@
         
         
         
-          1 mins
+          2 mins
         
       </span>
     
@@ -295,14 +298,14 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 326 — Power of Three</h1>
+            <h1 id="seo-header">LeetCode 2048 — Next Greater Numerically Balanced Number</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/power-of-three/description/?envType=daily-question&envId=2025-08-13">Power of Three</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/kth-largest-sum-in-a-binary-tree/description/">Kth Largest Sum in a Binary Tree</a><br><strong>Difficulty:</strong> Medium</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 3&#x2F;3 &#x3D;&#x3D; 1, then we return true.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Just take a look at this brute force solution. It can’t be any more intuitive.</p>
 <hr>
 <h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -314,12 +317,11 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(log<sub>3</sub> n)</em></td>
-<td><em>O(log<sub>3</sub> n)</em></td>
+<td><em>O(n)</em></td>
+<td><em>O(n)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;   <span class="hljs-comment">// 3^0 = 1</span><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span> || n % <span class="hljs-number">3</span> != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfThree(n / <span class="hljs-number">3</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">nextBeautifulNumber</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        balanced_nums = [<span class="hljs-number">1</span>, <span class="hljs-number">22</span>, <span class="hljs-number">122</span>, <span class="hljs-number">212</span>, <span class="hljs-number">221</span>, <span class="hljs-number">333</span>, <span class="hljs-number">1333</span>, <span class="hljs-number">3133</span>, <span class="hljs-number">3313</span>, <span class="hljs-number">3331</span>, <span class="hljs-number">4444</span>, <span class="hljs-number">14444</span>, <span class="hljs-number">22333</span>, <span class="hljs-number">23233</span>, <span class="hljs-number">23323</span>, <span class="hljs-number">23332</span>, <span class="hljs-number">32233</span>, <span class="hljs-number">32323</span>, <span class="hljs-number">32332</span>, <span class="hljs-number">32323</span>, <span class="hljs-number">33223</span>, <span class="hljs-number">33232</span>, <span class="hljs-number">33322</span>, <span class="hljs-number">41444</span>, <span class="hljs-number">44144</span>, <span class="hljs-number">44414</span>, <span class="hljs-number">44441</span>, <span class="hljs-number">55555</span>, <span class="hljs-number">122333</span>, <span class="hljs-number">123233</span>, <span class="hljs-number">123323</span>, <span class="hljs-number">123332</span>, <span class="hljs-number">132233</span>, <span class="hljs-number">132323</span>, <span class="hljs-number">132332</span>, <span class="hljs-number">133223</span>, <span class="hljs-number">133232</span>, <span class="hljs-number">133322</span>, <span class="hljs-number">155555</span>, <span class="hljs-number">212333</span>, <span class="hljs-number">213233</span>, <span class="hljs-number">213323</span>, <span class="hljs-number">213332</span>, <span class="hljs-number">221333</span>, <span class="hljs-number">223133</span>, <span class="hljs-number">223313</span>, <span class="hljs-number">223331</span>, <span class="hljs-number">224444</span>, <span class="hljs-number">231233</span>, <span class="hljs-number">231323</span>, <span class="hljs-number">231332</span>, <span class="hljs-number">232133</span>, <span class="hljs-number">232313</span>, <span class="hljs-number">232331</span>, <span class="hljs-number">233123</span>, <span class="hljs-number">233132</span>, <span class="hljs-number">233213</span>, <span class="hljs-number">233231</span>, <span class="hljs-number">233312</span>, <span class="hljs-number">233321</span>, <span class="hljs-number">242444</span>, <span class="hljs-number">244244</span>, <span class="hljs-number">244424</span>, <span class="hljs-number">244442</span>, <span class="hljs-number">312233</span>, <span class="hljs-number">312323</span>, <span class="hljs-number">312233</span>, <span class="hljs-number">312332</span>, <span class="hljs-number">313223</span>, <span class="hljs-number">313232</span>, <span class="hljs-number">313322</span>, <span class="hljs-number">321233</span>, <span class="hljs-number">321323</span>, <span class="hljs-number">321332</span>, <span class="hljs-number">322133</span>, <span class="hljs-number">322313</span>, <span class="hljs-number">322331</span>, <span class="hljs-number">323123</span>, <span class="hljs-number">323132</span>, <span class="hljs-number">323213</span>, <span class="hljs-number">323231</span>, <span class="hljs-number">323312</span>, <span class="hljs-number">323321</span>, <span class="hljs-number">331223</span>, <span class="hljs-number">331232</span>, <span class="hljs-number">331322</span>, <span class="hljs-number">332123</span>, <span class="hljs-number">332132</span>, <span class="hljs-number">332213</span>, <span class="hljs-number">332231</span>, <span class="hljs-number">332312</span>, <span class="hljs-number">332321</span>, <span class="hljs-number">333122</span>, <span class="hljs-number">333212</span>, <span class="hljs-number">333221</span>, <span class="hljs-number">422444</span>, <span class="hljs-number">424244</span>, <span class="hljs-number">424424</span>, <span class="hljs-number">424442</span>, <span class="hljs-number">442244</span>, <span class="hljs-number">442424</span>, <span class="hljs-number">442442</span>, <span class="hljs-number">444224</span>, <span class="hljs-number">444242</span>, <span class="hljs-number">444422</span>, <span class="hljs-number">515555</span>, <span class="hljs-number">551555</span>, <span class="hljs-number">555155</span>, <span class="hljs-number">555515</span>, <span class="hljs-number">555551</span>, <span class="hljs-number">666666</span>, <span class="hljs-number">1224444</span>, <span class="hljs-number">1242444</span>, <span class="hljs-number">1244244</span>, <span class="hljs-number">1244424</span>, <span class="hljs-number">1244442</span>, <span class="hljs-number">1422444</span>, <span class="hljs-number">1424244</span>, <span class="hljs-number">1424424</span>, <span class="hljs-number">1424442</span>, <span class="hljs-number">1442244</span>, <span class="hljs-number">1442424</span>, <span class="hljs-number">1442442</span>, <span class="hljs-number">1444224</span>, <span class="hljs-number">1444242</span>, <span class="hljs-number">1444422</span>, <span class="hljs-number">1666666</span>, <span class="hljs-number">7777777</span>]<br>        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> balanced_nums:<br>            <span class="hljs-keyword">if</span> num &gt; n:<br>                <span class="hljs-keyword">return</span> num<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -355,7 +357,13 @@
       
         <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
       
-        <a href="/ziliang.github.io/tags/Recursion/" class="print-no-link">#Recursion</a>
+        <a href="/ziliang.github.io/tags/Backtracking/" class="print-no-link">#Backtracking</a>
+      
+        <a href="/ziliang.github.io/tags/Hash-Table/" class="print-no-link">#Hash Table</a>
+      
+        <a href="/ziliang.github.io/tags/Counting/" class="print-no-link">#Counting</a>
+      
+        <a href="/ziliang.github.io/tags/Enumeration/" class="print-no-link">#Enumeration</a>
       
     </div>
   
@@ -367,8 +375,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 326 — Power of Three</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</div>
+      <div>LeetCode 2048 — Next Greater Numerically Balanced Number</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +388,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>15 Aug 2025, 22:26</div>
+          <div>24 Oct 2025, 22:43</div>
         </div>
       
       
@@ -412,18 +420,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/" title="LeetCode 2348 — Number of Zero-Filled Subarrays">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 2348 — Number of Zero-Filled Subarrays</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/" title="LeetCode 231 — Power of Two">
-                        <span class="hidden-mobile">LeetCode 231 — Power of Two</span>
+                      <a href="/ziliang.github.io/2025/10/23/2025-10-23-leetcode3461/" title="LeetCode 3461 — Check If Digits Are Equal in String After Operations I">
+                        <span class="hidden-mobile">LeetCode 3461 — Check If Digits Are Equal in String After Operations I</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
