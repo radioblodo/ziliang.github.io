@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>LeetCode 1716 — Calculate Money in LeetCode Bank</title>
+    <link href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode1716/"/>
+    <url>/ziliang.github.io/2025/10/25/2025-10-25-leetcode1716/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/calculate-money-in-leetcode-bank/description/">Calculate Money in LeetCode Bank</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply need to simulate the rule of the game. We use <code>i</code> to simulate the number of days we have and <code>j</code> to simulate the starting amount we start at the beginning of each week. After a week has completed, we reset <code>j = j - i + 1</code>, which is 8 - 7 + 1, 9 - 7 + 1 and so on. Then, we return the <code>totalMoney</code> accumulated.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>The inner loop runs up to 7 days while the outer loop runs ceil(n&#x2F;7) so the overall time complexity is <em>O(7)</em> * <em>O(ceil(n&#x2F;7))</em> which is <em>O(n)</em>. We did not use any extra data structure to store anything, so the space complexity is <em>O(1)</em>.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">totalMoney</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        totalMoney = <span class="hljs-number">0</span><br>        j = <span class="hljs-number">1</span><br>        <span class="hljs-keyword">while</span> n &gt; <span class="hljs-number">0</span>:<br>            i = <span class="hljs-number">0</span><br>            <span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">7</span> <span class="hljs-keyword">and</span> i &lt; n:<br>                totalMoney += j<br>                j += <span class="hljs-number">1</span><br>                i += <span class="hljs-number">1</span><br>            j -= (i-<span class="hljs-number">1</span>)<br>            n -= i<br><br>        <span class="hljs-keyword">return</span> totalMoney<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 2048 — Next Greater Numerically Balanced Number</title>
     <link href="/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/"/>
     <url>/ziliang.github.io/2025/10/24/2025-10-24-leetcode2048/</url>
@@ -455,9 +480,9 @@
     
     <tags>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Matrix</tag>
       
@@ -747,9 +772,9 @@
     
     <tags>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Dynamic Programming</tag>
       
     </tags>
     
@@ -828,9 +853,9 @@
     
     <tags>
       
-      <tag>Math</tag>
-      
       <tag>Recursion</tag>
+      
+      <tag>Math</tag>
       
     </tags>
     
@@ -855,11 +880,11 @@
     
     <tags>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
     </tags>
     
@@ -884,11 +909,11 @@
     
     <tags>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
     </tags>
     
