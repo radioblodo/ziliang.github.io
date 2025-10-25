@@ -19,25 +19,26 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+    <meta name="description" content="Problem: Tree, Depth-First Search, Breadth-First Search, Binary TreeDifficulty: Easy  🧠 ApproachWe just need to use BFS. As soon as we found a leaf node, a node with no left and right child nodes, th">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 326 — Power of Three">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/index.html">
+<meta property="og:title" content="LeetCode 111 — Minimum Depth of Binary Tree">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/10/25/2025-10-25-leetcode111/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Power of ThreeDifficulty: Easy  🧠 ApproachTo determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n">
+<meta property="og:description" content="Problem: Tree, Depth-First Search, Breadth-First Search, Binary TreeDifficulty: Easy  🧠 ApproachWe just need to use BFS. As soon as we found a leaf node, a node with no left and right child nodes, th">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-15T14:26:30.000Z">
-<meta property="article:modified_time" content="2025-08-16T02:26:26.553Z">
+<meta property="article:published_time" content="2025-10-25T14:24:16.000Z">
+<meta property="article:modified_time" content="2025-10-25T14:28:24.208Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Math">
-<meta property="article:tag" content="Recursion">
+<meta property="article:tag" content="Tree">
+<meta property="article:tag" content="Binary Tree">
+<meta property="article:tag" content="Breadth-First Search">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 326 — Power of Three - Zi Liang · Portfolio</title>
+  <title>LeetCode 111 — Minimum Depth of Binary Tree - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 326 — Power of Three</span>
+            <span id="subtitle">LeetCode 111 — Minimum Depth of Binary Tree</span>
           
         </div>
 
@@ -226,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-15 22:26" pubdate>
-          August 15, 2025
+        <time datetime="2025-10-25 22:24" pubdate>
+          October 25, 2025
         </time>
       </span>
     
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          44 words
+          108 words
         
       </span>
     
@@ -295,16 +296,21 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 326 — Power of Three</h1>
+            <h1 id="seo-header">LeetCode 111 — Minimum Depth of Binary Tree</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/power-of-three/description/?envType=daily-question&envId=2025-08-13">Power of Three</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-depth-of-binary-tree/description/">Tree, Depth-First Search, Breadth-First Search, Binary Tree</a><br><strong>Difficulty:</strong> Easy</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To determine if a number is a power of 3, we just need to use recursion to recursively divide n by 3. If it ever gets below 0 or if the modulo of n is ever not 0, then we can return false, else wait till 3&#x2F;3 &#x3D;&#x3D; 1, then we return true.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We just need to use BFS. As soon as we found a leaf node, a node with no left and right child nodes, that means we have reached the leaf node and we can return the depth at that level.</p>
 <hr>
-<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
+<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>Time Complexity: O(n)</p>
+<p>Each node in the tree is visited exactly once. The operations within the loop (append, popleft) for the deque are O(1). For n nodes, we perform O(1) work for each node</p>
+<p>Space Complexity: O(w)</p>
+<p>Where w is the maximum width of the binary tree. The queue will store at most w nodes at any given time. In the worst case (complete binary tree), the maximum width could be n&#x2F;2, making it O(n). The result list res stores all n values but this is considered output space</p>
+<hr>
+<h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -314,12 +320,11 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(log<sub>3</sub> n)</em></td>
-<td><em>O(log<sub>3</sub> n)</em></td>
+<td><em>O(n)</em></td>
+<td><em>O(n)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPowerOfThree</span><span class="hljs-params">(<span class="hljs-type">int</span> n)</span> &#123;<br>        <span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;   <span class="hljs-comment">// 3^0 = 1</span><br>        <span class="hljs-keyword">if</span> (n &lt;= <span class="hljs-number">0</span> || n % <span class="hljs-number">3</span> != <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>        <span class="hljs-keyword">return</span> isPowerOfThree(n / <span class="hljs-number">3</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque<br><br><span class="hljs-comment"># Definition for a binary tree node.</span><br><span class="hljs-comment"># class TreeNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, left=None, right=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.left = left</span><br><span class="hljs-comment">#         self.right = right</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minDepth</span>(<span class="hljs-params">self, root: <span class="hljs-type">Optional</span>[TreeNode]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> root == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>        minDepth = <span class="hljs-number">1</span><br><br>        <span class="hljs-comment"># Create a deque object</span><br>        q = deque()<br><br>        <span class="hljs-comment"># Put the root node into the deque</span><br>        q.append(root)<br><br>        <span class="hljs-keyword">while</span>(q):<br>            n = <span class="hljs-built_in">len</span>(q)<br>            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                node = q.popleft()<br>                <span class="hljs-keyword">if</span> node.left == <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> node.right == <span class="hljs-literal">None</span>:<br>                    <span class="hljs-keyword">return</span> minDepth<br><br>                <span class="hljs-keyword">if</span> node.left:<br>                    q.append(node.left)<br>                <span class="hljs-keyword">if</span> node.right:<br>                    q.append(node.right)<br>            minDepth += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> minDepth<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -353,9 +358,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
+        <a href="/ziliang.github.io/tags/Tree/" class="print-no-link">#Tree</a>
       
-        <a href="/ziliang.github.io/tags/Recursion/" class="print-no-link">#Recursion</a>
+        <a href="/ziliang.github.io/tags/Binary-Tree/" class="print-no-link">#Binary Tree</a>
+      
+        <a href="/ziliang.github.io/tags/Breadth-First-Search/" class="print-no-link">#Breadth-First Search</a>
       
     </div>
   
@@ -367,8 +374,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 326 — Power of Three</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/15/2025-08-13-leetcode326/</div>
+      <div>LeetCode 111 — Minimum Depth of Binary Tree</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/10/25/2025-10-25-leetcode111/</div>
     </div>
     <div class="license-meta">
       
@@ -380,7 +387,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>15 Aug 2025, 22:26</div>
+          <div>25 Oct 2025, 22:24</div>
         </div>
       
       
@@ -412,18 +419,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/16/2025-08-19-leetcode2348/" title="LeetCode 2348 — Number of Zero-Filled Subarrays">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 2348 — Number of Zero-Filled Subarrays</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/15/2025-08-16-leetcode231/" title="LeetCode 231 — Power of Two">
-                        <span class="hidden-mobile">LeetCode 231 — Power of Two</span>
+                      <a href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode102/" title="LeetCode 102 — Binary Tree Level Order Traversal">
+                        <span class="hidden-mobile">LeetCode 102 — Binary Tree Level Order Traversal</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
