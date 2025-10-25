@@ -4,6 +4,68 @@
   
   
   <entry>
+    <title>LeetCode 3034 — Number of Subarrays That Match a Pattern I</title>
+    <link href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode3034/"/>
+    <url>/ziliang.github.io/2025/10/25/2025-10-25-leetcode3034/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/number-of-subarrays-that-match-a-pattern-i/description/">Number of Subarrays That Match a Pattern I</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is the more intuitive solution where we keep a list of subarrays and simply use the pattern to check whether each subarray matches the requirements of the pattern.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n<sup>2</sup>)</em></td><td><em>O(n)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">countMatchingSubarrays</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], pattern: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Get the length of the pattern</span><br>        n = <span class="hljs-built_in">len</span>(pattern)<br><br>        <span class="hljs-comment"># Get the subarrays of length n + 1</span><br>        subarrays = <span class="hljs-built_in">list</span>()<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)-n):<br>            subarrays.append(nums[i:i+n+<span class="hljs-number">1</span>])<br><br>        <span class="hljs-comment"># Check each subarray</span><br>        count = <span class="hljs-number">0</span><br>        flag = <span class="hljs-literal">True</span><br>        <span class="hljs-keyword">for</span> subarray <span class="hljs-keyword">in</span> subarrays:<br>            flag = <span class="hljs-literal">True</span><br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(n):<br>                <span class="hljs-keyword">if</span> pattern[j] == <span class="hljs-number">1</span>:<br>                    <span class="hljs-keyword">if</span> subarray[j] &lt; subarray[j+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">continue</span><br>                    <span class="hljs-keyword">else</span>:<br>                        flag = <span class="hljs-literal">False</span><br>                        <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">elif</span> pattern[j] == <span class="hljs-number">0</span>:<br>                    <span class="hljs-keyword">if</span> subarray[j] == subarray[j+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">continue</span><br>                    <span class="hljs-keyword">else</span>:<br>                        flag = <span class="hljs-literal">False</span><br>                        <span class="hljs-keyword">break</span><br>                <span class="hljs-keyword">else</span>:<br>                    <span class="hljs-keyword">if</span> subarray[j] &gt; subarray[j+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">continue</span><br>                    <span class="hljs-keyword">else</span>:<br>                        flag = <span class="hljs-literal">False</span><br>                        <span class="hljs-keyword">break</span><br>            <span class="hljs-keyword">if</span> flag:<br>                count += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> count<br><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Rolling Hash</tag>
+      
+      <tag>String Matching</tag>
+      
+      <tag>Hash Function</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1894 — Find the Student that will Replace the Chalk</title>
+    <link href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode1894/"/>
+    <url>/ziliang.github.io/2025/10/25/2025-10-25-leetcode1894/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/find-the-student-that-will-replace-the-chalk/">Find the Student that will Replace the Chalk</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We just need to find the number of complete rounds the chalk can go round from head to toe. Then, with the remainder chalk, we start distributing from the first student at index 0 again, until we find the student at index i that does not have enough chalk to go round, we return i.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">chalkReplacer</span>(<span class="hljs-params">self, chalk: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(chalk) == <span class="hljs-number">1</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span><br><br>        <span class="hljs-comment"># Use modulo to find the remainder portion of chalk available</span><br>        remainder = k % <span class="hljs-built_in">sum</span>(chalk)<br><br>        <span class="hljs-comment"># Use a while-loop to find the first student that needs a replacement</span><br>        i = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> remainder &gt; <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">if</span> remainder &gt;= chalk[i]:<br>                remainder -= chalk[i]<br>                i += <span class="hljs-number">1</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> i<br><br>        <span class="hljs-keyword">return</span> i<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Simulation</tag>
+      
+      <tag>Binary Search</tag>
+      
+      <tag>Prefix Sum</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 1716 — Calculate Money in LeetCode Bank</title>
     <link href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode1716/"/>
     <url>/ziliang.github.io/2025/10/25/2025-10-25-leetcode1716/</url>
@@ -111,9 +173,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
       <tag>String</tag>
       
@@ -155,35 +217,6 @@
   
   
   <entry>
-    <title>LeetCode 2706 — Buy Two Chocolates</title>
-    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/"/>
-    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/buy-two-chocolates/description/">Buy Two Chocolates</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a simple solution once we realise what we are doing. Essentially, imagine you have <code>x</code> amount of money and you walk into a candy shop. Your goal is to buy 2 choclate bars, regardless of the flavor or the texture. Naturally, you would want to go to the section that has the cheapest chocolate bars. Hence, we sort the prices in ascending order. If our money &gt;&#x3D; prices[0] + prices[1], we can afford to buy the 2 cheapest chocolate bars, else, if we cannot even afford to buy these 2, there really isn’t a point for us to check prices[1] + prices[2] anymore.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>Here we are using Timsort, a sorting algorithm written by guess who? Tim Peters of course. The worst case time complexity would be <em>O(nlogn)</em>. <em>O(1)</em> for space since no extra space is required.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">buyChoco</span>(<span class="hljs-params">self, prices: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Sort the given prices array in ascending order in-place</span><br>        prices.sort()<br><br>        <span class="hljs-comment"># Check if money &gt;= prices[0] + prices[1]</span><br>        <span class="hljs-keyword">return</span> money - prices[<span class="hljs-number">0</span>] - prices[<span class="hljs-number">1</span>] <span class="hljs-keyword">if</span> (prices[<span class="hljs-number">0</span>] + prices[<span class="hljs-number">1</span>]) &lt;= money <span class="hljs-keyword">else</span> money<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Greedy</tag>
-      
-      <tag>Array</tag>
-      
-      <tag>Sorting</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</title>
     <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/"/>
     <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/</url>
@@ -203,6 +236,35 @@
       <tag>Math</tag>
       
       <tag>Array</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 2706 — Buy Two Chocolates</title>
+    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/"/>
+    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/buy-two-chocolates/description/">Buy Two Chocolates</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a simple solution once we realise what we are doing. Essentially, imagine you have <code>x</code> amount of money and you walk into a candy shop. Your goal is to buy 2 choclate bars, regardless of the flavor or the texture. Naturally, you would want to go to the section that has the cheapest chocolate bars. Hence, we sort the prices in ascending order. If our money &gt;&#x3D; prices[0] + prices[1], we can afford to buy the 2 cheapest chocolate bars, else, if we cannot even afford to buy these 2, there really isn’t a point for us to check prices[1] + prices[2] anymore.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>Here we are using Timsort, a sorting algorithm written by guess who? Tim Peters of course. The worst case time complexity would be <em>O(nlogn)</em>. <em>O(1)</em> for space since no extra space is required.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">buyChoco</span>(<span class="hljs-params">self, prices: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Sort the given prices array in ascending order in-place</span><br>        prices.sort()<br><br>        <span class="hljs-comment"># Check if money &gt;= prices[0] + prices[1]</span><br>        <span class="hljs-keyword">return</span> money - prices[<span class="hljs-number">0</span>] - prices[<span class="hljs-number">1</span>] <span class="hljs-keyword">if</span> (prices[<span class="hljs-number">0</span>] + prices[<span class="hljs-number">1</span>]) &lt;= money <span class="hljs-keyword">else</span> money<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -341,11 +403,11 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Array</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -426,9 +488,9 @@
     
     <tags>
       
-      <tag>String</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
@@ -453,9 +515,9 @@
     
     <tags>
       
-      <tag>String</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
