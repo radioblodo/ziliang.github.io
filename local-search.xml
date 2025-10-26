@@ -4,6 +4,37 @@
   
   
   <entry>
+    <title>LeetCode 2043 — Simple Bank System</title>
+    <link href="/ziliang.github.io/2025/10/26/2025-10-26-leetcode2043/"/>
+    <url>/ziliang.github.io/2025/10/26/2025-10-26-leetcode2043/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/simple-bank-system/description/">Simple Bank System</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>To solve this question, we just need to follow the instructions given. The only part where we probably have to be a little bit more careful about is the fact that bank account number starts from 1 and the index starts from 0, we can account for that by taking <code>bankAccountNumber-1</code>. Apart from that, if you are attempting this question using other languages other than Python3, you have to use <code>long</code> instead of <code>int</code> while <code>int</code> in Python3 takes care of the integer overflow issue pretty conveniently for us.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>The time and space complexities are both <em>O(1)</em> since we are performing the operations without the use of loops and extra space. We are directly removing or adding the money to a specified account given an index.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(1)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Bank</span>:<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, balance: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>):<br>        <span class="hljs-variable language_">self</span>.balance = balance<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">transfer</span>(<span class="hljs-params">self, account1: <span class="hljs-built_in">int</span>, account2: <span class="hljs-built_in">int</span>, money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-number">1</span>&lt;=account1&lt;=<span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.balance) <span class="hljs-keyword">and</span> <span class="hljs-number">1</span>&lt;=account2&lt;=<span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.balance) <span class="hljs-keyword">and</span> <span class="hljs-variable language_">self</span>.balance[account1-<span class="hljs-number">1</span>] &gt;= money:<br>            <span class="hljs-variable language_">self</span>.balance[account1-<span class="hljs-number">1</span>] -= money<br>            <span class="hljs-variable language_">self</span>.balance[account2-<span class="hljs-number">1</span>] += money<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">deposit</span>(<span class="hljs-params">self, account: <span class="hljs-built_in">int</span>, money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-number">1</span>&lt;=account&lt;=<span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.balance):<br>            <span class="hljs-variable language_">self</span>.balance[account-<span class="hljs-number">1</span>] += money<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">withdraw</span>(<span class="hljs-params">self, account: <span class="hljs-built_in">int</span>, money: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-number">1</span>&lt;=account&lt;=<span class="hljs-built_in">len</span>(<span class="hljs-variable language_">self</span>.balance) <span class="hljs-keyword">and</span> <span class="hljs-variable language_">self</span>.balance[account-<span class="hljs-number">1</span>]&gt;=money:<br>            <span class="hljs-variable language_">self</span>.balance[account-<span class="hljs-number">1</span>] -= money<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br><br><span class="hljs-comment"># Your Bank object will be instantiated and called as such:</span><br><span class="hljs-comment"># obj = Bank(balance)</span><br><span class="hljs-comment"># param_1 = obj.transfer(account1,account2,money)</span><br><span class="hljs-comment"># param_2 = obj.deposit(account,money)</span><br><span class="hljs-comment"># param_3 = obj.withdraw(account,money)</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Hash Table</tag>
+      
+      <tag>Simulation</tag>
+      
+      <tag>Design</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 111 — Minimum Depth of Binary Tree</title>
     <link href="/ziliang.github.io/2025/10/25/2025-10-25-leetcode111/"/>
     <url>/ziliang.github.io/2025/10/25/2025-10-25-leetcode111/</url>
@@ -291,9 +322,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Greedy</tag>
       
       <tag>Sorting</tag>
       
@@ -461,9 +492,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Greedy</tag>
       
       <tag>Sorting</tag>
       
@@ -1104,6 +1135,35 @@
   
   
   <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -1131,35 +1191,6 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
       
     </tags>
     
