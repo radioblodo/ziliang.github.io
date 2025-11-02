@@ -4,6 +4,91 @@
   
   
   <entry>
+    <title>LeetCode 3349 — Adjacent Increasing Subarrays Detection I</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-10-26-leetcode3349/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-10-26-leetcode3349/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/adjacent-increasing-subarrays-detection-i/description/">Array</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We use a sliding window technique to check if the adjacent array is also increasing. The start index of the adjacent array will therefore be at <code>i + k</code>. If both flags are <code>True</code>, we return True.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>Time Complexity: <em>O(n<sup>2</sup>)</em></p><p>We have a nested for-loop hence the overall time complexity would be <em>O(n<sup>2</sup>)</em>.</p><p>Space Complexity: <em>O(1)</em></p><p>Only two boolean variables are created and they are constant space, so <em>O(1)</em>.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasIncreasingSubarrays</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-comment"># Use a sliding window</span><br>        flagOne = <span class="hljs-literal">True</span> <span class="hljs-comment"># assume first subarray is strictly increasing</span><br>        flagTwo = <span class="hljs-literal">True</span> <span class="hljs-comment"># assume second subarray is strictly increasing</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)-<span class="hljs-number">2</span>*k+<span class="hljs-number">1</span>):<br>            flagOne = <span class="hljs-literal">True</span><br>            flagTwo = <span class="hljs-literal">True</span><br>            <span class="hljs-comment"># Check the left subarray if it is increasing</span><br>            <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i, i+k-<span class="hljs-number">1</span>,<span class="hljs-number">1</span>):<br>                <span class="hljs-keyword">if</span> nums[j] &lt; nums[j+<span class="hljs-number">1</span>]:<br>                    <span class="hljs-keyword">continue</span><br>                <span class="hljs-keyword">else</span>:<br>                    flagOne = <span class="hljs-literal">False</span><br>                    <span class="hljs-keyword">break</span><br><br>            <span class="hljs-keyword">if</span> flagOne:<br>                <span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(i+k, i+k+k-<span class="hljs-number">1</span>, <span class="hljs-number">1</span>):<br>                    <span class="hljs-keyword">if</span> nums[m] &lt; nums[m+<span class="hljs-number">1</span>]:<br>                        <span class="hljs-keyword">continue</span><br>                    <span class="hljs-keyword">else</span>:<br>                        flagTwo = <span class="hljs-literal">False</span><br>                        <span class="hljs-keyword">break</span><br><br>            <span class="hljs-keyword">if</span> flagOne <span class="hljs-keyword">and</span> flagTwo:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Tree</tag>
+      
+      <tag>Binary Tree</tag>
+      
+      <tag>Breadth-First Search</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3726 — Remove Zeros in Decimal Representation</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3726/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3726/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/remove-zeros-in-decimal-representation/description/">Remove Zeros in Decimal Representation</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a very straightforward question. We just need to convert it into a string representation, then iterate through the characters of the string and concatenate the empty string whenever the character is non-zero.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>Time Complexity: <em>O(n<sup>2</sup>)</em></p><p>1 for-loop, but strings in Python are immutable hence everytime we concatenate, what is happening under the hood is actually Python creates a new string, copies all existing characters from the old string, adds the new character, thus resulting in <em>O(n<sup>2</sup>)</em>. This copying gets more expensive as the string grows and that is why this solution is actually not the ideal solution.</p><p>Space Complexity: <em>O(n)</em></p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n<sup>2</sup>)</em></td><td><em>O(n)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><h3 id="🟩-Solution-1-String-Filtering-Approach"><a href="#🟩-Solution-1-String-Filtering-Approach" class="headerlink" title="🟩 Solution 1: String Filtering Approach"></a>🟩 Solution 1: String Filtering Approach</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeZeros</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Convert to string representation</span><br>        s = <span class="hljs-built_in">str</span>(n)<br><br>        <span class="hljs-comment"># Create a res to concatenate without the 0s</span><br>        res = <span class="hljs-string">&quot;&quot;</span><br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> s:<br>            <span class="hljs-keyword">if</span> char != <span class="hljs-string">&#x27;0&#x27;</span>:<br>                res += char<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(res)<br></code></pre></td></tr></table></figure><h3 id="🟩-Solution-2-Using-List-Comprehension"><a href="#🟩-Solution-2-Using-List-Comprehension" class="headerlink" title="🟩 Solution 2: Using List Comprehension"></a>🟩 Solution 2: Using List Comprehension</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeZeros</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        chars = []<br>        <span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>(n):<br>            <span class="hljs-keyword">if</span> char != <span class="hljs-string">&#x27;0&#x27;</span>:<br>                chars.append(char)<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;&#x27;</span>.join(chars))<br></code></pre></td></tr></table></figure><h3 id="🟩-Solution-3-Using-String-Method-replace"><a href="#🟩-Solution-3-Using-String-Method-replace" class="headerlink" title="🟩 Solution 3: Using String Method: replace()"></a>🟩 Solution 3: Using String Method: replace()</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">removeZeros</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-built_in">int</span>(<span class="hljs-built_in">str</span>(n).replace(<span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>))<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Simulation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 2257 — Count Unguarded Cells in the Grid</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/">Count Unguarded Cells in the Grid</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The <code>simulation</code> tag gives us the hint that we need to simulate the behaviour of the guard walking to the cells that he is able to reach to guard the cells. Thus, we need to have a <code>directions</code> list to simulate this behaviour of walking in the 4 directions. Then, we count the number of cells reachable by the guard and add those coordinates into a set. We don’t have to worry about 2 guards walking into the same coordinate and us double or triple counting the same coordinate since items in a set are unique in Python. This way, we can take the total number of cells, which is <code>m * n</code>, then deduct away the number of original guards, number of walls as well as the peripheral cells that are reachable by the guards, we will get the number of cells that are not guarded.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We have a nested for-loop that loops through each guard, each of the 4 directions and a while-loop, thus the overall time complexity would be <em>O(m * n * number of guards)</em>. The space complexity should be <em>O(n)</em> since we are creating 3 extra sets of the m * n size at worst.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(m * n * number of guards)</em></td><td><em>O(m * n)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">countUnguarded</span>(<span class="hljs-params">self, m: <span class="hljs-built_in">int</span>, n: <span class="hljs-built_in">int</span>, guards: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], walls: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        directions = [(-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>), (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)]<br><br>        guard_set = &#123;(r, c) <span class="hljs-keyword">for</span> r, c <span class="hljs-keyword">in</span> guards&#125;<br>        walls_set = &#123;(r, c) <span class="hljs-keyword">for</span> r, c <span class="hljs-keyword">in</span> walls&#125;<br>        guarded = <span class="hljs-built_in">set</span>()<br><br>        <span class="hljs-keyword">for</span> gr, gc <span class="hljs-keyword">in</span> guard_set:<br>            <span class="hljs-keyword">for</span> dr, dc <span class="hljs-keyword">in</span> directions:<br>                nr = gr + dr<br>                nc = gc + dc<br>                <span class="hljs-keyword">while</span> <span class="hljs-number">0</span> &lt;= nr &lt; m <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= nc &lt; n:<br>                    <span class="hljs-keyword">if</span> (nr, nc) <span class="hljs-keyword">in</span> guard_set <span class="hljs-keyword">or</span> (nr, nc) <span class="hljs-keyword">in</span> walls_set:<br>                        <span class="hljs-keyword">break</span><br>                    guarded.add((nr, nc))<br>                    nr += dr<br>                    nc += dc<br><br>        <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">len</span>(guard_set) - <span class="hljs-built_in">len</span>(walls_set) - <span class="hljs-built_in">len</span>(guarded)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Matrix</tag>
+      
+      <tag>Simulation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 2043 — Simple Bank System</title>
     <link href="/ziliang.github.io/2025/10/26/2025-10-26-leetcode2043/"/>
     <url>/ziliang.github.io/2025/10/26/2025-10-26-leetcode2043/</url>
@@ -262,9 +347,9 @@
     
     <tags>
       
-      <tag>Greedy</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
       <tag>String</tag>
       
@@ -324,9 +409,9 @@
       
       <tag>Array</tag>
       
-      <tag>Greedy</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -494,9 +579,9 @@
       
       <tag>Array</tag>
       
-      <tag>Greedy</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>Greedy</tag>
       
     </tags>
     
@@ -577,9 +662,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -604,9 +689,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -704,33 +789,6 @@
   
   
   <entry>
-    <title>LeetCode 1 — Two Sum</title>
-    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
-    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
-      
-      <tag>HashTable</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>LeetCode 217 — Contains Duplicate</title>
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
@@ -750,6 +808,33 @@
       <tag>Array</tag>
       
       <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 1 — Two Sum</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
       
       <tag>HashTable</tag>
       
@@ -1135,35 +1220,6 @@
   
   
   <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -1191,6 +1247,35 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
       
     </tags>
     

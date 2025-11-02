@@ -19,25 +19,26 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Valid PalindromeDifficulty: Easy🧠 ApproachString in Java is immutable, but we can modify and reassign it to the same variable. We first make the spaces be removed by using .replace(&quot; &amp;q">
+    <meta name="description" content="Problem: Count Unguarded Cells in the GridDifficulty: Medium  🧠 ApproachThe simulation tag gives us the hint that we need to simulate the behaviour of the guard walking to the cells that he is able t">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 125 — Valid Palindrome">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/20/2025-08-20-leetcode125/index.html">
+<meta property="og:title" content="LeetCode 2257 — Count Unguarded Cells in the Grid">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Valid PalindromeDifficulty: Easy🧠 ApproachString in Java is immutable, but we can modify and reassign it to the same variable. We first make the spaces be removed by using .replace(&quot; &amp;q">
+<meta property="og:description" content="Problem: Count Unguarded Cells in the GridDifficulty: Medium  🧠 ApproachThe simulation tag gives us the hint that we need to simulate the behaviour of the guard walking to the cells that he is able t">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-20T15:40:20.000Z">
-<meta property="article:modified_time" content="2025-08-28T10:25:07.073Z">
+<meta property="article:published_time" content="2025-11-02T04:52:16.000Z">
+<meta property="article:modified_time" content="2025-11-02T04:59:34.416Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="String">
-<meta property="article:tag" content="Two Pointers">
+<meta property="article:tag" content="Array">
+<meta property="article:tag" content="Matrix">
+<meta property="article:tag" content="Simulation">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 125 — Valid Palindrome - Zi Liang · Portfolio</title>
+  <title>LeetCode 2257 — Count Unguarded Cells in the Grid - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -215,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 125 — Valid Palindrome</span>
+            <span id="subtitle">LeetCode 2257 — Count Unguarded Cells in the Grid</span>
           
         </div>
 
@@ -226,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-20 23:40" pubdate>
-          August 20, 2025
+        <time datetime="2025-11-02 12:52" pubdate>
+          November 2, 2025
         </time>
       </span>
     
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          85 words
+          118 words
         
       </span>
     
@@ -295,14 +296,18 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 125 — Valid Palindrome</h1>
+            <h1 id="seo-header">LeetCode 2257 — Count Unguarded Cells in the Grid</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="Problem-Valid-PalindromeDifficulty-Easy"><a href="#Problem-Valid-PalindromeDifficulty-Easy" class="headerlink" title="Problem: Valid PalindromeDifficulty: Easy"></a><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/valid-palindrome/description/">Valid Palindrome</a><br><strong>Difficulty:</strong> Easy</h2><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>String in Java is immutable, but we can modify and reassign it to the same variable. We first make the spaces be removed by using <code>.replace(&quot; &quot;, &quot;&quot;)</code>. Then, we convert all characters into lower case. Then we assign a left and a right pointer and iterate through from both ends to check if the characters equal, skipping non-alphanumeric characters along the way by using <code>Character.isLetterOrDigit()</code></p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/">Count Unguarded Cells in the Grid</a><br><strong>Difficulty:</strong> Medium</p>
 <hr>
-<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The <code>simulation</code> tag gives us the hint that we need to simulate the behaviour of the guard walking to the cells that he is able to reach to guard the cells. Thus, we need to have a <code>directions</code> list to simulate this behaviour of walking in the 4 directions. Then, we count the number of cells reachable by the guard and add those coordinates into a set. We don’t have to worry about 2 guards walking into the same coordinate and us double or triple counting the same coordinate since items in a set are unique in Python. This way, we can take the total number of cells, which is <code>m * n</code>, then deduct away the number of original guards, number of walls as well as the peripheral cells that are reachable by the guards, we will get the number of cells that are not guarded.</p>
+<hr>
+<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We have a nested for-loop that loops through each guard, each of the 4 directions and a while-loop, thus the overall time complexity would be <em>O(m * n * number of guards)</em>. The space complexity should be <em>O(n)</em> since we are creating 3 extra sets of the m * n size at worst.</p>
+<hr>
+<h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -312,12 +317,11 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(n)</em></td>
-<td><em>O(n)</em></td>
+<td><em>O(m * n * number of guards)</em></td>
+<td><em>O(m * n)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isPalindrome</span><span class="hljs-params">(String s)</span> &#123;<br>        s = s.replace(<span class="hljs-string">&quot; &quot;</span>, <span class="hljs-string">&quot;&quot;</span>);<br>        s = s.toLowerCase(); <br>        <span class="hljs-type">char</span>[] ca = s.toCharArray(); <br>        <span class="hljs-type">int</span> <span class="hljs-variable">left</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; <br>        <span class="hljs-type">int</span> <span class="hljs-variable">right</span> <span class="hljs-operator">=</span> s.length - <span class="hljs-number">1</span>; <br>        <span class="hljs-keyword">while</span> (right &gt; left)&#123;<br>            <span class="hljs-keyword">if</span> (!Character.isLetterOrDigit(ca[left]))&#123;<br>                left += <span class="hljs-number">1</span>; <br>                <span class="hljs-keyword">continue</span>; <br>            &#125;<br>            <span class="hljs-keyword">if</span> (!Character.isLetterOrDigit(ca[right]))&#123;<br>                right -= <span class="hljs-number">1</span>;  <br>                <span class="hljs-keyword">continue</span>; <br>            &#125;<br>            <span class="hljs-keyword">if</span> (!(ca[left]==ca[right]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">countUnguarded</span>(<span class="hljs-params">self, m: <span class="hljs-built_in">int</span>, n: <span class="hljs-built_in">int</span>, guards: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]], walls: <span class="hljs-type">List</span>[<span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        directions = [(-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>), (<span class="hljs-number">0</span>, -<span class="hljs-number">1</span>), (<span class="hljs-number">0</span>, <span class="hljs-number">1</span>)]<br><br>        guard_set = &#123;(r, c) <span class="hljs-keyword">for</span> r, c <span class="hljs-keyword">in</span> guards&#125;<br>        walls_set = &#123;(r, c) <span class="hljs-keyword">for</span> r, c <span class="hljs-keyword">in</span> walls&#125;<br>        guarded = <span class="hljs-built_in">set</span>()<br><br>        <span class="hljs-keyword">for</span> gr, gc <span class="hljs-keyword">in</span> guard_set:<br>            <span class="hljs-keyword">for</span> dr, dc <span class="hljs-keyword">in</span> directions:<br>                nr = gr + dr<br>                nc = gc + dc<br>                <span class="hljs-keyword">while</span> <span class="hljs-number">0</span> &lt;= nr &lt; m <span class="hljs-keyword">and</span> <span class="hljs-number">0</span> &lt;= nc &lt; n:<br>                    <span class="hljs-keyword">if</span> (nr, nc) <span class="hljs-keyword">in</span> guard_set <span class="hljs-keyword">or</span> (nr, nc) <span class="hljs-keyword">in</span> walls_set:<br>                        <span class="hljs-keyword">break</span><br>                    guarded.add((nr, nc))<br>                    nr += dr<br>                    nc += dc<br><br>        <span class="hljs-keyword">return</span> m * n - <span class="hljs-built_in">len</span>(guard_set) - <span class="hljs-built_in">len</span>(walls_set) - <span class="hljs-built_in">len</span>(guarded)<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -351,9 +355,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/String/" class="print-no-link">#String</a>
+        <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/ziliang.github.io/tags/Two-Pointers/" class="print-no-link">#Two Pointers</a>
+        <a href="/ziliang.github.io/tags/Matrix/" class="print-no-link">#Matrix</a>
+      
+        <a href="/ziliang.github.io/tags/Simulation/" class="print-no-link">#Simulation</a>
       
     </div>
   
@@ -365,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 125 — Valid Palindrome</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/20/2025-08-20-leetcode125/</div>
+      <div>LeetCode 2257 — Count Unguarded Cells in the Grid</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/</div>
     </div>
     <div class="license-meta">
       
@@ -378,7 +384,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>20 Aug 2025, 23:40</div>
+          <div>2 Nov 2025, 12:52</div>
         </div>
       
       
@@ -410,9 +416,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/21/2025-08-21-leetcode151/" title="LeetCode 151 — Reverse Words in a String">
+                      <a href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3726/" title="LeetCode 3726 — Remove Zeros in Decimal Representation">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 151 — Reverse Words in a String</span>
+                        <span class="hidden-mobile">LeetCode 3726 — Remove Zeros in Decimal Representation</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -420,8 +426,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/20/2025-08-20-leetcode1277/" title="LeetCode 1277 — Count Square Submatrices with All Ones">
-                        <span class="hidden-mobile">LeetCode 1277 — Count Square Submatrices with All Ones</span>
+                      <a href="/ziliang.github.io/2025/10/26/2025-10-26-leetcode2043/" title="LeetCode 2043 — Simple Bank System">
+                        <span class="hidden-mobile">LeetCode 2043 — Simple Bank System</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
