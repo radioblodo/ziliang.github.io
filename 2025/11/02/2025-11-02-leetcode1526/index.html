@@ -19,26 +19,30 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Contains DuplicateDifficulty: Easy  🧠 ApproachFirstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums ar">
+    <meta name="description" content="Problem: Minimum Number of Increments on Subarrays to Form a Target ArrayDifficulty: Hard  🧠 ApproachThe difficult part of this problem is recognising the pattern. The pattern is, if our next number">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 217 — Contains Duplicate">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/index.html">
+<meta property="og:title" content="LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Contains DuplicateDifficulty: Easy  🧠 ApproachFirstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums ar">
+<meta property="og:description" content="Problem: Minimum Number of Increments on Subarrays to Form a Target ArrayDifficulty: Hard  🧠 ApproachThe difficult part of this problem is recognising the pattern. The pattern is, if our next number">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-08-19T15:13:20.000Z">
-<meta property="article:modified_time" content="2025-08-20T08:25:11.003Z">
+<meta property="og:image" content="https://radioblodo.github.io/ziliang.github.io/img/leetcode1526.gif">
+<meta property="article:published_time" content="2025-11-02T05:51:16.000Z">
+<meta property="article:modified_time" content="2025-11-02T06:07:03.376Z">
 <meta property="article:author" content="Zi Liang">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Sorting">
-<meta property="article:tag" content="HashTable">
+<meta property="article:tag" content="Dynamic Programming">
+<meta property="article:tag" content="Greedy">
+<meta property="article:tag" content="Stack">
+<meta property="article:tag" content="Monotonic Stack">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://radioblodo.github.io/ziliang.github.io/img/leetcode1526.gif">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 217 — Contains Duplicate - Zi Liang · Portfolio</title>
+  <title>LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -216,7 +220,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 217 — Contains Duplicate</span>
+            <span id="subtitle">LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array</span>
           
         </div>
 
@@ -227,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-19 23:13" pubdate>
-          August 19, 2025
+        <time datetime="2025-11-02 13:51" pubdate>
+          November 2, 2025
         </time>
       </span>
     
@@ -239,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          62 words
+          48 words
         
       </span>
     
@@ -296,16 +300,17 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 217 — Contains Duplicate</h1>
+            <h1 id="seo-header">LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/contains-duplicate/description/">Contains Duplicate</a><br><strong>Difficulty:</strong> Easy</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/description/">Minimum Number of Increments on Subarrays to Form a Target Array</a><br><strong>Difficulty:</strong> Hard</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we create a new HashSet object. HashSet doesn’t allow duplicate items in it. Then using a for-loop, we add all the items in the nums array into the HashSet. Finally, we check if the size of the HashSet is equal to the length of the nums. If they are equal, it means there is no duplicate, we return false. Else, we return true. </p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The difficult part of this problem is recognising the pattern. The pattern is, if our next number if higher than our previous number, we just need to add the layers that exceed our previous layer because all other layers would have been laid out when we were laying out our previous layer. We don’t need to check too far off the left because if there are numbers that are smaller than those numbers on the left, the layers added on the left will not help with the layers on the right.</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><img src="/ziliang.github.io/img/leetcode1526.gif" srcset="/ziliang.github.io/img/loading.gif" lazyload alt="Solution Animation"></h2><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n)</em> because there is only 1 for-loop.</p>
 <hr>
-<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
+<h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
 <tr>
 <th></th>
@@ -316,11 +321,10 @@
 <tbody><tr>
 <td>Solution</td>
 <td><em>O(n)</em></td>
-<td><em>O(n)</em></td>
+<td><em>O(1)</em></td>
 </tr>
 </tbody></table>
-<hr>
-<h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">containsDuplicate</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums)</span>&#123;<br>        Set&lt;Integer&gt; numsSet = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashSet</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            numsSet.add(nums[i]);<br>        &#125;<br><br>        <span class="hljs-keyword">if</span> (numsSet.size() != nums.length)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; <br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minNumberOperations</span>(<span class="hljs-params">self, target: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        res = target[<span class="hljs-number">0</span>]<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(target)):<br>            <span class="hljs-keyword">if</span> target[i] &gt; target[i-<span class="hljs-number">1</span>]:<br>                res += target[i] - target[i-<span class="hljs-number">1</span>]<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -356,9 +360,13 @@
       
         <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/ziliang.github.io/tags/Sorting/" class="print-no-link">#Sorting</a>
+        <a href="/ziliang.github.io/tags/Dynamic-Programming/" class="print-no-link">#Dynamic Programming</a>
       
-        <a href="/ziliang.github.io/tags/HashTable/" class="print-no-link">#HashTable</a>
+        <a href="/ziliang.github.io/tags/Greedy/" class="print-no-link">#Greedy</a>
+      
+        <a href="/ziliang.github.io/tags/Stack/" class="print-no-link">#Stack</a>
+      
+        <a href="/ziliang.github.io/tags/Monotonic-Stack/" class="print-no-link">#Monotonic Stack</a>
       
     </div>
   
@@ -370,8 +378,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 217 — Contains Duplicate</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</div>
+      <div>LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/</div>
     </div>
     <div class="license-meta">
       
@@ -383,7 +391,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>19 Aug 2025, 23:13</div>
+          <div>2 Nov 2025, 13:51</div>
         </div>
       
       
@@ -415,18 +423,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/" title="LeetCode 1 — Two Sum">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 1 — Two Sum</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode195/" title="LeetCode 195 — Tenth Line">
-                        <span class="hidden-mobile">LeetCode 195 — Tenth Line</span>
+                      <a href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3370/" title="LeetCode 3370 — Smallest Number With All Set Bits">
+                        <span class="hidden-mobile">LeetCode 3370 — Smallest Number With All Set Bits</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

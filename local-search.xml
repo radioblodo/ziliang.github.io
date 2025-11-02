@@ -4,6 +4,95 @@
   
   
   <entry>
+    <title>LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/description/">Minimum Number of Increments on Subarrays to Form a Target Array</a><br><strong>Difficulty:</strong> Hard</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The difficult part of this problem is recognising the pattern. The pattern is, if our next number if higher than our previous number, we just need to add the layers that exceed our previous layer because all other layers would have been laid out when we were laying out our previous layer. We don’t need to check too far off the left because if there are numbers that are smaller than those numbers on the left, the layers added on the left will not help with the layers on the right.</p><h2 id=""><a href="#" class="headerlink" title=""></a><img src="/ziliang.github.io/img/leetcode1526.gif" alt="Solution Animation"></h2><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n)</em> because there is only 1 for-loop.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minNumberOperations</span>(<span class="hljs-params">self, target: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        res = target[<span class="hljs-number">0</span>]<br><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>, <span class="hljs-built_in">len</span>(target)):<br>            <span class="hljs-keyword">if</span> target[i] &gt; target[i-<span class="hljs-number">1</span>]:<br>                res += target[i] - target[i-<span class="hljs-number">1</span>]<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Dynamic Programming</tag>
+      
+      <tag>Greedy</tag>
+      
+      <tag>Stack</tag>
+      
+      <tag>Monotonic Stack</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3370 — Smallest Number With All Set Bits</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3370/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3370/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/smallest-number-with-all-set-bits/description/">Smallest Number With All Set Bits</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a simple problem. We could either use a simple while-loop or recursion to do it.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n logn)</em> because bin() takes <em>O(logn)</em> and it takes about <em>O(n)</em> iterations to get to the next number with all set bits.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(nlogn)</em></td><td><em>O(logn)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><h3 id="Solution-1-Iterative-while-loop"><a href="#Solution-1-Iterative-while-loop" class="headerlink" title="Solution 1: Iterative while-loop"></a>Solution 1: Iterative while-loop</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">smallestNumber</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">while</span> <span class="hljs-string">&#x27;0&#x27;</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">bin</span>(n)[<span class="hljs-number">2</span>:]:<br>            n += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> n<br></code></pre></td></tr></table></figure><h3 id="Solution-2-Recursive"><a href="#Solution-2-Recursive" class="headerlink" title="Solution 2: Recursive"></a>Solution 2: Recursive</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">smallestNumber</span>(<span class="hljs-params">self, n: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> n <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;0&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> <span class="hljs-built_in">bin</span>(n)[<span class="hljs-number">2</span>:] <span class="hljs-keyword">else</span> <span class="hljs-variable language_">self</span>.smallestNumber(n+<span class="hljs-number">1</span>)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bit Manipulation</tag>
+      
+      <tag>Array</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3354 — Make Array Elements Equal to Zero</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3354/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3354/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/make-array-elements-equal-to-zero/description/">Make Array Elements Equal to Zero</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The pattern is not so straightforward but the key idea is that we can only clear the left half if there is equal or 1 less <code>1</code> on the right and vice versa. So if the left half contains the equal sum as the right half, you have two ways to make all elements 0 because you could either go left first or go right first. However, in the case where the left half and right half differ by only 1, you only have 1 way because you have to start with the portion that has 1 more, thus you add 1 to the result.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We just need to iterate through the given <code>nums</code> array once.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">countValidSelections</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        left = <span class="hljs-number">0</span><br>        res = <span class="hljs-number">0</span><br>        total = <span class="hljs-built_in">sum</span>(nums)<br><br>        <span class="hljs-keyword">for</span> num <span class="hljs-keyword">in</span> nums:<br>            <span class="hljs-keyword">if</span> num:<br>                left += num<br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">if</span> left * <span class="hljs-number">2</span> == total:<br>                    res += <span class="hljs-number">2</span><br>                <span class="hljs-keyword">elif</span> <span class="hljs-built_in">abs</span>(total - <span class="hljs-number">2</span> * left) == <span class="hljs-number">1</span>:<br>                    res += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Simulation</tag>
+      
+      <tag>Prefix Sum</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 3349 — Adjacent Increasing Subarrays Detection I</title>
     <link href="/ziliang.github.io/2025/11/02/2025-10-26-leetcode3349/"/>
     <url>/ziliang.github.io/2025/11/02/2025-10-26-leetcode3349/</url>
@@ -52,6 +141,37 @@
       <tag>Math</tag>
       
       <tag>Simulation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 2125 — Number of Laser Beams in a Bank</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/">Number of Laser Beams in a Bank</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that has beams. Then we sum them up and return.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We are only iterating through the <code>bank</code> array once. For space complexity, we did not create any new variable apart from the <code>prev</code> and <code>res</code> which are constant.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numberOfBeams</span>(<span class="hljs-params">self, bank: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        prev = <span class="hljs-number">0</span><br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> bank:<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> row:<br>                <span class="hljs-keyword">continue</span><br>            cur = row.count(<span class="hljs-string">&#x27;1&#x27;</span>)<br>            res += prev * cur<br>            prev = cur<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Matrix</tag>
       
     </tags>
     
@@ -347,9 +467,9 @@
     
     <tags>
       
-      <tag>Sorting</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Sorting</tag>
       
       <tag>String</tag>
       
@@ -409,9 +529,9 @@
       
       <tag>Array</tag>
       
-      <tag>Sorting</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Sorting</tag>
       
     </tags>
     
@@ -467,9 +587,9 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>Breadth-First Search</tag>
-      
       <tag>Depth-First Search</tag>
+      
+      <tag>Breadth-First Search</tag>
       
     </tags>
     
@@ -579,9 +699,9 @@
       
       <tag>Array</tag>
       
-      <tag>Sorting</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Sorting</tag>
       
     </tags>
     
@@ -662,9 +782,9 @@
     
     <tags>
       
-      <tag>String</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
@@ -689,9 +809,9 @@
     
     <tags>
       
-      <tag>String</tag>
-      
       <tag>Two Pointers</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
@@ -789,6 +909,33 @@
   
   
   <entry>
+    <title>LeetCode 1 — Two Sum</title>
+    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
+    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>HashTable</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 217 — Contains Duplicate</title>
     <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/"/>
     <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode217/</url>
@@ -808,33 +955,6 @@
       <tag>Array</tag>
       
       <tag>Sorting</tag>
-      
-      <tag>HashTable</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 1 — Two Sum</title>
-    <link href="/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/"/>
-    <url>/ziliang.github.io/2025/08/19/2025-08-19-leetcode1/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.cn/problems/two-sum/description/">Two Sum</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>Firstly, we need to create a HashMap object to map the value to the index. The reason why we are mapping value-&gt;index is because it takes O(1) to access the value, hence it will be faster to check if the complement exists in the HashMap later on. If the complement does not exist, we put the current value-&gt;index mapping into the HashMap first. When we eventually reach the complement, the complement of the complement would have already been added to the HashMap, that’s when we can return the array of the 2 indexes. In short, to break down into baby steps:</p><ul><li>Create a HashMap object</li><li>Iterate through nums</li><li>Check if the complement is already in the HashMap</li><li>If not, add the current value-&gt;index into the HashMap</li><li>If yes, add the current index, HashMap.get(value) into an array and return it</li></ul><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(n)</em></td></tr></tbody></table><hr><h2 id="✅-Code-Java"><a href="#✅-Code-Java" class="headerlink" title="✅ Code (Java)"></a>✅ Code (Java)</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">class</span> <span class="hljs-title class_">solution</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span> <span class="hljs-title function_">twoSum</span><span class="hljs-params">(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target)</span>&#123;<br>        Map&lt;Integer, Integer&gt; hashmap = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;(); <br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++)&#123;<br>            <span class="hljs-keyword">if</span> (hashmap.containsKey(target-nums[i]))&#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, hashmap.get(target-nums[i])&#125;;<br>            &#125;<br>            hashmap.put(nums[i], i);<br>        &#125;<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[<span class="hljs-number">2</span>];<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
       
       <tag>HashTable</tag>
       
