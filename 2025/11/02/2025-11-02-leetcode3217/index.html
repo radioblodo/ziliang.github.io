@@ -19,27 +19,26 @@
   <meta name="author" content="Zi Liang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Problem: Number of Laser Beams in a BankDifficulty: Medium  🧠 ApproachThe idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that h">
+    <meta name="description" content="Problem: Delete Nodes From Linked List Present in ArrayDifficulty: Medium  🧠 ApproachThe solution is pretty much self explanatory. ⏱️ ComplexityO(n2) due to the nested while-loop.  ⏱️ Complexity    T">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode 2125 — Number of Laser Beams in a Bank">
-<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/index.html">
+<meta property="og:title" content="LeetCode 3217 — Delete Nodes From Linked List Present in Array">
+<meta property="og:url" content="https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode3217/index.html">
 <meta property="og:site_name" content="Zi Liang · Portfolio">
-<meta property="og:description" content="Problem: Number of Laser Beams in a BankDifficulty: Medium  🧠 ApproachThe idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that h">
+<meta property="og:description" content="Problem: Delete Nodes From Linked List Present in ArrayDifficulty: Medium  🧠 ApproachThe solution is pretty much self explanatory. ⏱️ ComplexityO(n2) due to the nested while-loop.  ⏱️ Complexity    T">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-11-02T04:52:16.000Z">
-<meta property="article:modified_time" content="2025-11-02T05:28:47.240Z">
+<meta property="article:published_time" content="2025-11-02T06:18:16.000Z">
+<meta property="article:modified_time" content="2025-11-02T06:19:49.915Z">
 <meta property="article:author" content="Zi Liang">
-<meta property="article:tag" content="Math">
 <meta property="article:tag" content="Array">
-<meta property="article:tag" content="Matrix">
-<meta property="article:tag" content="String">
+<meta property="article:tag" content="Hash Table">
+<meta property="article:tag" content="Linked List">
 <meta name="twitter:card" content="summary_large_image">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>LeetCode 2125 — Number of Laser Beams in a Bank - Zi Liang · Portfolio</title>
+  <title>LeetCode 3217 — Delete Nodes From Linked List Present in Array - Zi Liang · Portfolio</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -217,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle">LeetCode 2125 — Number of Laser Beams in a Bank</span>
+            <span id="subtitle">LeetCode 3217 — Delete Nodes From Linked List Present in Array</span>
           
         </div>
 
@@ -228,7 +227,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-02 12:52" pubdate>
+        <time datetime="2025-11-02 14:18" pubdate>
           November 2, 2025
         </time>
       </span>
@@ -240,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          41 words
+          73 words
         
       </span>
     
@@ -297,16 +296,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">LeetCode 2125 — Number of Laser Beams in a Bank</h1>
+            <h1 id="seo-header">LeetCode 3217 — Delete Nodes From Linked List Present in Array</h1>
             
             
               <div class="markdown-body">
                 
-                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/">Number of Laser Beams in a Bank</a><br><strong>Difficulty:</strong> Medium</p>
+                <p><strong>Problem:</strong> <a target="_blank" rel="noopener" href="https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/description/">Delete Nodes From Linked List Present in Array</a><br><strong>Difficulty:</strong> Medium</p>
 <hr>
-<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that has beams. Then we sum them up and return.</p>
-<hr>
-<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We are only iterating through the <code>bank</code> array once. For space complexity, we did not create any new variable apart from the <code>prev</code> and <code>res</code> which are constant.</p>
+<h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The solution is pretty much self explanatory.</p>
+<h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n<sup>2</sup>)</em> due to the nested while-loop.</p>
 <hr>
 <h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table>
 <thead>
@@ -318,11 +316,11 @@
 </thead>
 <tbody><tr>
 <td>Solution</td>
-<td><em>O(n)</em></td>
+<td><em>O(n<sup>2</sup>)</em></td>
 <td><em>O(1)</em></td>
 </tr>
 </tbody></table>
-<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numberOfBeams</span>(<span class="hljs-params">self, bank: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        prev = <span class="hljs-number">0</span><br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> bank:<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> row:<br>                <span class="hljs-keyword">continue</span><br>            cur = row.count(<span class="hljs-string">&#x27;1&#x27;</span>)<br>            res += prev * cur<br>            prev = cur<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>
+<h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for singly-linked list.</span><br><span class="hljs-comment"># class ListNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, next=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.next = next</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">modifiedList</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        <span class="hljs-keyword">if</span> head == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(nums) == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> head<br><br>        nums = <span class="hljs-built_in">set</span>(nums)<br><br>        dummy = head<br><br>        <span class="hljs-keyword">while</span> dummy.val <span class="hljs-keyword">in</span> nums:<br>            dummy = dummy.<span class="hljs-built_in">next</span><br><br>        new_head = dummy<br>        dummy = dummy.<span class="hljs-built_in">next</span><br>        cur = new_head<br><br>        <span class="hljs-keyword">while</span> dummy != <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">while</span> dummy != <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> dummy.val <span class="hljs-keyword">in</span> nums:<br>                dummy = dummy.<span class="hljs-built_in">next</span><br><br>            cur.<span class="hljs-built_in">next</span> = dummy<br>            cur = cur.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">if</span> dummy:<br>                dummy = dummy.<span class="hljs-built_in">next</span><br><br>        <span class="hljs-keyword">return</span> new_head<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -356,13 +354,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/ziliang.github.io/tags/Math/" class="print-no-link">#Math</a>
-      
         <a href="/ziliang.github.io/tags/Array/" class="print-no-link">#Array</a>
       
-        <a href="/ziliang.github.io/tags/Matrix/" class="print-no-link">#Matrix</a>
+        <a href="/ziliang.github.io/tags/Hash-Table/" class="print-no-link">#Hash Table</a>
       
-        <a href="/ziliang.github.io/tags/String/" class="print-no-link">#String</a>
+        <a href="/ziliang.github.io/tags/Linked-List/" class="print-no-link">#Linked List</a>
       
     </div>
   
@@ -374,8 +370,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>LeetCode 2125 — Number of Laser Beams in a Bank</div>
-      <div>https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/</div>
+      <div>LeetCode 3217 — Delete Nodes From Linked List Present in Array</div>
+      <div>https://radioblodo.github.io/ziliang.github.io/2025/11/02/2025-11-02-leetcode3217/</div>
     </div>
     <div class="license-meta">
       
@@ -387,7 +383,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>2 Nov 2025, 12:52</div>
+          <div>2 Nov 2025, 14:18</div>
         </div>
       
       
@@ -419,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3726/" title="LeetCode 3726 — Remove Zeros in Decimal Representation">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">LeetCode 3726 — Remove Zeros in Decimal Representation</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/" title="LeetCode 2257 — Count Unguarded Cells in the Grid">
-                        <span class="hidden-mobile">LeetCode 2257 — Count Unguarded Cells in the Grid</span>
+                      <a href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2220/" title="LeetCode 2220 — Minimum Bit Flips to Convert Number">
+                        <span class="hidden-mobile">LeetCode 2220 — Minimum Bit Flips to Convert Number</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -4,6 +4,114 @@
   
   
   <entry>
+    <title>LeetCode 3217 — Delete Nodes From Linked List Present in Array</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3217/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3217/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/description/">Delete Nodes From Linked List Present in Array</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The solution is pretty much self explanatory.</p><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n<sup>2</sup>)</em> due to the nested while-loop.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n<sup>2</sup>)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># Definition for singly-linked list.</span><br><span class="hljs-comment"># class ListNode:</span><br><span class="hljs-comment">#     def __init__(self, val=0, next=None):</span><br><span class="hljs-comment">#         self.val = val</span><br><span class="hljs-comment">#         self.next = next</span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">modifiedList</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], head: <span class="hljs-type">Optional</span>[ListNode]</span>) -&gt; <span class="hljs-type">Optional</span>[ListNode]:<br>        <span class="hljs-keyword">if</span> head == <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">None</span><br><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(nums) == <span class="hljs-number">0</span>:<br>            <span class="hljs-keyword">return</span> head<br><br>        nums = <span class="hljs-built_in">set</span>(nums)<br><br>        dummy = head<br><br>        <span class="hljs-keyword">while</span> dummy.val <span class="hljs-keyword">in</span> nums:<br>            dummy = dummy.<span class="hljs-built_in">next</span><br><br>        new_head = dummy<br>        dummy = dummy.<span class="hljs-built_in">next</span><br>        cur = new_head<br><br>        <span class="hljs-keyword">while</span> dummy != <span class="hljs-literal">None</span>:<br>            <span class="hljs-keyword">while</span> dummy != <span class="hljs-literal">None</span> <span class="hljs-keyword">and</span> dummy.val <span class="hljs-keyword">in</span> nums:<br>                dummy = dummy.<span class="hljs-built_in">next</span><br><br>            cur.<span class="hljs-built_in">next</span> = dummy<br>            cur = cur.<span class="hljs-built_in">next</span><br>            <span class="hljs-keyword">if</span> dummy:<br>                dummy = dummy.<span class="hljs-built_in">next</span><br><br>        <span class="hljs-keyword">return</span> new_head<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Array</tag>
+      
+      <tag>Hash Table</tag>
+      
+      <tag>Linked List</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 2220 — Minimum Bit Flips to Convert Number</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2220/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2220/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/minimum-bit-flips-to-convert-number/description/">Minimum Bit Flips to Convert Number</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The solution is pretty much self explanatory.</p><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n)</em> because there is only for-loop.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minBitFlips</span>(<span class="hljs-params">self, start: <span class="hljs-built_in">int</span>, goal: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-comment"># Get the binary representations of start and goal</span><br>        bin_start = <span class="hljs-built_in">bin</span>(start)[<span class="hljs-number">2</span>:]<br>        bin_goal = <span class="hljs-built_in">bin</span>(goal)[<span class="hljs-number">2</span>:]<br><br>        <span class="hljs-comment"># Make sure the length are equal</span><br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(bin_goal) &gt; <span class="hljs-built_in">len</span>(bin_start):<br>            bin_start = <span class="hljs-string">&quot;0&quot;</span> * (<span class="hljs-built_in">len</span>(bin_goal) - <span class="hljs-built_in">len</span>(bin_start)) + bin_start<br>        <span class="hljs-keyword">elif</span> <span class="hljs-built_in">len</span>(bin_goal) &lt; <span class="hljs-built_in">len</span>(bin_start):<br>            bin_goal = <span class="hljs-string">&quot;0&quot;</span> * (<span class="hljs-built_in">len</span>(bin_start) - <span class="hljs-built_in">len</span>(bin_goal)) + bin_goal<br><br>        <span class="hljs-comment"># Iterate through to find the number of differences</span><br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(bin_start)):<br>            <span class="hljs-keyword">if</span> bin_start[i] != bin_goal[i]:<br>                res += <span class="hljs-number">1</span><br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Bit Manipulation</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3136 — Valid Word</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3136/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3136/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/valid-word/">Valid Word</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The solution is pretty much self explanatory.</p><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n)</em> because there is only for-loop.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasVowel</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        vowels = &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;u&#x27;</span>&#125;<br>        <span class="hljs-keyword">for</span> vowel <span class="hljs-keyword">in</span> vowels:<br>            <span class="hljs-keyword">if</span> vowel <span class="hljs-keyword">in</span> word.lower():<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">hasConsonant</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        vowels = &#123;<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>, <span class="hljs-string">&#x27;i&#x27;</span>, <span class="hljs-string">&#x27;o&#x27;</span>, <span class="hljs-string">&#x27;u&#x27;</span>&#125;<br>        <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> word.lower():<br>            <span class="hljs-keyword">if</span> letter <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> vowels <span class="hljs-keyword">and</span> letter.isalpha():<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">True</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">isValid</span>(<span class="hljs-params">self, word: <span class="hljs-built_in">str</span></span>) -&gt; <span class="hljs-built_in">bool</span>:<br>        <span class="hljs-keyword">if</span> <span class="hljs-built_in">len</span>(word) &lt; <span class="hljs-number">3</span>:<br>            <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>        <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> word.lower():<br>            <span class="hljs-keyword">if</span> letter.isalnum():<br>                <span class="hljs-keyword">continue</span><br>            <span class="hljs-keyword">else</span>:<br>                <span class="hljs-keyword">return</span> <span class="hljs-literal">False</span><br><br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.hasVowel(word) <span class="hljs-keyword">and</span> <span class="hljs-variable language_">self</span>.hasConsonant(word)<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>String</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3289 — The Two Sneaky Numbers of Digitville</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode3289/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode3289/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/the-two-sneaky-numbers-of-digitville/description/">The Two Sneaky Numbers of Digitville</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>This is a very simple problem. We sort and then add in the numbers whenever there are same number side by side.</p><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p><em>O(n)</em> because there is only 1 for-loop. <em>O(1)</em> because res only has 2 elements.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">getSneakyNumbers</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]</span>) -&gt; <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>]:<br>        <span class="hljs-comment"># Sort the given nums array in O(n log n)</span><br>        nums.sort()<br><br>        <span class="hljs-comment"># Iterate through the array to get the duplicates</span><br>        res = []<br>        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(nums)-<span class="hljs-number">1</span>):<br>            <span class="hljs-keyword">if</span> nums[i] == nums[i+<span class="hljs-number">1</span>]:<br>                res.append(nums[i])<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>Hash Table</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 1526 — Minimum Number of Increments on Subarrays to Form a Target Array</title>
     <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/"/>
     <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode1526/</url>
@@ -169,9 +277,9 @@
       
       <tag>Array</tag>
       
-      <tag>String</tag>
-      
       <tag>Matrix</tag>
+      
+      <tag>String</tag>
       
     </tags>
     
@@ -587,9 +695,9 @@
       
       <tag>Binary Tree</tag>
       
-      <tag>Depth-First Search</tag>
-      
       <tag>Breadth-First Search</tag>
+      
+      <tag>Depth-First Search</tag>
       
     </tags>
     
@@ -782,9 +890,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
@@ -809,9 +917,9 @@
     
     <tags>
       
-      <tag>Two Pointers</tag>
-      
       <tag>String</tag>
+      
+      <tag>Two Pointers</tag>
       
     </tags>
     
