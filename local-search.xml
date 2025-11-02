@@ -128,11 +128,11 @@
     
     <tags>
       
+      <tag>Greedy</tag>
+      
       <tag>Array</tag>
       
       <tag>Dynamic Programming</tag>
-      
-      <tag>Greedy</tag>
       
       <tag>Stack</tag>
       
@@ -161,9 +161,9 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
-      
       <tag>Array</tag>
+      
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -321,7 +321,7 @@
     <link href="/ziliang.github.io/2025/11/02/2025-11-02-eyebreak/"/>
     <url>/ziliang.github.io/2025/11/02/2025-11-02-eyebreak/</url>
     
-    <content type="html"><![CDATA[<p>Having been a loyal user of Safe Eyes desktop app on many of my linux machines, I have decided to build something like that for the Windows. I have tried searching for a simple eye break app for Windows but found none that is simple and suit my needs, hence, I have this. The apps out there are either too complicated or they charge, like CareUEyes. This is why I decided to take matters into my hands and build a simple Python based, Tkinter app.</p><p><strong>Core features</strong></p><ul><li>Remind frequency</li><li>Eye break duration</li></ul><p>This is a really simple app that just has these 2 features.</p><hr><p><img src="/ziliang.github.io/img/eyebreak.jpg" alt="Main Interface"></p><hr><h2 id="📦-Try-it-out"><a href="#📦-Try-it-out" class="headerlink" title="📦 Try it out"></a>📦 Try it out</h2><p>You can download it : <a href="https://zi-liang.github.io/downloads/EyeBreakOverlay.exe">EyeBreak</a></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>Source code: <a href="https://github.com/radioblodo/eyebreak">https://github.com/radioblodo/eyebreak</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Having been a loyal user of Safe Eyes desktop app on many of my linux machines, I have decided to build something like that for the Windows. I have tried searching for a simple eye break app for Windows but found none that is simple and suit my needs, hence, I have this. The apps out there are either too complicated or they charge, like CareUEyes. This is why I decided to take matters into my hands and build a simple Python based, Tkinter app.</p><p><strong>Core features</strong></p><ul><li>Remind frequency</li><li>Eye break duration</li></ul><p>This is a really simple app that just has these 2 features.</p><hr><p><img src="/ziliang.github.io/img/eyebreak.png" alt="Main Interface"></p><hr><h2 id="📦-Try-it-out"><a href="#📦-Try-it-out" class="headerlink" title="📦 Try it out"></a>📦 Try it out</h2><p>You can download it : <a href="https://zi-liang.github.io/downloads/EyeBreakOverlay.exe">EyeBreak</a></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>Source code: <a href="https://github.com/radioblodo/eyebreak">https://github.com/radioblodo/eyebreak</a></p>]]></content>
     
     
     <categories>
@@ -662,9 +662,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
       <tag>Sorting</tag>
       
@@ -832,9 +832,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
       <tag>Sorting</tag>
       
@@ -1344,9 +1344,9 @@
     
     <tags>
       
-      <tag>Recursion</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Recursion</tag>
       
     </tags>
     
@@ -1371,11 +1371,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -1400,11 +1400,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
