@@ -99,9 +99,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
       <tag>Hash Table</tag>
       
@@ -128,11 +128,11 @@
     
     <tags>
       
-      <tag>Array</tag>
+      <tag>Greedy</tag>
       
       <tag>Dynamic Programming</tag>
       
-      <tag>Greedy</tag>
+      <tag>Array</tag>
       
       <tag>Stack</tag>
       
@@ -161,9 +161,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Bit Manipulation</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -257,6 +257,37 @@
   
   
   <entry>
+    <title>LeetCode 2125 — Number of Laser Beams in a Bank</title>
+    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/"/>
+    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/">Number of Laser Beams in a Bank</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that has beams. Then we sum them up and return.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We are only iterating through the <code>bank</code> array once. For space complexity, we did not create any new variable apart from the <code>prev</code> and <code>res</code> which are constant.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numberOfBeams</span>(<span class="hljs-params">self, bank: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        prev = <span class="hljs-number">0</span><br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> bank:<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> row:<br>                <span class="hljs-keyword">continue</span><br>            cur = row.count(<span class="hljs-string">&#x27;1&#x27;</span>)<br>            res += prev * cur<br>            prev = cur<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
+      
+      <tag>String</tag>
+      
+      <tag>Matrix</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>LeetCode 2257 — Count Unguarded Cells in the Grid</title>
     <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/"/>
     <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2257/</url>
@@ -278,37 +309,6 @@
       <tag>Matrix</tag>
       
       <tag>Simulation</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>LeetCode 2125 — Number of Laser Beams in a Bank</title>
-    <link href="/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/"/>
-    <url>/ziliang.github.io/2025/11/02/2025-11-02-leetcode2125/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/number-of-laser-beams-in-a-bank/description/">Number of Laser Beams in a Bank</a><br><strong>Difficulty:</strong> Medium</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>The idea is simple, we multiply the number of beams in the previous row that has beams with the number of beams in the row that has beams. Then we sum them up and return.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><p>We are only iterating through the <code>bank</code> array once. For space complexity, we did not create any new variable apart from the <code>prev</code> and <code>res</code> which are constant.</p><hr><h2 id="⏱️-Complexity-1"><a href="#⏱️-Complexity-1" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(n)</em></td><td><em>O(1)</em></td></tr></tbody></table><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">numberOfBeams</span>(<span class="hljs-params">self, bank: <span class="hljs-type">List</span>[<span class="hljs-built_in">str</span>]</span>) -&gt; <span class="hljs-built_in">int</span>:<br>        prev = <span class="hljs-number">0</span><br>        res = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> bank:<br>            <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;1&#x27;</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> row:<br>                <span class="hljs-keyword">continue</span><br>            cur = row.count(<span class="hljs-string">&#x27;1&#x27;</span>)<br>            res += prev * cur<br>            prev = cur<br><br>        <span class="hljs-keyword">return</span> res<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
-      
-      <tag>Math</tag>
-      
-      <tag>Matrix</tag>
-      
-      <tag>String</tag>
       
     </tags>
     
@@ -646,33 +646,6 @@
   
   
   <entry>
-    <title>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</title>
-    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/"/>
-    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/</url>
-    
-    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/buy-two-chocolates/description/">Minimum Operations to Make Array Sum Divisible by K</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtraction operations we have to perform to get to a number that is wholly divisible by k.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(1)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>Modulo is <em>O(1)</em>. We did not use extra space either.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minOperations</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(nums) % k<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    <categories>
-      
-      <category>LeetCode</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>Array</tag>
-      
-      <tag>Math</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>LeetCode 2706 — Buy Two Chocolates</title>
     <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/"/>
     <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode2706/</url>
@@ -689,11 +662,38 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
       
+      <tag>Array</tag>
+      
       <tag>Sorting</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>LeetCode 3512 — Minimum Operations to Make Array Sum Divisible by K</title>
+    <link href="/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/"/>
+    <url>/ziliang.github.io/2025/10/22/2025-10-22-leetcode3512/</url>
+    
+    <content type="html"><![CDATA[<p><strong>Problem:</strong> <a href="https://leetcode.com/problems/buy-two-chocolates/description/">Minimum Operations to Make Array Sum Divisible by K</a><br><strong>Difficulty:</strong> Easy</p><hr><h2 id="🧠-Approach"><a href="#🧠-Approach" class="headerlink" title="🧠 Approach"></a>🧠 Approach</h2><p>We simply have to find the remainder if we take the sum and modulo it with k, that will be the number of subtraction operations we have to perform to get to a number that is wholly divisible by k.</p><hr><h2 id="⏱️-Complexity"><a href="#⏱️-Complexity" class="headerlink" title="⏱️ Complexity"></a>⏱️ Complexity</h2><table><thead><tr><th></th><th>Time</th><th>Space</th></tr></thead><tbody><tr><td>Solution</td><td><em>O(1)</em></td><td><em>O(1)</em></td></tr></tbody></table><p>Modulo is <em>O(1)</em>. We did not use extra space either.</p><h2 id="✅-Code-Python"><a href="#✅-Code-Python" class="headerlink" title="✅ Code (Python)"></a>✅ Code (Python)</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Solution</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">minOperations</span>(<span class="hljs-params">self, nums: <span class="hljs-type">List</span>[<span class="hljs-built_in">int</span>], k: <span class="hljs-built_in">int</span></span>) -&gt; <span class="hljs-built_in">int</span>:<br>        <span class="hljs-keyword">return</span> <span class="hljs-built_in">sum</span>(nums) % k<br></code></pre></td></tr></table></figure>]]></content>
+    
+    
+    <categories>
+      
+      <category>LeetCode</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Math</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -832,9 +832,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Greedy</tag>
+      
+      <tag>Array</tag>
       
       <tag>Sorting</tag>
       
@@ -971,9 +971,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
       <tag>Matrix</tag>
       
@@ -1002,9 +1002,9 @@
       
       <tag>Array</tag>
       
-      <tag>HashTable</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
       
       <tag>String</tag>
       
@@ -1031,9 +1031,9 @@
     
     <tags>
       
-      <tag>HashTable</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
       
       <tag>String</tag>
       
@@ -1089,9 +1089,9 @@
       
       <tag>Array</tag>
       
-      <tag>HashTable</tag>
-      
       <tag>Sorting</tag>
+      
+      <tag>HashTable</tag>
       
     </tags>
     
@@ -1203,9 +1203,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
       <tag>Backtracking</tag>
       
@@ -1232,9 +1232,9 @@
     
     <tags>
       
-      <tag>Dynamic Programming</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Dynamic Programming</tag>
       
       <tag>Sliding Window</tag>
       
@@ -1263,9 +1263,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Dynamic Programming</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1317,9 +1317,9 @@
     
     <tags>
       
-      <tag>Array</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Array</tag>
       
     </tags>
     
@@ -1344,9 +1344,9 @@
     
     <tags>
       
-      <tag>Recursion</tag>
-      
       <tag>Math</tag>
+      
+      <tag>Recursion</tag>
       
     </tags>
     
@@ -1371,11 +1371,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -1400,11 +1400,11 @@
     
     <tags>
       
-      <tag>Bit Manipulation</tag>
+      <tag>Math</tag>
       
       <tag>Recursion</tag>
       
-      <tag>Math</tag>
+      <tag>Bit Manipulation</tag>
       
     </tags>
     
@@ -1475,6 +1475,35 @@
   
   
   <entry>
+    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
+    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
+    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
+    
+    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Flutter</tag>
+      
+      <tag>Dart</tag>
+      
+      <tag>API</tag>
+      
+      <tag>Cybersecurity</tag>
+      
+      <tag>Mobile App</tag>
+      
+      <tag>UIUX</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>GringottsBot – A Telegram Bot for Smart Expense Tracking</title>
     <link href="/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/"/>
     <url>/ziliang.github.io/2025/06/21/2025-06-21-gringottsbot/</url>
@@ -1502,35 +1531,6 @@
       <tag>Finance</tag>
       
       <tag>Gringotts</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>SafeLink Scanner – A Flutter App to Detect Malicious URLs</title>
-    <link href="/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/"/>
-    <url>/ziliang.github.io/2025/06/21/2025-06-21-safelink-scanner/</url>
-    
-    <content type="html"><![CDATA[<p>The internet is filled with shortened URLs, suspicious links, and phishing traps. I built <strong>SafeLink Scanner</strong>, a Flutter app that helps users <strong>check if a link is safe before opening it</strong>.</p><hr><h2 id="🔍-What-the-App-Does"><a href="#🔍-What-the-App-Does" class="headerlink" title="🔍 What the App Does"></a>🔍 What the App Does</h2><p>SafeLink Scanner lets users:</p><ul><li>Paste or share a link from another app</li><li>Automatically check the URL against known threat databases:<ul><li>🛡️ <a href="https://urlhaus.abuse.ch/">URLHaus</a></li><li>🔎 <a href="https://urlscan.io/">urlscan.io</a></li></ul></li><li>Get a clear warning or green-light based on results</li><li>See a visual preview or breakdown of the destination site</li></ul><hr><h2 id="🧰-Tech-Stack"><a href="#🧰-Tech-Stack" class="headerlink" title="🧰 Tech Stack"></a>🧰 Tech Stack</h2><table><thead><tr><th>Layer</th><th>Tools &amp; Tech</th></tr></thead><tbody><tr><td>💻 Frontend</td><td>Flutter + Dart</td></tr><tr><td>🌐 APIs</td><td>URLHaus, urlscan.io</td></tr><tr><td>🎨 Design</td><td>Custom UI&#x2F;UX (Flutter widgets)</td></tr><tr><td>📱 Platforms</td><td>Android (iOS planned)</td></tr></tbody></table><hr><h2 id="Lessons-Learnt"><a href="#Lessons-Learnt" class="headerlink" title="Lessons Learnt"></a>Lessons Learnt</h2><ul><li>🔐 Calling and parsing JSON from public security APIs</li><li>🧩 Building resilient UI for error states, results, and sharing</li><li>🧠 Security-first thinking in product design</li><li>📦 Optimizing network calls and response time</li></ul><hr><h2 id="📸-App-Demo"><a href="#📸-App-Demo" class="headerlink" title="📸 App Demo"></a>📸 App Demo</h2><p><img src="/ziliang.github.io/img/safelink_scanner.gif" alt="SafeLink Scanner Demo"></p><hr><h2 id="🔗-GitHub-Repository"><a href="#🔗-GitHub-Repository" class="headerlink" title="🔗 GitHub Repository"></a>🔗 GitHub Repository</h2><p>➡️ <a href="https://github.com/radioblodo/safelink_scanner">https://github.com/radioblodo/safelink_scanner</a></p>]]></content>
-    
-    
-    
-    <tags>
-      
-      <tag>Flutter</tag>
-      
-      <tag>Dart</tag>
-      
-      <tag>API</tag>
-      
-      <tag>Cybersecurity</tag>
-      
-      <tag>Mobile App</tag>
-      
-      <tag>UIUX</tag>
       
     </tags>
     
